@@ -15,7 +15,6 @@ function $get(key) {
 //***************************************************************************
 // Plugin Handlers
 //***************************************************************************
-
 var copyPreviousObjectiveHandler = function() {
         var ownerId = $get('AccountCallInsert.Owner Id').val();
         var contactPerId = $get('AccountCallInsert.Contact Per Id').val();
