@@ -264,6 +264,13 @@ var pluginsDefinitions = [
         handler: augmentCallDetailsEntry,
         requiresLogin: false
     }
+    //Trying to populate the Subject
+    {
+        name: 'Copy Previous Subject',
+        invokeOnPattern: /ContactCallInsert/ig,
+        handler: copyPreviousSubjectHandler,
+        requiresLogin: true
+    }
 ];
  
 //***************************************************************************
