@@ -263,7 +263,7 @@ var pluginsDefinitions = [
         invokeOnPattern: /ContactCallDetail/ig,
         handler: augmentCallDetailsEntry,
         requiresLogin: false
-    }
+    },
     //Trying to populate the Subject
     {
         name: 'Copy Previous Subject',
