@@ -1,4 +1,4 @@
-/ sandbox ourselves to guarantee we don't interfere with OnDemand platform NILESH THAKUR
+// sandbox ourselves to guarantee we don't interfere with OnDemand platform NILESH THAKUR
 // JS internals
 jQuery(function($) {
     
