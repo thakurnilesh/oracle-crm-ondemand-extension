@@ -64,11 +64,11 @@
            url: 'http://fbug.googlecode.com/svn-history/r3153/lite/branches/firebug1.1/firebugx.js',
            callback: function(scriptDefinition) { console.log('loaded ' + scriptDefinition.name); }
         },
-   //     {
-   //         name: 'jquery',
-   //         url: 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js',
-   //         callback: function() { jQuery.noConflict(); }
-   //     },
+        {
+            name: 'jquery',
+            url: 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js',
+            callback: function() { jQuery.noConflict(); }
+        },
         {
             name: 'ondemand - common',
             url: appURL("/common/javascripts/ondemand_common.js") + '?' + randomNumber
