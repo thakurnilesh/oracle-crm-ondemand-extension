@@ -15,6 +15,67 @@ function $get(key) {
 //***************************************************************************
 // Plugin Handlers
 //***************************************************************************
+
+//Trying to Populate the Subject Field
+ var copyPreviousSubjectHandler = function() {
+        var ownerId = $get('ContactCallInsert.Owner Id').val();
+        var contactPerId = $get('ContactCallInsert.Contact Per Id').val();
+        var $subjectInputElement = $get('ContactCallInsert.Description');
+        var subjectValue = $subjectInputElement.val();
+        
+        // already has a value so don't overwrite
+        if (subjectValue !== '') { return; }
+ 
+        var obj = {ownerId: ownerId, contactPerId: contactPerId, subjectValue: subjectValue};
+ 
+        console.dir(obj);
+        
+        var fields = {
+            ActivityId: '',
+            PrimaryContactId: " ='" + contactPerId + "' ",
+            PrimaryContactLastName: '',
+            PrimaryContactFirstName: '',
+            Owner: '',
+            AccountId: '',
+            CallType: '',
+            PrimaryContact: '',
+            CreatedBy: '',
+            Location: '',
+            Objective: '',
+            Subject: '',
+            OwnerId: " ='" + ownerId + "' ",
+            Status: '',
+            Type: '',
+            ActivitySubType: '',
+            CreatedDate: '',
+            ModifiedDate: '',
+            Date: '',
+            StartTime: '',
+            EndTime: ''
+        };
+        
+         odlib.activityQuery(fields, function(data) {
+ 
+             // no previous activities on contact
+             if (data.length === 0) {
+                 return;
+             }
+             
+             data.sort(function(item1, item2) {
+                 return Date.parse(item1.StartTime) - Date.parse(item2.StartTime);
+             });
+             
+             var lastSubjectValue = data[data.length - 1].Subject;
+             $subjectInputElement.val(lastSubjectValue);
+             console.dir(data);
+    });
+    
+};
+
+
+
+
+
 var copyPreviousObjectiveHandler = function() {
         var ownerId = $get('AccountCallInsert.Owner Id').val();
         var contactPerId = $get('AccountCallInsert.Contact Per Id').val();
@@ -202,6 +263,13 @@ var pluginsDefinitions = [
         invokeOnPattern: /ContactCallDetail/ig,
         handler: augmentCallDetailsEntry,
         requiresLogin: false
+    },
+//Trying to populate the Subject
+    {
+        name: 'Copy Previous Subject',
+        invokeOnPattern: /ContactCallInsert/ig,
+        handler: copyPreviousSubjectHandler,
+        requiresLogin: true
     }
 ];
  
