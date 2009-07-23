@@ -17,7 +17,7 @@ function $get(key) {
 //***************************************************************************
 
 //Trying to Populate the Subject Field
- var copyPreviousSubjectHandler = function() {
+/* var copyPreviousSubjectHandler = function() {
         var ownerId = $get('ContactCallInsert.Owner Id').val();
         var contactPerId = $get('ContactCallInsert.Contact Per Id').val();
         var $subjectInputElement = $get('ContactCallInsert.Description');
@@ -52,7 +52,7 @@ function $get(key) {
             Date: '',
             StartTime: '',
             EndTime: ''
-        };
+        }; 
         
          odlib.activityQuery(fields, function(data) {
  
@@ -70,7 +70,7 @@ function $get(key) {
              console.dir(data);
     });
     
-};
+};*/
 
 //Subject Test Code ENDs herer
 
@@ -263,14 +263,14 @@ var pluginsDefinitions = [
         invokeOnPattern: /ContactCallDetail/ig,
         handler: augmentCallDetailsEntry,
         requiresLogin: false
-    },
+    }
     //Trying to populate the Subject
-    {
+  /*  {
         name: 'Copy Previous Subject',
         invokeOnPattern: /ContactCallInsert/ig,
         handler: copyPreviousSubjectHandler,
         requiresLogin: true
-    }
+    }*/
 ];
  
 //***************************************************************************
