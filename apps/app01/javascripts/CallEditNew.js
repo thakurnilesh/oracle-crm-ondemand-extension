@@ -1,9 +1,3 @@
-(function(){
-
-	createNewSaveButton('Call Details',1,'TestSave','saveAllDetails()','_top',40);
-	addSamplesDropSec();
-	addProdDeailedSec();
-
 function createNewSaveButton(section_name, position, button_text, url, target_window, features){
 	var i;
 	var ih0;
@@ -300,5 +294,3 @@ function createActivityIdUsingWeb(fields, fieldsCont)
 	});
 
 }
-
-})();
