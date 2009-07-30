@@ -1,3 +1,9 @@
+(function(){
+
+	createNewSaveButton('Call Details',1,'TestSave','saveAllDetails()','_top',40);
+	addSamplesDropSec();
+	addProdDeailedSec();
+
 function createNewSaveButton(section_name, position, button_text, url, target_window, features){
 	var i;
 	var ih0;
@@ -15,13 +21,13 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				var tr = tabs[i].getElementsByTagName("tr");
 				var newtd = tr[0].insertCell(position);
 
-					newtd.innerHTML = "<div class='buttonChildTitleBarTD' " +
-					"id='testSave' " +
-					"onmouseover='toggleNavButton(this);' " +
-					"onmouseout='toggleNavButton(this);' " +
-					"onkeypress='onButtonPress(this);' " +
-					"onclick='saveAllDetails();' \>" +
-					button_text + "</div>";
+				newtd.innerHTML = "<div class='buttonChildTitleBarTD' " +
+				"id='testSave' " +
+				"onmouseover='toggleNavButton(this);' " +
+				"onmouseout='toggleNavButton(this);' " +
+				"onkeypress='onButtonPress(this);' " +
+				"onclick='saveAllDetails();' \>" +
+				button_text + "</div>";
 				return true;
 			}
 		} 
@@ -41,6 +47,19 @@ function addSamplesDropSec(){
 	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
 }
 
+function addProdDeailedSec(){
+	var newTable = "<tr><td colspan='5'>";
+	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='prodDetail'>";
+	newTable += "<tr><td>Products Detailed</td>";
+	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='testdiv' onclick='addNewRowProdDet();'>New</div></td>";
+	newTable += "<td width='100%'></td></tr>";
+	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
+	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
+}
+
+})();
+
+
 function addNewRowSampleDrop()
 {
 	var row = "<tr width='100%'><td colspan='3'>";
@@ -58,16 +77,6 @@ function addNewRowSampleDrop()
 	row += "</tr></table></td></tr>";	
 
 	jQuery("#sampleDrop").append(row);
-}
-
-function addProdDeailedSec(){
-	var newTable = "<tr><td colspan='5'>";
-	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='prodDetail'>";
-	newTable += "<tr><td>Products Detailed</td>";
-	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='testdiv' onclick='addNewRowProdDet();'>New</div></td>";
-	newTable += "<td width='100%'></td></tr>";
-	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
 }
 
 function addNewRowProdDet(){
