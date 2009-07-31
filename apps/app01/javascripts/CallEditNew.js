@@ -102,7 +102,7 @@ function saveAllDetails()
 	var actId = createNewCallActivity();
 
 	//createProductDetailed(actId);
-	loadCallDetailsPage();
+	//loadCallDetailsPage();
 }
 
 function createWebSerConn(callback)
