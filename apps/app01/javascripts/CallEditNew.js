@@ -293,6 +293,7 @@ function createActivityIdUsingWeb(fields, fieldsCont)
 							activityId = items[0].ActivityId;
 							//alert("activityId : " + activityId);
 							createProductDetailInfo(activityId);
+							loadCallDetailsPage();
 						}
 					});	
 		}
