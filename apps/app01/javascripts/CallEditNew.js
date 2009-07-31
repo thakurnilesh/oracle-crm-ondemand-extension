@@ -131,7 +131,6 @@ function saveAllDetails()
 	for(i=0; i < e.length; i++)
 	{
 		e[i].style.disabled = 'true';
-		//f.disable = 'true';
 	}
 
 	createNewCallActivity(function() {
@@ -246,6 +245,7 @@ function createNewCallActivity(callback){
 		endTimeMod = '';
 	}
 
+	alert('subjectValue : ' + subjectValue);
 	if(subjectValue == null || contactPerId == null){
 		alert("Subject is the required field!!");
 		return;
