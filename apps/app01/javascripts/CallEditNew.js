@@ -127,10 +127,7 @@ function saveAllDetails()
 {
 	//alert("Inside Save All details");
 	createNewCallActivity(function() {
-	
-		var pathname = window.location.pathname;
-		alert(pathname);	
-
+		loadCallDetailsPage();
 	});
 
 	//createProductDetailed(actId);
@@ -141,10 +138,8 @@ function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
 	createNewCallActivity(function() {
-	
-		var pathname = window.location.pathname;
+		var pathname = window.location.url;
 		alert(pathname);	
-
 	});
 	//createProductDetailed(actId);
 	//loadCallDetailsPage();
