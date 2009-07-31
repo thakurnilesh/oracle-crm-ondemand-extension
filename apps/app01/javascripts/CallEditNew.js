@@ -249,7 +249,7 @@ function createNewCallActivity(callback){
 	if(subjectValue == null || subjectValue == '' || contactPerId == null || contactPerId == ''){
 		alert("Subject is the required field!!");
 		//var e= $(".fv")[0].append("<span class='requiredText'>required</span>");
-		$("<span class='requiredText'>required</span>").insertAfter("#ContactCallInsert.Description");
+		$("<span class='requiredText'>required</span>").insertAfter(".fv");
 		//alert('e[0] : ' + e[0]);
 		//e[0].append('<span class="requiredText">required</span>');
 		return;
