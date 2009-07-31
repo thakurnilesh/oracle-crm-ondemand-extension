@@ -248,10 +248,7 @@ function createNewCallActivity(callback){
 	//alert('subjectValue : ' + subjectValue);
 	if(subjectValue == null || subjectValue == '' || contactPerId == null || contactPerId == ''){
 		alert("Subject is the required field!!");
-		//var e= $(".fv")[0].append("<span class='requiredText'>required</span>");
-		$("<span class='requiredText'>required</span>").insertAfter(".fv");
-		//alert('e[0] : ' + e[0]);
-		//e[0].append('<span class="requiredText">required</span>');
+		$("<span class='requiredText'>required</span>").insertAfter("#ContactCallInsert.Description");
 		return;
 	}
 	else{
@@ -369,11 +366,11 @@ function createProductDetailInfo(activityId, callback)
 	var productNameSamp;
 	var bothPresent = false;
 
-	if(document.getElementById('prodNamePrDet') != null)
+	if(document.getElementById('prodNamePrDet') != null && document.getElementById('prodNamePrDet') != '')
 	{
 		productNameProdet = document.getElementById('prodNamePrDet').value;
 	}
-	if(document.getElementById('prodNameSamDrop') != null)
+	if(document.getElementById('prodNameSamDrop') != null && document.getElementById('prodNameSamDrop') != '')
 	{
 		productNameSamp = document.getElementById('prodNameSamDrop').value;
 	}
