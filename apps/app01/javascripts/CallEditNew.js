@@ -192,7 +192,7 @@ function loadCallDetailsPage()
 	doNavigate(f);
 }
 
-function createNewCallActivity(){
+function createNewCallActivity(callback){
 	//alert("Inside Create New Activity : This will return Activity Id");
 	var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
 	var contactPerId = document.getElementById('ContactCallInsert.Contact Per Id').value;
@@ -267,11 +267,13 @@ function createNewCallActivity(){
 		var fieldsCont = {
 			ContactId: "" + contactPerId + ""
 		};
-		createActivityIdUsingWeb(fields, fieldsCont);	
+		createActivityIdUsingWeb(fields, fieldsCont, function(){
+			callback.call();
+		});	
 	}
 }
 
-function createActivityIdUsingWeb(fields, fieldsCont)
+function createActivityIdUsingWeb(fields, fieldsCont, callback)
 {
 	var activityId;
 	createWebSerConn(function(xhr, textStatus){
