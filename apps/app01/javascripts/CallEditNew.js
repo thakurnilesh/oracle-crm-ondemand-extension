@@ -593,7 +593,7 @@ function callWebServToCreateProdDet(productId, activityId, callback)
 	});
 }
 
-function callWebServToCreateSampDrop(productId, activityId)
+function callWebServToCreateSampDrop(productId, activityId, callback)
 {
 	var prodCategory = document.getElementById('CallSampDropNew.Primary Product Line Name').value;
 	var lotNumber = document.getElementById('CallSampDropNew.LOT Name').value;
