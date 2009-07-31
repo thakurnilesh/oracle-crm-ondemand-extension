@@ -126,7 +126,7 @@ function addNewRowProdDet(){
 function saveAllDetails()
 {
 	//alert("Inside Save All details");
-	var actId = createNewCallActivity();
+	createNewCallActivity();
 
 	//createProductDetailed(actId);
 	//loadCallDetailsPage();
@@ -135,10 +135,12 @@ function saveAllDetails()
 function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
-	var actId = createNewCallActivity();
+	createNewCallActivity();
 
 	//createProductDetailed(actId);
 	//loadCallDetailsPage();
+	var pathname = window.location.pathname;
+	alert(pathname);
 }
 
 function createWebSerConn(callback)
