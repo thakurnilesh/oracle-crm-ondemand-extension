@@ -305,3 +305,281 @@ function createActivityIdUsingWeb(fields, fieldsCont)
 	});
 
 }
+
+function createProductDetailInfo(activityId)
+{
+	//alert("Getting Product Info");
+	var productNameProdet;
+	var productNameSamp;
+	if(document.getElementById('prodNamePrDet') != null)
+	{
+		productNameProdet = document.getElementById('prodNamePrDet').value;
+	}
+	if(document.getElementById('prodNameSamDrop') != null)
+	{
+		productNameSamp = document.getElementById('prodNameSamDrop').value;
+	}
+
+	if(productNameProdet != null)
+	{
+		alert('productNameProdet : ' + productNameProdet);
+		var fieldsProdet = {
+			ProductId: '',
+			Name: " ='" + productNameProdet + "' "
+		};	
+		callWebServToGetProdInfo(fieldsProdet, activityId, 'ProdDetail');	
+	}
+	
+	if(productNameSamp != null)
+	{
+		alert('productNameSamp : ' + productNameSamp);
+		var fieldsSampDrop = {
+			ProductId: '',
+			Name: " ='" + productNameSamp + "' "
+		};	
+		callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop');
+	}
+}
+
+function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom)
+{
+	//alert('Inside callWebServToGetProdInfo');
+	createWebSerConn(function(xhr, textStatus){
+		var soapAction = 'document/urn:crmondemand/ws/product/10/2004:ProductQueryPage';
+		var soapRequestTemplate = '' +
+			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
+			'   <soapenv:Header/>' +
+			'   <soapenv:Body>' +
+			'      <ProductWS_ProductQueryPage_Input xmlns="urn:crmondemand/ws/product/10/2004">' +
+			'         <PageSize>100</PageSize>' +
+			'         <ListOfProduct>' +
+			'            <Product>' +
+			'               <%=fieldsProdet%>' +
+			'            </Product>' +
+			'         </ListOfProduct>' +
+			'         <StartRowNum>0</StartRowNum>' +
+			'      </ProductWS_ProductQueryPage_Input>' +
+			'   </soapenv:Body>' +
+			'</soapenv:Envelope>';		
+
+		var fieldsXML = '';
+		for (fieldName in fieldsProdet) {
+			fieldsXML += '<' + fieldName + '>' + fieldsProdet[fieldName] + '</' + fieldName + '>';
+		}
+
+		var soapRequest = soapRequestTemplate.replace("<%=fieldsProdet%>", fieldsXML);	
+
+		//alert("soapRequest : " + soapRequest);
+
+		try{
+			jQuery.ajax({
+						url: 'https://secure-ausomxapa.crmondemand.com/Services/Integration',
+						type: 'POST',
+						contentType: 'text/xml',
+						dataType: 'xml',
+						data: soapRequest,
+						beforeSend: function(xhr) {
+							//alert("Before sending request to insert : " + xhr);
+							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
+						},   
+						complete: function(xhr, textStatus) {
+							//alert("Completed");
+						},								
+						success: function(xmlData, textStatus) {
+							//alert("successssfullllllll getting the product Info");
+							var items = getListData('Product', xmlData);
+							////alert("items : " + items);
+							var productId = items[0].ProductId;
+							alert("productId : " + productId);
+							//createProductDetailed(activityId, productId);
+
+							if(productId != null)
+							{
+								if(reqFrom != null && reqFrom == 'ProdDetail')
+								{
+									callWebServToCreateProdDet(productId, activityId);
+								}
+								else if(reqFrom != null && reqFrom == 'SampDrop')
+								{
+									alert('Control Came from SampDrop');
+									callWebServToCreateSampDrop(productId, activityId);
+								}
+								else
+								{
+									alert('Control not identified');
+									return;
+								}
+							}
+							else
+							{
+								alert('Product Name is not valid!!!');
+								return;
+							}
+						}
+					});	
+		}
+		catch (e) {
+			alert('Error: ' + e.message);
+		}
+		//return true;
+	});
+}
+
+function callWebServToCreateProdDet(productId, activityId)
+{
+	var indicationVal = document.getElementById('CallProdDetailNew.Indication').value;
+	var priorityVal = document.getElementById('CallProdDetailNew.Priority').value;
+	var issueVal = document.getElementById('CallProdDetailNew.Issue').value;
+
+	var fieldsAct = {
+		ActivityId: "" + activityId + ""
+	};
+
+	var fieldsProd = {
+		ProductId: "" + productId + "",
+		Indication: "" + indicationVal + "",
+		Priority: "" + priorityVal + "",
+		Issue: "" + issueVal + ""
+	};
+
+	createWebSerConn(function(xhr, textStatus){
+		var soapAction = 'document/urn:crmondemand/ws/activity/10/2004:Activity_InsertChild';
+		var soapRequestTemplate = '' +
+			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
+			'   <soapenv:Header/>' +
+			'   <soapenv:Body>' +
+			'      <ActivityNWS_Activity_InsertChild_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
+			'         <ListOfActivity>' +
+			'            <Activity>' +
+			'		        <%=fieldsAct%>' +
+			'	            <ListOfProductsDetailed>' +
+			'		            <ProductsDetailed>' +					
+			'		               <%=fieldsProd%>' +
+			'		            </ProductsDetailed>' +
+			'	            </ListOfProductsDetailed>' +
+			'            </Activity>' +
+			'         </ListOfActivity>' +
+			'      </ActivityNWS_Activity_InsertChild_Input>' +
+			'   </soapenv:Body>' +
+			'</soapenv:Envelope>';		
+
+		var fieldsXML = '';
+		for (fieldName in fieldsProd) {
+			fieldsXML += '<' + fieldName + '>' + fieldsProd[fieldName] + '</' + fieldName + '>';
+		}
+		
+		var fieldsActXML = '';
+		for (fieldNameAct in fieldsAct) {
+			fieldsActXML += '<' + fieldNameAct + '>' + fieldsAct[fieldNameAct] + '</' + fieldNameAct + '>';
+		}			
+
+		var soapRequest = soapRequestTemplate.replace("<%=fieldsProd%>", fieldsXML);	
+		var finalSoapRequest = soapRequest.replace("<%=fieldsAct%>", fieldsActXML);	
+
+		//alert("soapRequest : " + finalSoapRequest);
+
+		try{
+			jQuery.ajax({
+						url: 'https://secure-ausomxapa.crmondemand.com/Services/Integration',
+						type: 'POST',
+						contentType: 'text/xml',
+						dataType: 'xml',
+						data: finalSoapRequest,
+						beforeSend: function(xhr) {
+							//alert("Before sending request to insert : " + xhr);
+							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
+						},   
+						complete: function(xhr, textStatus) {
+							//alert("Completed");
+						},								
+						success: function(xmlData, textStatus) {
+							alert("successssfullllllllyy created the Product detailed");
+							//loadCallDetailsPage();
+						}
+					});	
+		}
+		catch (e) {
+			alert('Error: ' + e.message);
+		}
+		//return true;
+	});
+}
+
+function callWebServToCreateSampDrop(productId, activityId)
+{
+	var prodCategory = document.getElementById('CallSampDropNew.Primary Product Line Name').value;
+	var lotNumber = document.getElementById('CallSampDropNew.LOT Name').value;
+	var qtyVal = document.getElementById('CallSampDropNew.Quantity').value;
+
+	var fieldsAct = {
+		ActivityId: "" + activityId + ""
+	};
+
+	var fieldsProd = {
+		ProductId: "" + productId + "",
+		ProductCategory: "" + prodCategory + "",
+		Quantity: "" + qtyVal + "",
+		LotNumber: "" + lotNumber + ""
+	};
+
+	createWebSerConn(function(xhr, textStatus){
+		var soapAction = 'document/urn:crmondemand/ws/activity/10/2004:Activity_InsertChild';
+		var soapRequestTemplate = '' +
+			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
+			'   <soapenv:Header/>' +
+			'   <soapenv:Body>' +
+			'      <ActivityNWS_Activity_InsertChild_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
+			'         <ListOfActivity>' +
+			'            <Activity>' +
+			'		        <%=fieldsAct%>' +
+			'	            <ListOfSampleDropped>' +
+			'		            <SampleDropped>' +					
+			'		               <%=fieldsProd%>' +
+			'		            </SampleDropped>' +
+			'	            </ListOfSampleDropped>' +
+			'            </Activity>' +
+			'         </ListOfActivity>' +
+			'      </ActivityNWS_Activity_InsertChild_Input>' +
+			'   </soapenv:Body>' +
+			'</soapenv:Envelope>';		
+
+		var fieldsXML = '';
+		for (fieldName in fieldsProd) {
+			fieldsXML += '<' + fieldName + '>' + fieldsProd[fieldName] + '</' + fieldName + '>';
+		}
+		
+		var fieldsActXML = '';
+		for (fieldNameAct in fieldsAct) {
+			fieldsActXML += '<' + fieldNameAct + '>' + fieldsAct[fieldNameAct] + '</' + fieldNameAct + '>';
+		}			
+
+		var soapRequest = soapRequestTemplate.replace("<%=fieldsProd%>", fieldsXML);	
+		var finalSoapRequest = soapRequest.replace("<%=fieldsAct%>", fieldsActXML);	
+
+		//alert("soapRequest : " + finalSoapRequest);
+
+		try{
+			jQuery.ajax({
+						url: 'https://secure-ausomxapa.crmondemand.com/Services/Integration',
+						type: 'POST',
+						contentType: 'text/xml',
+						dataType: 'xml',
+						data: finalSoapRequest,
+						beforeSend: function(xhr) {
+							//alert("Before sending request to insert : " + xhr);
+							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
+						},   
+						complete: function(xhr, textStatus) {
+							//alert("Completed");
+						},								
+						success: function(xmlData, textStatus) {
+							alert("successssfullllllllyy created the Sample dropped");
+						}
+					});	
+		}
+		catch (e) {
+			alert('Error: ' + e.message);
+		}
+		//return true;
+	});
+}
