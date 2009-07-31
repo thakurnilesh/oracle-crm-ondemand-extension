@@ -126,10 +126,15 @@ function addNewRowProdDet(){
 function saveAllDetails()
 {
 	//alert("Inside Save All details");
+	var i;
 	var e= $(".buttonTD");
 	alert('e.length : ' + e.length);
-	var f= e[0];
-	alert(f);
+	for(i=0; i < e.length; i++)
+	{
+		var f = e[i];
+		alert(f);
+		f.disable = 'true';
+	}
 
 	createNewCallActivity(function() {
 		loadCallDetailsPage();
