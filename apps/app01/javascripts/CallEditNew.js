@@ -375,7 +375,7 @@ function createProductDetailInfo(activityId, callback)
 		productNameSamp = document.getElementById('prodNameSamDrop').value;
 	}
 
-	if(productNameProdet != null && productNameSamp != null)
+	if(productNameProdet != null && productNameProdet != '' && productNameSamp != null && productNameSamp != '')
 	{
 		bothPresent = true;
 
@@ -400,7 +400,7 @@ function createProductDetailInfo(activityId, callback)
 			}
 		});
 	}
-	else if(productNameProdet != null && productNameSamp == null)
+	else if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
 	{
 		//alert('productNameProdet : ' + productNameProdet);
 		var fieldsProdet = {
@@ -411,7 +411,7 @@ function createProductDetailInfo(activityId, callback)
 			callback.call();
 		});		
 	}
-	else if(productNameProdet == null && productNameSamp != null)
+	else if(productNameProdet == null && productNameSamp != null && productNameSamp != '')
 	{
 		//alert('productNameSamp : ' + productNameSamp);
 		var fieldsSampDrop = {
