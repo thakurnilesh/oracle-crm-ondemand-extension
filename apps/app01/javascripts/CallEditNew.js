@@ -27,7 +27,7 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
 				"onkeypress='onButtonPress(this);' " +
-				"onclick='saveAllDetails(" + button_text + ");' \>" +
+				"onclick='saveAllDetails();' \>" +
 				button_text + "</div>";
 				return true;
 			}
@@ -97,14 +97,13 @@ function addNewRowProdDet(){
 	jQuery("#prodDetail").append(row);
 }
 
-function saveAllDetails(button_text)
+function saveAllDetails()
 {
 	//alert("Inside Save All details");
 	var actId = createNewCallActivity();
 
 	//createProductDetailed(actId);
 	//loadCallDetailsPage();
-	alert(button_text);
 }
 
 function createWebSerConn(callback)
