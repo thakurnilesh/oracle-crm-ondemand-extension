@@ -127,7 +127,7 @@ function saveAllDetails()
 {
 	//alert("Inside Save All details");
 	var i;
-	var e= $(".buttonTD").css("disable","true");
+	var e= $(".buttonTD").css("disabled","true");
 	for(i=0; i < e.length; i++)
 	{
 		var f = e[i];
