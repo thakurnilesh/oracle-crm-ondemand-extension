@@ -582,6 +582,6 @@ function callWebServToCreateSampDrop(productId, activityId)
 		catch (e) {
 			alert('Error: ' + e.message);
 		}
-		//return truee;
+		//return true;
 	});
 }
