@@ -135,12 +135,14 @@ function saveAllDetails()
 function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
-	createNewCallActivity();
+	createNewCallActivity(function() {
+	
+		var pathname = window.location.pathname;
+		alert(pathname);	
 
+	});
 	//createProductDetailed(actId);
 	//loadCallDetailsPage();
-	var pathname = window.location.pathname;
-	alert(pathname);
 }
 
 function createWebSerConn(callback)
