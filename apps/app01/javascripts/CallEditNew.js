@@ -48,7 +48,7 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				var tr = tabs[i].getElementsByTagName("tr");
 				var newtd = tr[0].insertCell(position);
 
-				newtd.innerHTML = "<div class='buttonChildTitleBarTD' " +
+				newtd.innerHTML = "<div class='buttonTD' " +
 				"id='testSave' " +
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
@@ -126,6 +126,11 @@ function addNewRowProdDet(){
 function saveAllDetails()
 {
 	//alert("Inside Save All details");
+	var e= $(".buttonTD");
+	alert('e.length : ' + e.length);
+	var f= e[0];
+	alert(f);
+
 	createNewCallActivity(function() {
 		loadCallDetailsPage();
 	});
