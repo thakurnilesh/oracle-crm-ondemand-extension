@@ -138,7 +138,7 @@ function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
 	createNewCallActivity(function() {
-		var pathname = window.location.url;
+		var pathname = window.location.pathname;
 		alert(pathname);	
 	});
 	//createProductDetailed(actId);
@@ -330,7 +330,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 							//alert("Completed");
 						},								
 						success: function(xmlData, textStatus) {
-							alert("successssfullllllll");
+							alert("successssfullllllllyy created Activity");
 							var items = getListData('Activity', xmlData);
 							//alert("items : " + items);
 							activityId = items[0].ActivityId;
@@ -370,7 +370,7 @@ function createProductDetailInfo(activityId, callback)
 	{
 		bothPresent = true;
 
-		alert('productNameProdet : ' + productNameProdet);
+		//alert('productNameProdet : ' + productNameProdet);
 		var fieldsProdet = {
 			ProductId: '',
 			Name: " ='" + productNameProdet + "' "
@@ -379,7 +379,7 @@ function createProductDetailInfo(activityId, callback)
 			if(bothPresent == true){ }
 		});	
 
-		alert('productNameSamp : ' + productNameSamp);
+		//alert('productNameSamp : ' + productNameSamp);
 		var fieldsSampDrop = {
 			ProductId: '',
 			Name: " ='" + productNameSamp + "' "
@@ -393,7 +393,7 @@ function createProductDetailInfo(activityId, callback)
 	}
 	else if(productNameProdet != null && productNameSamp == null)
 	{
-		alert('productNameProdet : ' + productNameProdet);
+		//alert('productNameProdet : ' + productNameProdet);
 		var fieldsProdet = {
 			ProductId: '',
 			Name: " ='" + productNameProdet + "' "
@@ -404,7 +404,7 @@ function createProductDetailInfo(activityId, callback)
 	}
 	else if(productNameProdet == null && productNameSamp != null)
 	{
-		alert('productNameSamp : ' + productNameSamp);
+		//alert('productNameSamp : ' + productNameSamp);
 		var fieldsSampDrop = {
 			ProductId: '',
 			Name: " ='" + productNameSamp + "' "
@@ -468,7 +468,7 @@ function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
 							var items = getListData('Product', xmlData);
 							////alert("items : " + items);
 							var productId = items[0].ProductId;
-							alert("productId : " + productId);
+							//alert("productId : " + productId);
 							//createProductDetailed(activityId, productId);
 
 							if(productId != null)
@@ -481,7 +481,7 @@ function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
 								}
 								else if(reqFrom != null && reqFrom == 'SampDrop')
 								{
-									alert('Control Came from SampDrop');
+									//alert('Control Came from SampDrop');
 									callWebServToCreateSampDrop(productId, activityId, function(){
 										callback.call();
 									});
