@@ -126,7 +126,12 @@ function addNewRowProdDet(){
 function saveAllDetails()
 {
 	//alert("Inside Save All details");
-	createNewCallActivity();
+	createNewCallActivity(function() {
+	
+		var pathname = window.location.pathname;
+		alert(pathname);	
+
+	});
 
 	//createProductDetailed(actId);
 	//loadCallDetailsPage();
@@ -336,8 +341,8 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 							activityId = items[0].ActivityId;
 							//alert("activityId : " + activityId);
 							createProductDetailInfo(activityId, function(){
+								callback.call();
 							});
-							callback.call();
 							//loadCallDetailsPage();
 						}
 					});	
@@ -350,11 +355,13 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 
 }
 
-function createProductDetailInfo(activityId)
+function createProductDetailInfo(activityId, callback)
 {
 	//alert("Getting Product Info");
 	var productNameProdet;
 	var productNameSamp;
+	var bothPresent = false;
+
 	if(document.getElementById('prodNamePrDet') != null)
 	{
 		productNameProdet = document.getElementById('prodNamePrDet').value;
@@ -364,28 +371,60 @@ function createProductDetailInfo(activityId)
 		productNameSamp = document.getElementById('prodNameSamDrop').value;
 	}
 
-	if(productNameProdet != null)
+	if(productNameProdet != null && productNameSamp != null)
+	{
+		bothPresent = true;
+
+		alert('productNameProdet : ' + productNameProdet);
+		var fieldsProdet = {
+			ProductId: '',
+			Name: " ='" + productNameProdet + "' "
+		};	
+		callWebServToGetProdInfo(fieldsProdet, activityId, 'ProdDetail', function(){
+			if(bothPresent == true){ }
+		});	
+
+		alert('productNameSamp : ' + productNameSamp);
+		var fieldsSampDrop = {
+			ProductId: '',
+			Name: " ='" + productNameSamp + "' "
+		};	
+		callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
+			if(bothPresent == true)
+			{
+				callback.call();
+			}
+		});
+	}
+	else if(productNameProdet != null && productNameSamp == null)
 	{
 		alert('productNameProdet : ' + productNameProdet);
 		var fieldsProdet = {
 			ProductId: '',
 			Name: " ='" + productNameProdet + "' "
 		};	
-		callWebServToGetProdInfo(fieldsProdet, activityId, 'ProdDetail');	
+		callWebServToGetProdInfo(fieldsProdet, activityId, 'ProdDetail', function(){
+			callback.call();
+		});		
 	}
-	
-	if(productNameSamp != null)
+	else if(productNameProdet == null && productNameSamp != null)
 	{
 		alert('productNameSamp : ' + productNameSamp);
 		var fieldsSampDrop = {
 			ProductId: '',
 			Name: " ='" + productNameSamp + "' "
 		};	
-		callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop');
+		callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
+				callback.call();
+		});
+	}
+	else
+	{
+		callback.call();
 	}
 }
 
-function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom)
+function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
 {
 	//alert('Inside callWebServToGetProdInfo');
 	createWebSerConn(function(xhr, textStatus){
@@ -441,12 +480,16 @@ function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom)
 							{
 								if(reqFrom != null && reqFrom == 'ProdDetail')
 								{
-									callWebServToCreateProdDet(productId, activityId);
+									callWebServToCreateProdDet(productId, activityId, function(){
+										callback.call();
+									});
 								}
 								else if(reqFrom != null && reqFrom == 'SampDrop')
 								{
 									alert('Control Came from SampDrop');
-									callWebServToCreateSampDrop(productId, activityId);
+									callWebServToCreateSampDrop(productId, activityId, function(){
+										callback.call();
+									});
 								}
 								else
 								{
@@ -469,7 +512,7 @@ function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom)
 	});
 }
 
-function callWebServToCreateProdDet(productId, activityId)
+function callWebServToCreateProdDet(productId, activityId, callback)
 {
 	var indicationVal = document.getElementById('CallProdDetailNew.Indication').value;
 	var priorityVal = document.getElementById('CallProdDetailNew.Priority').value;
@@ -538,6 +581,7 @@ function callWebServToCreateProdDet(productId, activityId)
 						},								
 						success: function(xmlData, textStatus) {
 							alert("successssfullllllllyy created the Product detailed");
+							callback.call();
 							//loadCallDetailsPage();
 						}
 					});	
@@ -618,6 +662,7 @@ function callWebServToCreateSampDrop(productId, activityId)
 						},								
 						success: function(xmlData, textStatus) {
 							alert("successssfullllllllyy created the Sample dropped");
+							callback.call();
 						}
 					});	
 		}
