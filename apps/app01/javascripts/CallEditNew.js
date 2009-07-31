@@ -335,7 +335,9 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 							//alert("items : " + items);
 							activityId = items[0].ActivityId;
 							//alert("activityId : " + activityId);
-							createProductDetailInfo(activityId);
+							createProductDetailInfo(activityId, function(){
+							});
+							callback.call();
 							//loadCallDetailsPage();
 						}
 					});	
