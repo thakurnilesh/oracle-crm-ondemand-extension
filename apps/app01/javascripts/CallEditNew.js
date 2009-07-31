@@ -1,9 +1,9 @@
 (function(){
 
-	createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
-	createNewSaveButton('Call Details',2,'Save & New Call','saveAllDetails()','_top',40);
-	addSamplesDropSec();
-	addProdDeailedSec();
+createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
+createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+addSamplesDropSec();
+addProdDeailedSec();
 
 function createNewSaveButton(section_name, position, button_text, url, target_window, features){
 	var i;
@@ -27,7 +27,7 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
 				"onkeypress='onButtonPress(this);' " +
-				"onclick='saveAllDetails();' \>" +
+				"onclick='"+url+";' \>" +
 				button_text + "</div>";
 				return true;
 			}
@@ -98,6 +98,15 @@ function addNewRowProdDet(){
 }
 
 function saveAllDetails()
+{
+	//alert("Inside Save All details");
+	var actId = createNewCallActivity();
+
+	//createProductDetailed(actId);
+	//loadCallDetailsPage();
+}
+
+function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
 	var actId = createNewCallActivity();
