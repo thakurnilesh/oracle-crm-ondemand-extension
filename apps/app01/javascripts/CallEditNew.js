@@ -102,6 +102,7 @@ function saveAllDetails()
 	var actId = createNewCallActivity();
 
 	//createProductDetailed(actId);
+	loadCallDetailsPage();
 }
 
 function createWebSerConn(callback)
@@ -145,7 +146,7 @@ function getListData(type, xmlData) {
 
 function loadCallDetailsPage()
 {
-	alert("will load the Call Details page");
+	//alert("will load the Call Details page");
 	var e= $(".vlk");
 	var f= e[0];
 	doNavigate(f);
@@ -267,7 +268,7 @@ function createActivityIdUsingWeb(fields, fieldsCont)
 		var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);	
 		var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
 
-		alert("soapRequest : " + soapRequestFinal);
+		//alert("soapRequest : " + soapRequestFinal);
 
 		try{
 			jQuery.ajax({
@@ -277,14 +278,14 @@ function createActivityIdUsingWeb(fields, fieldsCont)
 						dataType: 'xml',
 						data: soapRequestFinal,
 						beforeSend: function(xhr) {
-							alert("Before sending request to insert : " + xhr);
+							//alert("Before sending request to insert : " + xhr);
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
 						},   
 						error: function(errormessage) {
 							alert("Error : " + errormessage.responseText);
 						},   
 						complete: function(xhr, textStatus) {
-							alert("Completed");
+							//alert("Completed");
 						},								
 						success: function(xmlData, textStatus) {
 							alert("successssfullllllll");
@@ -293,7 +294,7 @@ function createActivityIdUsingWeb(fields, fieldsCont)
 							activityId = items[0].ActivityId;
 							//alert("activityId : " + activityId);
 							createProductDetailInfo(activityId);
-							loadCallDetailsPage();
+							//loadCallDetailsPage();
 						}
 					});	
 		}
