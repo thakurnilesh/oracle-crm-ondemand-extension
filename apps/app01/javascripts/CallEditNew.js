@@ -246,7 +246,7 @@ function createNewCallActivity(callback){
 	}
 
 	alert('subjectValue : ' + subjectValue);
-	if(subjectValue == null || contactPerId == null){
+	if(subjectValue == null || subjectValue == '' || contactPerId == null || contactPerId == ''){
 		alert("Subject is the required field!!");
 		return;
 	}
