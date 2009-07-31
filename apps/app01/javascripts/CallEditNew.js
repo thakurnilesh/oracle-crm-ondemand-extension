@@ -130,7 +130,7 @@ function saveAllDetails()
 	var e= $(".buttonTD");
 	for(i=0; i < e.length; i++)
 	{
-		e[i].style.display = "block";
+		e[i].style.disabled = 'true';
 		//f.disable = 'true';
 	}
 
