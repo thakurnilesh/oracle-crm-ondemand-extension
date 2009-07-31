@@ -1,9 +1,35 @@
 (function(){
 
+delete_button('Call Details', 1);
+delete_button('Call Details', 1);
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
 addProdDeailedSec();
+
+
+function delete_button(section_name, position) {
+    var i;
+    var ih;
+    var tabs = document.getElementsByTagName("table");
+    for (i = 0; i < tabs.length; i++) {
+        var td = tabs[i].getElementsByTagName("td");
+        try {
+            // This can generate an exception we ignore, if so it means
+            // it's not the ones we're looking for
+            ih = td[0].innerHTML;
+            if (ih.indexOf(section_name) == 0) {
+                var tr = tabs[i].getElementsByTagName("tr");
+                tr[0].deleteCell(position);
+                return true;
+            }
+        } catch (ex) {
+            // you really don't want to enable this unless at wits end
+            // alert("Exception! " + ex.toString());
+        }
+    }
+    return false;
+}
 
 function createNewSaveButton(section_name, position, button_text, url, target_window, features){
 	var i;
