@@ -5,7 +5,7 @@ delete_button('Call Details', 1);
 add_footer_button(2,'Test Save','saveAllDetails()','_top',40);
 del_footer_button(1);
 del_footer_button(2);
-add_footer_button((3,'Test Save & NEW CALL','saveAndNewAllDetails()','_top',40))
+add_footer_button(3,'Test Save & NEW CALL','saveAndNewAllDetails()','_top',40)
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call NILESH','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
@@ -184,12 +184,6 @@ e[i].style.disabled = 'true';
 }
  
 createNewCallActivity(function() {
-var i;
-var e= $(".buttonTD");
-for(i=0; i < e.length; i++)
-{
-e[i].style.disabled = 'true';
-}
 loadCallDetailsPage();
 });
 }
@@ -197,8 +191,12 @@ loadCallDetailsPage();
 function saveAndNewAllDetails()
 {
 createNewCallActivity(function() {
+newcall();
 //loadCallDetailsPage();
 });
+}
+function newcall(){
+doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallInsert?OMCR0=AAPA-2WCVDZ&OMTGT=ContactCallInsert&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest3%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2WCVDZ&OCNOEDITTYPE=Y&OCTYPE=")
 }
  
 function createWebSerConn(callback)
