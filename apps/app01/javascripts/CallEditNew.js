@@ -203,7 +203,7 @@ for(i=0; i < e.length; i++)
 e[i].style.disabled = 'true';
 }
 createNewCallActivity(function() {
-loadCallDetailsPage();
+//loadCallDetailsPage();
 });
 }
  
