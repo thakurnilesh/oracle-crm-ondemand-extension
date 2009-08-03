@@ -13,6 +13,7 @@ function del_footer_button(section_name,position) {
     var i;
     var ih;
     var mytables = document.getElementsByTagName("table");
+   alert("INSIDE DELETE FOOTER");
 
     for (i = 0; i < mytables.length; i++) {
         try {
@@ -20,6 +21,7 @@ function del_footer_button(section_name,position) {
 
 			ih = td[1].innerHTML;
             if (ih.indexOf(section_name) == 0) {
+                 alert("Inside Section Found");
                 var tr = tabs[i].getElementsByTagName("tr");
                 tr[0].deleteCell(position);
                 return true;
