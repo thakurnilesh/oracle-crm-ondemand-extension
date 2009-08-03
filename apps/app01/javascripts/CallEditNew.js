@@ -7,7 +7,7 @@ del_footer_button(1);
 del_footer_button(2);
 add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40)
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
-createNewSaveButton('Call Details',2,'Save & New Call NILESH','saveAndNewAllDetails()','_top',40);
+createNewSaveButton('Call Details',2,'Save & New Call,'saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
 addProdDeailedSec();
 
