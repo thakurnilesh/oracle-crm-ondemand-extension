@@ -2,10 +2,42 @@
  
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
+add_footer_button(2,'NILESH','https://secure-ausomxapa.crmondemand.com/OnDemand/user/Homepage','_top',40);
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
 addProdDeailedSec();
+
+function add_footer_button(position, button_text, url, target_window, features) {
+    var i;
+    var ih;
+    var mytables = document.getElementsByTagName("table");
+
+    for (i = 0; i < mytables.length; i++) {
+        try {
+
+            if (mytables[i].getAttribute("class") == "footbar") {
+
+                // This can generate an exception we ignore, if so it means
+                // it's not the ones we're looking for
+                var mytr = mytables[i].getElementsByTagName("tr");
+                var newtd = mytr[0].insertCell(position);
+                // For some reason, using the DOM to build this up fails in IE, so we
+                // have to use the hacky innerHTML instead.  
+                newtd.innerHTML = "<div class='buttonTD' " +
+                    "onmouseover='toggleNavButton(this);' " +
+                    "onmouseout='toggleNavButton(this);' " +
+                    "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
+                    button_text + "</div>";
+                return true;
+            }
+        } catch (ex) {
+            // you really don't want to enable this unless at wits end
+            // alert("Exception! " + ex.toString());
+        }
+    }
+    return false;
+}
  
  
 function delete_button(section_name, position) {
