@@ -19,16 +19,18 @@ function del_footer_button(section_name,position) {
         try {
             if (mytables[i].getAttribute("class") == "footbar") {
                  alert("Inside class footbar");
+                   var mytr = mytables[i].getElementsByTagName("tr");
+			  var newtd = mytr[0].deleteCell(position);
 
-                   var td=mytables[i].getElementsByTagName("td");
-			 ih = td[1].innerHTML;
+              //     var td=mytables[i].getElementsByTagName("td");
+			// ih = td[1].innerHTML;
 			
-            if (ih.indexOf(section_name) == 0) {
+          /*  if (ih.indexOf(section_name) == 0) {
                  alert("Inside Section Found");
                 var tr = tabs[i].getElementsByTagName("tr");
                 tr[0].deleteCell(position);
                 return true;
-            }
+            }*/
 			     // This can generate an exception we ignore, if so it means
                 // it's not the ones we're looking for
 				/*
