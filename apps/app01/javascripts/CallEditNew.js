@@ -3,13 +3,14 @@
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
 add_footer_button(2,'Test Save','saveAllDetails()','_top',40);
-del_footer_button('Call Details',1);
+del_footer_button(1);
+del_footer_button(3);
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
-createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+createNewSaveButton('Call Details',2,'Save & New Call NILESH','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
 addProdDeailedSec();
 
-function del_footer_button(section_name,position) {
+function del_footer_button(position) {
     var i;
     var mytables = document.getElementsByTagName("table");
     for (i = 0; i < mytables.length;i++) {
@@ -192,7 +193,6 @@ loadCallDetailsPage();
  
 function saveAndNewAllDetails()
 {
-//alert("Inside Save All details");
 createNewCallActivity(function() {
 var pathname = window.location.pathname;
 alert(pathname);
