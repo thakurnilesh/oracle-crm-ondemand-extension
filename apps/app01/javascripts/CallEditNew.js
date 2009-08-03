@@ -2,15 +2,15 @@
  
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
-add_footer_button(2,'Save','saveAllDetails()','_top',40);
+add_footer_button(2,'Test Save','saveAllDetails()','_top',40);
 del_footer_button(1);
 del_footer_button(2);
-add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+add_footer_button(3,'Test Save & NEW CALL','saveAndNewAllDetails()','_top',40)
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
-createNewSaveButton('Call Details',2,'Save & New Call,'saveAndNewAllDetails()','_top',40);
+createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
 addProdDeailedSec();
-//Push again
+
 function del_footer_button(position) {
     var i;
     var mytables = document.getElementsByTagName("table");
@@ -192,7 +192,6 @@ function saveAndNewAllDetails()
 {
 createNewCallActivity(function() {
 newcall();
-//loadCallDetailsPage();
 });
 }
 function newcall(){
