@@ -19,7 +19,10 @@ function del_footer_button(section_name,position) {
         try {
             if (mytables[i].getAttribute("class") == "footbar") {
 
-			ih = td[1].innerHTML;
+                         var t=mytables[i].getElementsByTagName("tr");
+			 ih = t[1].innerHTML;
+
+			
             if (ih.indexOf(section_name) == 0) {
                  alert("Inside Section Found");
                 var tr = tabs[i].getElementsByTagName("tr");
