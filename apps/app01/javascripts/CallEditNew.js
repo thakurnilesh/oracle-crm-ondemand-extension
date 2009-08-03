@@ -11,40 +11,13 @@ addProdDeailedSec();
 
 function del_footer_button(section_name,position) {
     var i;
-    var ih;
     var mytables = document.getElementsByTagName("table");
-    alert("INSIDE DELETE FOOTER");
-
-    for (i = 0; i < mytables.length; i++) {
+    for (i = 0; i < mytables.length;i++) {
         try {
-            if (mytables[i].getAttribute("class") == "footbar") {
-                 alert("Inside class footbar");
-                   var mytr = mytables[i].getElementsByTagName("tr");
+		    if (mytables[i].getAttribute("class") == "footbar") 
+			{
+			  var mytr = mytables[i].getElementsByTagName("tr");
 			  var newtd = mytr[0].deleteCell(position);
-
-              //     var td=mytables[i].getElementsByTagName("td");
-			// ih = td[1].innerHTML;
-			
-          /*  if (ih.indexOf(section_name) == 0) {
-                 alert("Inside Section Found");
-                var tr = tabs[i].getElementsByTagName("tr");
-                tr[0].deleteCell(position);
-                return true;
-            }*/
-			     // This can generate an exception we ignore, if so it means
-                // it's not the ones we're looking for
-				/*
-                var mytr = mytables[i].getElementsByTagName("tr");
-				var newtd = mytr[0].insertCell(position);
-                // For some reason, using the DOM to build this up fails in IE, so we
-                // have to use the hacky innerHTML instead.  
-                newtd.innerHTML = "<div class='buttonTD' " +
-                    "onmouseover='toggleNavButton(this);' " +
-                    "onmouseout='toggleNavButton(this);' " +
-                    "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
-                    button_text + "</div>";
-                return true;*/
-				
             }
         } catch (ex) {
             // you really don't want to enable this unless at wits end
@@ -56,13 +29,9 @@ function del_footer_button(section_name,position) {
 
 function add_footer_button(position, button_text, url, target_window, features) {
     var i;
-  //JUST TO PUSH
-    var ih;
     var mytables = document.getElementsByTagName("table");
- 
     for (i = 0; i < mytables.length; i++) {
         try {
- 
             if (mytables[i].getAttribute("class") == "footbar") {
  
                 // This can generate an exception we ignore, if so it means
@@ -90,7 +59,7 @@ function add_footer_button(position, button_text, url, target_window, features) 
  
 function delete_button(section_name, position) {
     var i;
-    var ih;
+	var ih;
     var tabs = document.getElementsByTagName("table");
     for (i = 0; i < tabs.length; i++) {
         var td = tabs[i].getElementsByTagName("td");
