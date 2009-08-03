@@ -2,32 +2,43 @@
  
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
-add_footer_button(2,'Test Save','saveAllDetails()','_top',40);
+add_footer_button('save',1,2,'Test Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
 addProdDeailedSec();
 
-function add_footer_button(position, button_text, url, target_window, features) {
+function add_footer_button(section_name,position1,position, button_text, url, target_window, features) {
     var i;
     var ih;
     var mytables = document.getElementsByTagName("table");
-
+ 
     for (i = 0; i < mytables.length; i++) {
         try {
-
+ 
             if (mytables[i].getAttribute("class") == "footbar") {
-
+ 
                 // This can generate an exception we ignore, if so it means
                 // it's not the ones we're looking for
                 var mytr = mytables[i].getElementsByTagName("tr");
+				
+				//Nilesh Delete Button Try
+				ih = mytr[1].innerHTML;
+				if (ih.indexOf(section_name) == 0) {
+				var tr= mytables[i].getElementsByTagName("tr");
+                //var tr = tabs[i].getElementsByTagName("tr");
+                tr[0].deleteCell(position1);
+                //return true;
+                }
+				//Nilesh Delete Button End
+				
                 var newtd = mytr[0].insertCell(position);
                 // For some reason, using the DOM to build this up fails in IE, so we
-                // have to use the hacky innerHTML instead.  
+                // have to use the hacky innerHTML instead.
                 newtd.innerHTML = "<div class='buttonTD' " +
                     "onmouseover='toggleNavButton(this);' " +
                     "onmouseout='toggleNavButton(this);' " +
-  			  "onclick='"+url+";' \>" +
+					"onclick='"+url+";' \>" +
                    // "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
                     button_text + "</div>";
                 return true;
