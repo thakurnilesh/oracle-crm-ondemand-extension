@@ -2,13 +2,13 @@
  
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
-//add_footer_button(2,'Test Save','saveAllDetails()','_top',40);
+add_footer_button(2,'Test Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
 addProdDeailedSec();
 
-/*function add_footer_button(position, button_text, url, target_window, features) {
+function add_footer_button(position, button_text, url, target_window, features) {
     var i;
     var ih;
     var mytables = document.getElementsByTagName("table");
@@ -38,7 +38,7 @@ addProdDeailedSec();
         }
     }
     return false;
-}*/
+}
  
  
 function delete_button(section_name, position) {
