@@ -27,7 +27,8 @@ function add_footer_button(position, button_text, url, target_window, features) 
                 newtd.innerHTML = "<div class='buttonTD' " +
                     "onmouseover='toggleNavButton(this);' " +
                     "onmouseout='toggleNavButton(this);' " +
-                    "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
+  			  "onclick='"+url+";' \>" +
+                   // "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
                     button_text + "</div>";
                 return true;
             }
