@@ -13,7 +13,7 @@ function del_footer_button(section_name,position) {
     var i;
     var ih;
     var mytables = document.getElementsByTagName("table");
-   alert("INSIDE DELETE FOOTER");
+    alert("INSIDE DELETE FOOTER");
 
     for (i = 0; i < mytables.length; i++) {
         try {
