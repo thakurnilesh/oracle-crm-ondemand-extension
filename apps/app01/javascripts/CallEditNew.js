@@ -4,7 +4,8 @@ delete_button('Call Details', 1);
 delete_button('Call Details', 1);
 add_footer_button(2,'Test Save','saveAllDetails()','_top',40);
 del_footer_button(1);
-del_footer_button(3);
+del_footer_button(2);
+add_footer_button((3,'Test Save & NEW CALL','saveAndNewAllDetails()','_top',40))
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call NILESH','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
@@ -175,7 +176,6 @@ jQuery("#prodDetail").append(row);
  
 function saveAllDetails()
 {
-//alert("Inside Save All details");
 var i;
 var e= $(".buttonTD");
 for(i=0; i < e.length; i++)
@@ -186,19 +186,13 @@ e[i].style.disabled = 'true';
 createNewCallActivity(function() {
 loadCallDetailsPage();
 });
- 
-//createProductDetailed(actId);
-//loadCallDetailsPage();
 }
  
 function saveAndNewAllDetails()
 {
 createNewCallActivity(function() {
-var pathname = window.location.pathname;
-alert(pathname);
+loadCallDetailsPage();
 });
-//createProductDetailed(actId);
-//loadCallDetailsPage();
 }
  
 function createWebSerConn(callback)
