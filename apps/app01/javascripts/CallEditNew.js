@@ -196,12 +196,6 @@ loadCallDetailsPage();
  
 function saveAndNewAllDetails()
 {
-var i;
-var e= $(".buttonTD");
-for(i=0; i < e.length; i++)
-{
-e[i].style.disabled = 'true';
-}
 createNewCallActivity(function() {
 //loadCallDetailsPage();
 });
