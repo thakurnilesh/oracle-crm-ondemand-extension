@@ -2,7 +2,7 @@
  
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
-add_footer_button(2,'NILESH','https://secure-ausomxapa.crmondemand.com/OnDemand/user/Homepage','_top',40);
+add_footer_button(2,'Test Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
