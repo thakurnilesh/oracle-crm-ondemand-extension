@@ -1,6 +1,5 @@
-var ctrowsamp=0;
+var ctrowsamp=0; 
 (function(){
-//var ctrowsamp=0; 
 //var ctrowprod;
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
@@ -155,8 +154,9 @@ row += "<td><p style='color:red'>Quantity* </p></td>";
 row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
 row += "<td><input type='button' name='delete' value='delete' onclick='jQuery(this).parent().parent().parent().parent().parent().remove()'></input></td>";
 row += "</tr></table></td></tr>";
-ctrowsamp++; 
 jQuery("#sampleDrop").append(row);
+ctrowsamp++; 
+alert("ROW COUNTER Initial: "+ctrowsamp);
 }
  
 function addNewRowProdDet(){
@@ -173,7 +173,7 @@ row += "<td>Issues:</td>";
 row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
 row += "<td><input type='button' name='delete' value='delete' onclick='jQuery(this).parent().parent().parent().parent().parent().remove()'></input></td>";
 row += "</tr></table></td></tr>";
-ctrowprod++;
+//ctrowprod++;
 jQuery("#prodDetail").append(row);
 }
  
@@ -394,6 +394,7 @@ var items = getListData('Activity', xmlData);
 activityId = items[0].ActivityId;
 //alert("activityId : " + activityId);
 if(ctrowsamp!=0){
+alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
 createProductDetailInfo(activityId, function(){
 callback.call();
 });
@@ -717,6 +718,7 @@ complete: function(xhr, textStatus) {
 },
 success: function(xmlData, textStatus) {
 ctrowsamp--;
+alert("ROW COUNTER DECreasing"+ctrowsamp);
 alert("successssfullllllllyy created the Sample dropped");
 callback.call();
 }
