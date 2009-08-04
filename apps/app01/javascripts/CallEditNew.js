@@ -720,7 +720,12 @@ success: function(xmlData, textStatus) {
 ctrowsamp--;
 alert("ROW COUNTER DECreasing"+ctrowsamp);
 alert("successssfullllllllyy created the Sample dropped");
+if(ctrowsamp==0){
 callback.call();
+}
+else{
+return;
+}
 }
 });
 }
