@@ -377,6 +377,7 @@ type: 'POST',
 contentType: 'text/xml',
 dataType: 'xml',
 data: soapRequestFinal,
+
 beforeSend: function(xhr) {
 //alert("Before sending request to insert : " + xhr);
 xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');
@@ -390,16 +391,14 @@ complete: function(xhr, textStatus) {
 success: function(xmlData, textStatus) {
 alert("successssfullllllllyy created Activity");
 var items = getListData('Activity', xmlData);
-//alert("items : " + items);
 activityId = items[0].ActivityId;
-//alert("activityId : " + activityId);
+
 if(ctrowsamp!=0){
 alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
 createProductDetailInfo(activityId, function(){
-callback.call();
+//callback.call();
 });
 }
-//loadCallDetailsPage();
 }
 });
 }
@@ -720,12 +719,7 @@ success: function(xmlData, textStatus) {
 ctrowsamp--;
 alert("ROW COUNTER DECreasing"+ctrowsamp);
 alert("successssfullllllllyy created the Sample dropped");
-if(ctrowsamp==0){
 callback.call();
-}
-else{
-return;
-}
 }
 });
 }
