@@ -418,7 +418,8 @@ function midway(activityId, callback)
 //{
 if(ctrowsamp!=0){
 alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp); // This alert is called before the function below
-createProductDetailInfo(activityId, function(){midway(activityId);});
+createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
+});});
 }
 else {callback.call();}
 //}
