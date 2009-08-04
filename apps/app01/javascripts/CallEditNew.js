@@ -1,9 +1,10 @@
 (function(){
+//NILESH WORK
+add_footer_button(1,'Save','saveAllDetails()','_top',40);
 del_footer_button(1);
-add_footer_button(1,'TEst Save','saveAllDetails()','_top',40);
 del_footer_button(2);
-add_footer_button(2,'Test Save & New Call','saveAndNewAllDetails()','_top',40);
-
+add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+//NILESH WORK
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
@@ -11,6 +12,7 @@ createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()',
 addSamplesDropSec();
 addProdDeailedSec();
 
+//NILESH WORK
 function del_footer_button(position) {
     var i;
     var mytables = document.getElementsByTagName("table");
@@ -57,6 +59,7 @@ function add_footer_button(position, button_text, url, target_window, features) 
     }
     return false;
 }
+//NILESH WORK
 
 function delete_button(section_name, position) {
     var i;
@@ -295,11 +298,14 @@ function createNewCallActivity(callback){
 		endTimeMod = '';
 	}
 
-	//alert('subjectValue : ' + subjectValue);
-	if(subjectValue == null || subjectValue == '' || contactPerId == null || contactPerId == ''){
-		alert("Subject is the required field!!");
-		$("<span class='requiredText'>required</span>").insertAfter("#ContactCallInsert.Description");
-		return;
+	var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
+	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
+
+	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
+		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
+		|| (ownerVal == null || ownerVal == ''))
+	{
+		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
 	}
 	else{
 		var fields = {
