@@ -178,13 +178,13 @@ jQuery("#prodDetail").append(row);
  
 function saveAllDetails()
 {
+/*
 var i;
 var e= $(".buttonTD");
 for(i=0; i < e.length; i++)
 {
 e[i].style.disabled = 'true';
-}
-//for(var z=0;z<ctrowsamp;z++)
+}*/
 createNewCallActivity(function() {
 loadCallDetailsPage();
 });
