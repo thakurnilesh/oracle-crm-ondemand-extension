@@ -414,11 +414,14 @@ alert('Error: ' + e.message);
 
 function midway(activityId, callback)
 {
-for(var z=0;z<ctrowsamp;z++)
-{
+//for(var z=0;z<ctrowsamp;z++)
+//{
+if(ctrowsamp){
 alert("ROW COUNTER before calling ProductDetailInfo : "+z); // This alert is called before the function below
-createProductDetailInfo(activityId);
+createProductDetailInfo(activityId, function(){midway(activityId)});
 }
+else return; 
+//}
 }
 
 function createProductDetailInfo(activityId, callback)
@@ -730,8 +733,8 @@ complete: function(xhr, textStatus) {
 //alert("Completed");
 },
 success: function(xmlData, textStatus) {
-//ctrowsamp--;
-//alert("ROW COUNTER DECreasing"+ctrowsamp);
+ctrowsamp--;
+alert("ROW COUNTER DECreasing"+ctrowsamp);
 alert("successssfullllllllyy created the Sample dropped");
 callback.call();
 }
