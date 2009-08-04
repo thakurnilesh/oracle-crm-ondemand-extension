@@ -393,11 +393,14 @@ success: function(xmlData, textStatus) {
 alert("successssfullllllllyy created Activity");
 var items = getListData('Activity', xmlData);
 activityId = items[0].ActivityId;
-alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
+
 for(var z=0;z<ctrowsamp;z++)
+{
+alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
 createProductDetailInfo(activityId, function(){
 callback.call(); // Here the control returns , If we comment this the previous page dosent load
 });
+}
 }
 });
 }
