@@ -394,10 +394,13 @@ success: function(xmlData, textStatus) {
 alert("successssfullllllllyy created Activity");
 var items = getListData('Activity', xmlData);
 activityId = items[0].ActivityId;
+
+
+//alert("ROW COUNTER before calling ProductDetailInfo : "+z); // This alert is called before the function below
 midway(activityId, function(){
-callback.call;
+callback.call();// Here the control returns , If we comment this the previous page dosent load 
 });
-}
+
 }
 });
 }
@@ -408,13 +411,13 @@ alert('Error: ' + e.message);
 });
  
 }
+
 function midway(activityId, callback)
 {
 for(var z=0;z<ctrowsamp;z++)
 {
 alert("ROW COUNTER before calling ProductDetailInfo : "+z); // This alert is called before the function below
 createProductDetailInfo(activityId);
-
 }
 }
 
@@ -424,6 +427,7 @@ function createProductDetailInfo(activityId, callback)
 var productNameProdet;
 var productNameSamp;
 var bothPresent = false;
+ 
 if(document.getElementById('prodNamePrDet') != null && document.getElementById('prodNamePrDet') != '')
 {
 productNameProdet = document.getElementById('prodNamePrDet').value;
