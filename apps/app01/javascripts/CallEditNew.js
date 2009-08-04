@@ -395,11 +395,8 @@ var items = getListData('Activity', xmlData);
 activityId = items[0].ActivityId;
 //for(var z=0;z<ctrowsamp;z++){
 alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
-
-createProductDetailInfo(activityId)
-{
-return;
-}
+for(var z=0;z<ctrowsamp;z++)
+createProductDetailInfo(activityId);
 /*createProductDetailInfo(activityId, function(){
 if(ctrowsamp==0)
 callback.call();
@@ -484,6 +481,7 @@ else
 {
 callback.call();
 }
+return;
 }
  
 function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
