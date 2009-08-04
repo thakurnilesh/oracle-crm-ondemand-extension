@@ -394,13 +394,8 @@ success: function(xmlData, textStatus) {
 alert("successssfullllllllyy created Activity");
 var items = getListData('Activity', xmlData);
 activityId = items[0].ActivityId;
-
-for(var z=0;z<ctrowsamp;z++)
-{
-alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp); // This alert is called before the function below
 createProductDetailInfo(activityId, function(){
-while(z==ctrowsamp)
-{callback.call();} // Here the control returns , If we comment this the previous page dosent load 
+callback.call();
 });
 }
 }
@@ -418,19 +413,19 @@ function createProductDetailInfo(activityId, callback)
 {
 //alert("Getting Product Info");
 var productNameProdet;
-var productNameSamp;
+var productNameSamp=[];
 var bothPresent = false;
- 
+ for(var z=0;z<ctrowsamp;z++){
 if(document.getElementById('prodNamePrDet') != null && document.getElementById('prodNamePrDet') != '')
 {
 productNameProdet = document.getElementById('prodNamePrDet').value;
 }
 if(document.getElementById('prodNameSamDrop') != null && document.getElementById('prodNameSamDrop') != '')
 {
-productNameSamp = document.getElementById('prodNameSamDrop').value;
+productNameSamp[z] = document.getElementById('prodNameSamDrop').value;
 }
  
-if(productNameProdet != null && productNameProdet != '' && productNameSamp != null && productNameSamp != '')
+if(productNameProdet != null && productNameProdet != '' && productNameSamp[z] != null && productNameSamp[z] != '')
 {
 bothPresent = true;
  
@@ -446,7 +441,7 @@ if(bothPresent == true){ }
 //alert('productNameSamp : ' + productNameSamp);
 var fieldsSampDrop = {
 ProductId: '',
-Name: " ='" + productNameSamp + "' "
+Name: " ='" + productNameSamp[z] + "' "
 };
 callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
 if(bothPresent == true)
@@ -455,7 +450,7 @@ callback.call();
 }
 });
 }
-else if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
+else if(productNameProdet != null && productNameProdet != '' && productNameSamp[z] == null)
 {
 //alert('productNameProdet : ' + productNameProdet);
 var fieldsProdet = {
@@ -466,16 +461,17 @@ callWebServToGetProdInfo(fieldsProdet, activityId, 'ProdDetail', function(){
 callback.call();
 });
 }
-else if(productNameProdet == null && productNameSamp != null && productNameSamp != '')
+else if(productNameProdet == null && productNameSamp[z] != null && productNameSamp[z] != '')
 {
 //alert('productNameSamp : ' + productNameSamp);
 var fieldsSampDrop = {
 ProductId: '',
-Name: " ='" + productNameSamp + "' "
+Name: " ='" + productNameSamp[z] + "' "
 };
 callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
 callback.call();
 });
+}
 }
 else
 {
