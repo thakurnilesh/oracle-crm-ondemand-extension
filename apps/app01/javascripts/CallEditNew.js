@@ -393,13 +393,18 @@ success: function(xmlData, textStatus) {
 alert("successssfullllllllyy created Activity");
 var items = getListData('Activity', xmlData);
 activityId = items[0].ActivityId;
-for(var z=0;z<ctrowsamp;z++){
+//for(var z=0;z<ctrowsamp;z++){
 alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
-createProductDetailInfo(activityId, function(){
+
+createProductDetailInfo(activityId)
+{
+return;
+}
+/*createProductDetailInfo(activityId, function(){
 if(ctrowsamp==0)
 callback.call();
-});
-}
+});*/
+//}
 }
 });
 }
@@ -411,7 +416,8 @@ alert('Error: ' + e.message);
  
 }
  
-function createProductDetailInfo(activityId, callback)
+function createProductDetailInfo(activityId) 
+//function createProductDetailInfo(activityId, callback)
 {
 //alert("Getting Product Info");
 var productNameProdet;
