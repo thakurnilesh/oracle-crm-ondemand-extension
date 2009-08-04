@@ -392,14 +392,13 @@ success: function(xmlData, textStatus) {
 alert("successssfullllllllyy created Activity");
 var items = getListData('Activity', xmlData);
 activityId = items[0].ActivityId;
-for(var z=0;z<ctrowsamp;z++)
-{
+
+
 //if(ctrowsamp!=0){
 alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
 createProductDetailInfo(activityId, function(){
-//callback.call();
+callback.call();
 });
-}
 }
 });
 }
