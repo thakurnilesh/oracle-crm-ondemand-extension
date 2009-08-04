@@ -1,4 +1,3 @@
-var ctrowsamp=0; 
 (function(){
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
