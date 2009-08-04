@@ -1,9 +1,8 @@
 (function(){
-
-add_footer_button(1,'Save','saveAllDetails()','_top',40);
 del_footer_button(1);
+add_footer_button(1,'TEst Save','saveAllDetails()','_top',40);
 del_footer_button(2);
-add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+add_footer_button(2,'Test Save & New Call','saveAndNewAllDetails()','_top',40);
 
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
