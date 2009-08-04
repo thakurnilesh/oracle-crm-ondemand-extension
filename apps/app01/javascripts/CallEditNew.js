@@ -516,6 +516,7 @@ var soapRequest = soapRequestTemplate.replace("<%=fieldsProdet%>", fieldsXML);
 try{
 jQuery.ajax({
 url: 'https://secure-ausomxapa.crmondemand.com/Services/Integration',
+async: false,
 type: 'POST',
 contentType: 'text/xml',
 dataType: 'xml',
