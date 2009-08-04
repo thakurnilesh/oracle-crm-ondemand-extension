@@ -1,6 +1,5 @@
 var ctrowsamp=0; 
 (function(){
-//var ctrowprod;
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
@@ -185,11 +184,14 @@ for(i=0; i < e.length; i++)
 {
 e[i].style.disabled = 'true';
 }
- 
+
+for(var z=0;z<ctrowsamp;z++)
 createNewCallActivity(function() {
-loadCallDetailsPage();
 });
+loadCallDetailsPage();
 }
+
+
  
 function saveAndNewAllDetails()
 {
@@ -377,7 +379,6 @@ type: 'POST',
 contentType: 'text/xml',
 dataType: 'xml',
 data: soapRequestFinal,
-
 beforeSend: function(xhr) {
 //alert("Before sending request to insert : " + xhr);
 xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');
@@ -392,8 +393,6 @@ success: function(xmlData, textStatus) {
 alert("successssfullllllllyy created Activity");
 var items = getListData('Activity', xmlData);
 activityId = items[0].ActivityId;
-
-
 //if(ctrowsamp!=0){
 alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
 createProductDetailInfo(activityId, function(){
