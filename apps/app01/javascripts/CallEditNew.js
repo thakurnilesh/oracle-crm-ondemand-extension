@@ -417,7 +417,7 @@ function midway(activityId, callback)
 //for(var z=0;z<ctrowsamp;z++)
 //{
 if(ctrowsamp){
-alert("ROW COUNTER before calling ProductDetailInfo : "+z); // This alert is called before the function below
+alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp); // This alert is called before the function below
 createProductDetailInfo(activityId, function(){midway(activityId)});
 }
 else return; 
