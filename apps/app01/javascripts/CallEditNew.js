@@ -186,8 +186,9 @@ e[i].style.disabled = 'true';
 }
 //for(var z=0;z<ctrowsamp;z++)
 createNewCallActivity(function() {
-loadCallDetailsPage();
+//loadCallDetailsPage();
 });
+loadCallDetailsPage();
 }
 
 
