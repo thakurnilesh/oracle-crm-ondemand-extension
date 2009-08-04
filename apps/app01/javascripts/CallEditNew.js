@@ -397,9 +397,8 @@ activityId = items[0].ActivityId;
 
 for(var z=0;z<ctrowsamp;z++)
 {
- // This alert is called before the function below
+alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp); // This alert is called before the function below
 createProductDetailInfo(activityId, function(){
-alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
 callback.call(); // Here the control returns , If we comment this the previous page dosent load 
 });
 }
