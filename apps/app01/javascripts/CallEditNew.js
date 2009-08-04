@@ -721,9 +721,9 @@ complete: function(xhr, textStatus) {
 },
 success: function(xmlData, textStatus) {
 ctrowsamp--;
-alert("ROW COUNTER DECreasing"+ctrowsamp);
+alert("ROW COUNTER Decreasing"+ctrowsamp);
 alert("successssfullllllllyy created the Sample dropped");
-//callback.call();
+callback.call();
 }
 });
 }
