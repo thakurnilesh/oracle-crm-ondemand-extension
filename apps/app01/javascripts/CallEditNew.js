@@ -399,7 +399,8 @@ for(var z=0;z<ctrowsamp;z++)
 {
 alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp); // This alert is called before the function below
 createProductDetailInfo(activityId, function(){
-callback.call(); // Here the control returns , If we comment this the previous page dosent load 
+while(z==ctrowsamp)
+{callback.call();} // Here the control returns , If we comment this the previous page dosent load 
 });
 }
 }
@@ -722,8 +723,8 @@ complete: function(xhr, textStatus) {
 //alert("Completed");
 },
 success: function(xmlData, textStatus) {
-ctrowsamp--;
-alert("ROW COUNTER DECreasing"+ctrowsamp);
+//ctrowsamp--;
+//alert("ROW COUNTER DECreasing"+ctrowsamp);
 alert("successssfullllllllyy created the Sample dropped");
 callback.call();
 }
