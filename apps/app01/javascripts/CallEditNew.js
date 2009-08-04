@@ -1,6 +1,7 @@
+var ctrowsamp=0;
 (function(){
-var ctrowsamp=0; 
-var ctrowprod;
+//var ctrowsamp=0; 
+//var ctrowprod;
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
