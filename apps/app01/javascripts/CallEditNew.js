@@ -185,7 +185,7 @@ for(i=0; i < e.length; i++)
 e[i].style.disabled = 'true';
 }
 
-for(var z=0;z<ctrowsamp;z++)
+//for(var z=0;z<ctrowsamp;z++)
 createNewCallActivity(function() {
 });
 loadCallDetailsPage();
