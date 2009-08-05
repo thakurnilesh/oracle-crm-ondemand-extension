@@ -132,7 +132,7 @@ function addProdDeailedSec(){
 
 
 function addNewRowSampleDrop()
-{   var incr=1;
+{   
 	var row = "<tr width='100%'><td colspan='3'>";
 	row += "<table>";
 	row += "<tr>";
@@ -441,11 +441,7 @@ function createProductDetailInfo(activityId, callback)
 	var productNameProdet;
 	var productNameSamp;
 	var bothPresent = false;
-	//function getLength()
-	var length=document.getElementById("prodNameSamDrop").length;
-	alert("LENGTH:" +length);
 	
-
 	if(document.getElementById('prodNamePrDet') != null && document.getElementById('prodNamePrDet') != '')
 	{
 		productNameProdet = document.getElementById('prodNamePrDet').value;
@@ -748,6 +744,7 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						    ctrowsamp--;
 							alert("ROW COUNTER DECreasing"+ctrowsamp);
 							alert("successssfullllllllyy created the Sample dropped");
+							jQuery(this).parent().parent().parent().parent().parent().remove();
 							callback.call();
 						}
 					});	
