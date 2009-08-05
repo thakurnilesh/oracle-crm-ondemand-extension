@@ -1,3 +1,4 @@
+var counter=0;
 (function(){
 
 del_footer_button(1);
@@ -140,7 +141,7 @@ function addNewRowSampleDrop()
 	row += "<td>Product Category </td>";
 	row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
 	row += "<td><p style='color:red'>Product* </p></td>";
-	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Arcoxia 60mg'>Arcoxia 60mg</option><option value='Arcoxia 90mg'>Arcoxia 90mg</option><option value='Crocin'>Crocin</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
+	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Lot # </td>";
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
 	row += "<td><p style='color:red'>Quantity* </p></td>";
@@ -157,7 +158,7 @@ function addNewRowProdDet(){
 	row += "<table>";
 	row += "<tr>";
 	row += "<td><p style='color:red'>Product* </p></td>";
-	row += "<td><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Arcoxia 60mg'>Arcoxia 60mg</option><option value='Arcoxia 90mg'>Arcoxia 90mg</option><option value='Crocin'>Crocin</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
+	row += "<td><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Priority: </td>";
 	row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
 	row += "<td><p style='color:red'>Indication*:</p></td>";
@@ -433,6 +434,8 @@ callback.call();
 function createProductDetailInfo(activityId, callback)
 {
 	//alert("Getting Product Info");
+	counter++;
+	alert("Productcallinfo Call No." +counter);
 	var productNameProdet;
 	var productNameSamp;
 	var bothPresent = false;
@@ -749,4 +752,3 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 		//return true;
 	});
 }
-//NILESH
