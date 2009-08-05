@@ -146,11 +146,15 @@ function addNewRowSampleDrop()
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
 	row += "<td><p style='color:red'>Quantity* </p></td>";
 	row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
-	row += "<td><input type='button' name='delete' value='delete' onclick='jQuery(this).parent().parent().parent().parent().parent().remove()'></input></td>";
+	row += "<td><input type='button' name='delete' id='NILESH' value='delete' onclick=delcall(this)></input></td>";
 	row += "</tr></table></td></tr>";	
 	jQuery("#sampleDrop").append(row);
 	ctrowsamp++; 
     alert("ROW COUNTER Initial: "+ctrowsamp);
+}
+
+function delcall(this){
+jQuery(this).parent().parent().parent().parent().parent().remove();
 }
 
 function addNewRowProdDet(){
@@ -165,7 +169,7 @@ function addNewRowProdDet(){
 	row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange (this); class=inputControl id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
 	row += "<td>Issues:</td>";
 	row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
-	row += "<td><input type='button' name='delete' id='NILESH' value='delete' onclick='jQuery(this).parent().parent().parent().parent().parent().remove()'></input></td>";
+	row += "<td><input type='button' name='delete' value='delete' onclick='jQuery(this).parent().parent().parent().parent().parent().remove()'></input></td>";
 	row += "</tr></table></td></tr>";	
 	jQuery("#prodDetail").append(row);
 }
@@ -256,13 +260,13 @@ function getListData(type, xmlData) {
 	return arr;    
 }
 
-function dataRemove()
+/*function dataRemove()
 {
 	//alert("will load the Call Details page");
 	var e= $("NILESH");
 	var f= e[0];
 	doNavigate(f);
-}
+}*/
 
 function loadCallDetailsPage()
 {
@@ -765,7 +769,7 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						    ctrowsamp--;
 							alert("ROW COUNTER DECreasing"+ctrowsamp);
 							alert("successssfullllllllyy created the Sample dropped");
-							dataRemove();
+							//dataRemove();
 							callback.call();
 						}
 					});	
