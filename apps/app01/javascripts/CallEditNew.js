@@ -1,9 +1,9 @@
 (function(){
 
 del_footer_button(1);
-add_footer_button(1,'Save','saveAllDetails()','_top',40);
+add_footer_button(1,'TEST Save','saveAllDetails()','_top',40);
 del_footer_button(2);
-add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+add_footer_button(2,'TEST Save & New Call','saveAndNewAllDetails()','_top',40);
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
@@ -16,7 +16,7 @@ function del_footer_button(position) {
     var mytables = document.getElementsByTagName("table");
     for (i = 0; i < mytables.length;i++) {
         try {
-		    if (mytables[i].getAttribute("class") == "footbar") 
+		    if (mytables[i].getAttribute("className") == "footbar") 
 			{
 			  var mytr = mytables[i].getElementsByTagName("tr");
 			  var newtd = mytr[0].deleteCell(position);
@@ -34,7 +34,7 @@ function add_footer_button(position, button_text, url, target_window, features) 
     var mytables = document.getElementsByTagName("table");
     for (i = 0; i < mytables.length; i++) {
         try {
-            if (mytables[i].getAttribute("class") == "footbar") {
+            if (mytables[i].getAttribute("className") == "footbar") {
                  var mytr = mytables[i].getElementsByTagName("tr");				
                  var newtd = mytr[0].insertCell(position);
                     newtd.innerHTML = "<div class='buttonTD' " +
@@ -440,9 +440,6 @@ function createProductDetailInfo(activityId, callback)
 	var productNameProdet;
 	var productNameSamp;
 	var bothPresent = false;
-
-      var idlength=document.getElementById('prodNamePrDet').length;
-	alert("ID Length: "+idlength);
 
 	if(document.getElementById('prodNamePrDet') != null && document.getElementById('prodNamePrDet') != '')
 	{
