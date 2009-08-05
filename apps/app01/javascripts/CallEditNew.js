@@ -149,6 +149,7 @@ function addNewRowSampleDrop()
 	jQuery("#sampleDrop").append(row);
 	ctrowsamp++; 
     alert("ROW COUNTER Initial: "+ctrowsamp);
+	
 }
 
 function addNewRowProdDet(){
@@ -440,6 +441,10 @@ function createProductDetailInfo(activityId, callback)
 	var productNameProdet;
 	var productNameSamp;
 	var bothPresent = false;
+	//function getLength()
+	
+	alert(document.getElementById("prodNameSamDrop").length);
+	
 
 	if(document.getElementById('prodNamePrDet') != null && document.getElementById('prodNamePrDet') != '')
 	{
