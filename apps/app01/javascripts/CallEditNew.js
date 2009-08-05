@@ -442,8 +442,8 @@ function createProductDetailInfo(activityId, callback)
 	var productNameSamp;
 	var bothPresent = false;
 	//function getLength()
-	
-	alert(document.getElementById("prodNameSamDrop").length);
+	var length=document.getElementById("prodNameSamDrop").length;
+	alert("LENGTH:" +length);
 	
 
 	if(document.getElementById('prodNamePrDet') != null && document.getElementById('prodNamePrDet') != '')
