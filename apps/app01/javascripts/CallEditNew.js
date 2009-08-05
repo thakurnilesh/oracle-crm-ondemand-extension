@@ -1,13 +1,13 @@
 (function(){
-//test
+
 del_footer_button(1);
 add_footer_button(1,'TEST Save','saveAllDetails()','_top',40);
 del_footer_button(2);
 add_footer_button(2,'TEST Save & New Call','saveAndNewAllDetails()','_top',40);
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
-createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
-createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+createNewSaveButton('Call Details',1,'TEST Save','saveAllDetails()','_top',40);
+createNewSaveButton('Call Details',2,'TEST Save & New Call','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
 addProdDeailedSec();
 
