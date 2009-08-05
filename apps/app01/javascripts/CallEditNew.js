@@ -743,8 +743,8 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						success: function(xmlData, textStatus) {
 						    ctrowsamp--;
 							alert("ROW COUNTER DECreasing"+ctrowsamp);
-							alert("successssfullllllllyy created the Sample dropped");
-							jQuery(this).parent().parent().parent().parent().parent().remove();
+							alert("successssfullllllllyy created the Sample dropped");	
+                             document.getElementById('prodNameSamDrop').remove();  							
 							callback.call();
 						}
 					});	
