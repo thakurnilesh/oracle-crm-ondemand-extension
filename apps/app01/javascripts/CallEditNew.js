@@ -441,6 +441,9 @@ function createProductDetailInfo(activityId, callback)
 	var productNameSamp;
 	var bothPresent = false;
 
+      var idlength=document.getElementById('prodNamePrDet').length;
+	alert("ID Length: "+idlength);
+
 	if(document.getElementById('prodNamePrDet') != null && document.getElementById('prodNamePrDet') != '')
 	{
 		productNameProdet = document.getElementById('prodNamePrDet').value;
