@@ -165,9 +165,24 @@ function addNewRowProdDet(){
 	row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange (this); class=inputControl id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
 	row += "<td>Issues:</td>";
 	row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
-	row += "<td><input type='button' name='delete' value='delete' onclick='jQuery(this).parent().parent().parent().parent().parent().remove()'></input></td>";
+	row += "<td><input type='button' name='delete' id='NILESH' value='delete' onclick='jQuery(this).parent().parent().parent().parent().parent().remove()'></input></td>";
 	row += "</tr></table></td></tr>";	
 	jQuery("#prodDetail").append(row);
+}
+
+function addMultipleRows(){
+alert("INSIDE Multiple rows");
+for(var j=0;j<prodCount;j++){
+            var prodData = document.getElementById("prodNamePrDet ");  
+    var prodSelect = document.createElement("select");       
+            prodSelect.text=proditems[j];
+                        prodOption.value=proditems[j];
+                        try {  
+        prodCombo.add(prodOption, null); //Standard  
+        }catch(error) {  
+        prodCombo.add(prodOption); // IE only  
+        } 
+}
 }
 
 function saveAllDetails()
@@ -241,9 +256,12 @@ function getListData(type, xmlData) {
 	return arr;    
 }
 
-function dataRemove(){
-alert("INSIDE DATA REMOVE !!");
-document.getElementById('prodNameSamDrop').remove();
+function dataRemove()
+{
+	//alert("will load the Call Details page");
+	var e= $("NILESH");
+	var f= e[0];
+	doNavigate(f);
 }
 
 function loadCallDetailsPage()
