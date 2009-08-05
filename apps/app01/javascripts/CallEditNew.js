@@ -16,7 +16,7 @@ function del_footer_button(position) {
     var mytables = document.getElementsByTagName("table");
     for (i = 0; i < mytables.length;i++) {
         try {
-		    if (mytables[i].getAttribute("className") == "footbar") 
+		    if (mytables[i].className == "footbar") 
 			{
 			  var mytr = mytables[i].getElementsByTagName("tr");
 			  var newtd = mytr[0].deleteCell(position);
@@ -34,7 +34,7 @@ function add_footer_button(position, button_text, url, target_window, features) 
     var mytables = document.getElementsByTagName("table");
     for (i = 0; i < mytables.length; i++) {
         try {
-            if (mytables[i].getAttribute("className") == "footbar") {
+            if (mytables[i].className == "footbar") {
                  var mytr = mytables[i].getElementsByTagName("tr");				
                  var newtd = mytr[0].insertCell(position);
                     newtd.innerHTML = "<div class='buttonTD' " +
