@@ -1,4 +1,5 @@
 (function(){
+
 del_footer_button(1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
 del_footer_button(2);
@@ -132,14 +133,14 @@ function addProdDeailedSec(){
 
 
 function addNewRowSampleDrop()
-{   
+{
 	var row = "<tr width='100%'><td colspan='3'>";
 	row += "<table>";
 	row += "<tr>";
 	row += "<td>Product Category </td>";
 	row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
 	row += "<td><p style='color:red'>Product* </p></td>";
-	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'+incr><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Arcoxia 60mg'>Arcoxia 60mg</option><option value='Arcoxia 90mg'>Arcoxia 90mg</option><option value='Crocin'>Crocin</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
+	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Arcoxia 60mg'>Arcoxia 60mg</option><option value='Arcoxia 90mg'>Arcoxia 90mg</option><option value='Crocin'>Crocin</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Lot # </td>";
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
 	row += "<td><p style='color:red'>Quantity* </p></td>";
@@ -149,11 +150,9 @@ function addNewRowSampleDrop()
 	jQuery("#sampleDrop").append(row);
 	ctrowsamp++; 
     alert("ROW COUNTER Initial: "+ctrowsamp);
-	
 }
 
 function addNewRowProdDet(){
-
 	var row = "<tr width='100%'><td colspan='3'>";
 	row += "<table>";
 	row += "<tr>";
@@ -421,12 +420,8 @@ if(ctrowsamp!=0){
 alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp); 
 //Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking 
 //the same row twice because of the similar ID tag in the HTML. 
-
-//createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
-var createProductDetailInfoCallback = (function(tmpActivityId) {	return function() { midway(tmpActivityId, function(){ callback.call(); } ); };})(activityId);
-createProductDetailInfo( activityId, createProductDetailInfoCallback );
-
-//});});
+createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
+});});
 }
 else 
 {
@@ -441,7 +436,7 @@ function createProductDetailInfo(activityId, callback)
 	var productNameProdet;
 	var productNameSamp;
 	var bothPresent = false;
-	
+
 	if(document.getElementById('prodNamePrDet') != null && document.getElementById('prodNamePrDet') != '')
 	{
 		productNameProdet = document.getElementById('prodNamePrDet').value;
@@ -744,7 +739,7 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						    ctrowsamp--;
 							alert("ROW COUNTER DECreasing"+ctrowsamp);
 							alert("successssfullllllllyy created the Sample dropped");
-														callback.call();
+							callback.call();
 						}
 					});	
 		}
