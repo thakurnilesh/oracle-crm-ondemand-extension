@@ -403,7 +403,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 							callback.call();
 							});
 							
-							});
+							//});
 						}
 					});	
 		}
@@ -423,7 +423,10 @@ alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
 createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
 });});
 }
-else {callback.call();}
+else 
+{
+callback.call();
+}
 }
 
 
