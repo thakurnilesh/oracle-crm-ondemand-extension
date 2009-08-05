@@ -1,5 +1,5 @@
 (function(){
-
+//test
 del_footer_button(1);
 add_footer_button(1,'TEST Save','saveAllDetails()','_top',40);
 del_footer_button(2);
