@@ -241,6 +241,11 @@ function getListData(type, xmlData) {
 	return arr;    
 }
 
+function dataRemove(){
+alert("INSIDE DATA REMOVE !!");
+document.getElementById('prodNameSamDrop').remove();
+}
+
 function loadCallDetailsPage()
 {
 	//alert("will load the Call Details page");
@@ -742,6 +747,7 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						    ctrowsamp--;
 							alert("ROW COUNTER DECreasing"+ctrowsamp);
 							alert("successssfullllllllyy created the Sample dropped");
+							dataRemove();
 							callback.call();
 						}
 					});	
@@ -752,4 +758,3 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 		//return true;
 	});
 }
-//Thakur
