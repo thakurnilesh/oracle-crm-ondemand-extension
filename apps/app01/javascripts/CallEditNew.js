@@ -240,6 +240,10 @@ function getListData(type, xmlData) {
 	});
 	return arr;    
 }
+function dataRemove()
+{
+document.getElementById('prodNameSamDrop').remove();
+}
 
 function loadCallDetailsPage()
 {
@@ -744,7 +748,7 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						    ctrowsamp--;
 							alert("ROW COUNTER DECreasing"+ctrowsamp);
 							alert("successssfullllllllyy created the Sample dropped");	
-                            document.getElementById('prodNameSamDrop').remove();  							
+                            dataRemove();  							
 							callback.call();
 						}
 					});	
