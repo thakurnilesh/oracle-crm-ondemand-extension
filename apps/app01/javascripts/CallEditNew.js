@@ -422,11 +422,11 @@ alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp);
 //Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking 
 //the same row twice because of the similar ID tag in the HTML. 
 
-//createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
-var createProductDetailInfoCallback = (function(tmpActivityId) {	return function() { midway(tmpActivityId, function(){ callback.call(); } ); };})(activityId);
-createProductDetailInfo( activityId, createProductDetailInfoCallback );
+createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
+//var createProductDetailInfoCallback = (function(tmpActivityId) {	return function() { midway(tmpActivityId, function(){ callback.call(); } ); };})(activityId);
+//createProductDetailInfo( activityId, createProductDetailInfoCallback );
 
-//});});
+});});
 }
 else 
 {
@@ -744,7 +744,7 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						    ctrowsamp--;
 							alert("ROW COUNTER DECreasing"+ctrowsamp);
 							alert("successssfullllllllyy created the Sample dropped");	
-                             document.getElementById('prodNameSamDrop').remove();  							
+                            document.getElementById('prodNameSamDrop').remove();  							
 							callback.call();
 						}
 					});	
