@@ -147,7 +147,6 @@ function addNewRowSampleDrop()
 	row += "</tr></table></td></tr>";	
 	jQuery("#sampleDrop").append(row);
 	ctrowsamp++; 
-    alert("ROW COUNTER Initial ctrowsamp : "+ctrowsamp);
 }
 
 function rowDelete() {
@@ -172,7 +171,6 @@ function addNewRowProdDet(){
 	row += "</tr></table></td></tr>";	
 	jQuery("#prodDetail").append(row);
 	ctrowprod++; 
-    alert("ROW COUNTER Initial ctrowprod : "+ctrowprod);
 }
 
 function rowDelete2(){
