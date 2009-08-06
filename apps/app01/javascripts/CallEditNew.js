@@ -202,14 +202,15 @@ function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
 	createNewCallActivity(function() {
-	var pathname = window.location.pathname;
+	var pathname = window.location;
 	alert(pathname);	
 	newcall();
 	});
 }
 
 function newcall(){
-doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallInsert?OMCR0=AAPA-2X4VKF&OMTGT=ContactCallInsert&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2X4VKF&OCNOEDITTYPE=Y&OCTYPE=")
+window.location.reload()
+//doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallInsert?OMCR0=AAPA-2X4VKF&OMTGT=ContactCallInsert&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2X4VKF&OCNOEDITTYPE=Y&OCTYPE=")
 }
 
 function createWebSerConn(callback)
