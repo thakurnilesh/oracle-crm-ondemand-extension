@@ -146,16 +146,16 @@ function addNewRowSampleDrop()
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
 	row += "<td><p style='color:red'>Quantity* </p></td>";
 	row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
-	row += "<td><input type='button' name='delete' id='NILESH' value='delete' onclick= rowDelete();></input></td>";
+	row += "<td><input type='button' name='delete' id='ROWID' value='delete' onclick= rowDelete();></input></td>";
 	row += "</tr></table></td></tr>";	
 	jQuery("#sampleDrop").append(row);
 	ctrowsamp++; 
-    alert("ROW COUNTER Initial: "+ctrowsamp);
+    alert("ROW COUNTER Initial ctrowsamp : "+ctrowsamp);
 }
 
 function rowDelete() {
 ctrowsamp--;
-jQuery("#NILESH").parent().parent().parent().parent().parent().remove();
+jQuery("#ROWID").parent().parent().parent().parent().parent().remove();
 }
 
 
@@ -171,9 +171,16 @@ function addNewRowProdDet(){
 	row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange (this); class=inputControl id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
 	row += "<td>Issues:</td>";
 	row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
-	row += "<td><input type='button' name='delete' value='delete' onclick='jQuery(this).parent().parent().parent().parent().parent().remove()'></input></td>";
+	row += "<td><input type='button' name='delete' id='ROWID2' value='delete' onclick=rowDelete2();></input></td>";
 	row += "</tr></table></td></tr>";	
 	jQuery("#prodDetail").append(row);
+	ctrowprod++; 
+    alert("ROW COUNTER Initial ctrowprod : "+ctrowprod);
+}
+
+function rowDelete2(){
+ctrowprod--;
+jQuery("#ROWID2").parent().parent().parent().parent().parent().remove();
 }
 
 function saveAllDetails()
@@ -189,9 +196,6 @@ function saveAllDetails()
 	createNewCallActivity(function() {
 		loadCallDetailsPage();
 	});
-
-	//createProductDetailed(actId);
-	//loadCallDetailsPage();
 }
 
 function saveAndNewAllDetails()
@@ -246,14 +250,6 @@ function getListData(type, xmlData) {
 	});
 	return arr;    
 }
-
-/*function dataRemove()
-{
-	//alert("will load the Call Details page");
-	var e= $("NILESH");
-	var f= e[0];
-	doNavigate(f);
-}*/
 
 function loadCallDetailsPage()
 {
@@ -431,8 +427,9 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 }
 function midway(activityId, callback)
 {
-if(ctrowsamp!=0){
-alert("ROW COUNTER before calling ProductDetailInfo : "+ctrowsamp); 
+if(ctrowsamp!=0 || ctrowprod!=0){
+alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp); 
+alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
 //Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking 
 //the same row twice because of the similar ID tag in the HTML. 
 createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
@@ -672,9 +669,12 @@ function callWebServToCreateProdDet(productId, activityId, callback)
 							//alert("Completed");
 						},								
 						success: function(xmlData, textStatus) {
+						    ctrowprod--;
+							alert("ROW COUNTER DECreasing ctrowprod: "+ctrowprod);
 							alert("successssfullllllllyy created the Product detailed");
+							jQuery("#ROWID2").parent().parent().parent().parent().parent().remove();			
 							callback.call();
-							//loadCallDetailsPage();
+							
 						}
 					});	
 		}
@@ -754,12 +754,9 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						},								
 						success: function(xmlData, textStatus) {
 						    ctrowsamp--;
-							alert("ROW COUNTER DECreasing"+ctrowsamp);
+							alert("ROW COUNTER DECreasing ctrowsamp: "+ctrowsamp);
 							alert("successssfullllllllyy created the Sample dropped");
-							//dataRemove();
-							jQuery("#NILESH").parent().parent().parent().parent().parent().remove();
-							//document.getElementById('NILESH').jQuery(this).parent().parent().parent().parent().parent().remove();
-							//document.getElementById('prodNameSamDrop').jQuery(this).parent().parent().parent().parent().parent().remove();
+							jQuery("#ROWID").parent().parent().parent().parent().parent().remove();			
 							callback.call();
 						}
 					});	
