@@ -162,7 +162,7 @@ function addNewRowProdDet(){
 	row += "<table>";
 	row += "<tr>";
 	row += "<td><span style='color:red' class='requiredText'>Product*</span></td>";
-	row += "<td><span id='NILESH' class='requiredText'><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></span></td>";
+	row += "<td><span class='requiredText'><select STYLE='width: 130px' id='prodNamePrDet'><option id='NILESH' value=''></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></span></td>";
 	row += "<td>Priority: </td>";
 	row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
 	row += "<td><p style='color:red'>Indication*:</p></td>";
