@@ -146,11 +146,16 @@ function addNewRowSampleDrop()
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
 	row += "<td><p style='color:red'>Quantity* </p></td>";
 	row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
-	row += "<td><input type='button' name='delete' id='NILESH' value='delete' onclick=jQuery(this).parent().parent().parent().parent().parent().remove();></input></td>";
+	row += "<td><input type='button' name='delete' id='NILESH' value='delete' onclick= rowDelete();></input></td>";
 	row += "</tr></table></td></tr>";	
 	jQuery("#sampleDrop").append(row);
 	ctrowsamp++; 
     alert("ROW COUNTER Initial: "+ctrowsamp);
+}
+
+function rowDelete() {
+ctrowsamp--;
+jQuery(#NILESH).parent().parent().parent().parent().parent().remove();
 }
 
 
