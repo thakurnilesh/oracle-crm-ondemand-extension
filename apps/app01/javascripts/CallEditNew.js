@@ -155,7 +155,7 @@ function addNewRowSampleDrop()
 
 function rowDelete() {
 ctrowsamp--;
-jQuery(#NILESH).parent().parent().parent().parent().parent().remove();
+jQuery("#NILESH").parent().parent().parent().parent().parent().remove();
 }
 
 
