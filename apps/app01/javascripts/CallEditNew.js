@@ -1,4 +1,4 @@
-var counter=0;
+//var counter=0;
 (function(){
 
 del_footer_button(1);
@@ -202,8 +202,8 @@ function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
 	createNewCallActivity(function() {
-	//	var pathname = window.location.pathname;
-	//	alert(pathname);	
+	var pathname = window.location.pathname;
+	alert(pathname);	
 	newcall();
 	});
 }
@@ -445,8 +445,8 @@ callback.call();
 function createProductDetailInfo(activityId, callback)
 {
 	//alert("Getting Product Info");
-	counter++;
-	alert("Productcallinfo Call No." +counter);
+	//counter++;
+	//alert("Productcallinfo Call No." +counter);
 	var productNameProdet;
 	var productNameSamp;
 	var bothPresent = false;
