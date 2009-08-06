@@ -161,7 +161,7 @@ function addNewRowProdDet(){
 	var row = "<tr width='100%'><td colspan='3'>";
 	row += "<table>";
 	row += "<tr>";
-	row += "<td><p style='color:red'>Product* </p></td>";
+	row += "<td><span style='color:red' class="requiredText">Product*</span></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Priority: </td>";
 	row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
@@ -207,7 +207,7 @@ function saveAndNewAllDetails()
 }
 
 function newcall(){
-window.location.reload()
+window.location.reload();
 //doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallInsert?OMCR0=AAPA-2X4VKF&OMTGT=ContactCallInsert&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2X4VKF&OCNOEDITTYPE=Y&OCTYPE=")
 }
 
@@ -701,7 +701,7 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 		LotNumber: "" + lotNumber + ""
 	};
 	
-if((productId == null || productId == '') || (qtyVal == null || qtyVal == ''))
+if((qtyVal == null || qtyVal == ''))
 
             {
 
