@@ -1,6 +1,4 @@
-//var counter=0;
 (function(){
-//NILESH
 del_footer_button(1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
 del_footer_button(2);
@@ -202,8 +200,8 @@ function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
 	createNewCallActivity(function() {
-	var pathname = window.location;
-	alert(pathname);	
+	//var pathname = window.location;
+	//alert(pathname);	
 	newcall();
 	});
 }
@@ -702,6 +700,14 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 		Quantity: "" + qtyVal + "",
 		LotNumber: "" + lotNumber + ""
 	};
+	
+if((productId == null || productId == '') || (qtyVal == null || qtyVal == ''))
+
+            {
+
+                        validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
+
+            }
 
 	createWebSerConn(function(xhr, textStatus){
 		var soapAction = 'document/urn:crmondemand/ws/activity/10/2004:Activity_InsertChild';
@@ -768,4 +774,3 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 		//return true;
 	});
 }
-//TEST
