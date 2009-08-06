@@ -752,7 +752,8 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 							alert("ROW COUNTER DECreasing"+ctrowsamp);
 							alert("successssfullllllllyy created the Sample dropped");
 							//dataRemove();
-							document.getElementById('prodNameSamDrop').jQuery(this).parent().parent().parent().parent().parent().remove();
+							document.getElementById('NILESH').jQuery(this).parent().parent().parent().parent().parent().remove();
+							//document.getElementById('prodNameSamDrop').jQuery(this).parent().parent().parent().parent().parent().remove();
 							callback.call();
 						}
 					});	
