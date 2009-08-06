@@ -309,7 +309,7 @@ function createNewCallActivity(callback){
 
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
-		|| (ownerVal == null || ownerVal == ''))
+		|| (ownerVal == null || ownerVal == '')||(productId == null || productId =='') )
 	{
 		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
 	}
@@ -700,14 +700,6 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 		Quantity: "" + qtyVal + "",
 		LotNumber: "" + lotNumber + ""
 	};
-	
-if((qtyVal == null || qtyVal == ''))
-
-            {
-
-                        validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
-
-            }
 
 	createWebSerConn(function(xhr, textStatus){
 		var soapAction = 'document/urn:crmondemand/ws/activity/10/2004:Activity_InsertChild';
