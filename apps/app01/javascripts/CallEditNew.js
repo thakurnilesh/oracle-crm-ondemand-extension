@@ -146,16 +146,13 @@ function addNewRowSampleDrop()
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
 	row += "<td><p style='color:red'>Quantity* </p></td>";
 	row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
-	row += "<td><input type='button' name='delete' id='NILESH' value='delete' onclick=delcall(this)></input></td>";
+	row += "<td><input type='button' name='delete' id='NILESH' value='delete' onclick=jQuery(this).parent().parent().parent().parent().parent().remove();></input></td>";
 	row += "</tr></table></td></tr>";	
 	jQuery("#sampleDrop").append(row);
 	ctrowsamp++; 
     alert("ROW COUNTER Initial: "+ctrowsamp);
 }
 
-function delcall(this){
-jQuery(this).parent().parent().parent().parent().parent().remove();
-}
 
 function addNewRowProdDet(){
 	var row = "<tr width='100%'><td colspan='3'>";
@@ -172,21 +169,6 @@ function addNewRowProdDet(){
 	row += "<td><input type='button' name='delete' value='delete' onclick='jQuery(this).parent().parent().parent().parent().parent().remove()'></input></td>";
 	row += "</tr></table></td></tr>";	
 	jQuery("#prodDetail").append(row);
-}
-
-function addMultipleRows(){
-alert("INSIDE Multiple rows");
-for(var j=0;j<prodCount;j++){
-            var prodData = document.getElementById("prodNamePrDet ");  
-    var prodSelect = document.createElement("select");       
-            prodSelect.text=proditems[j];
-                        prodOption.value=proditems[j];
-                        try {  
-        prodCombo.add(prodOption, null); //Standard  
-        }catch(error) {  
-        prodCombo.add(prodOption); // IE only  
-        } 
-}
 }
 
 function saveAllDetails()
@@ -770,6 +752,7 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 							alert("ROW COUNTER DECreasing"+ctrowsamp);
 							alert("successssfullllllllyy created the Sample dropped");
 							//dataRemove();
+							document.getElementById('prodNameSamDrop').jQuery(this).parent().parent().parent().parent().parent().remove();
 							callback.call();
 						}
 					});	
