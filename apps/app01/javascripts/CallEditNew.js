@@ -40,7 +40,6 @@ function add_footer_button(position, button_text, url, target_window, features) 
                     "onmouseover='toggleNavButton(this);' " +
                     "onmouseout='toggleNavButton(this);' " +
 					"onclick='"+url+";' \>" +
-                   // "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
                     button_text + "</div>";
                 return true;
             }
@@ -138,7 +137,7 @@ function addNewRowSampleDrop()
 	row += "<tr>";
 	row += "<td>Product Category </td>";
 	row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
-	row += "<td><span style='color:red' class='requiredText'>Product*</span></td>";
+	row += "<td><p style='color:red'>Product* </p></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Lot # </td>";
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
@@ -161,8 +160,8 @@ function addNewRowProdDet(){
 	var row = "<tr width='100%'><td colspan='3'>";
 	row += "<table>";
 	row += "<tr>";
-	row += "<td><span style='color:red' class='requiredText'>Product*</span></td>";
-	row += "<td><span class='requiredText'><select STYLE='width: 130px' id='prodNamePrDet'><option id='NILESH' value=''></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></span></td>";
+	row += "<td><p style='color:red'>Product* </p></td>";
+	row += "<td><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Priority: </td>";
 	row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
 	row += "<td><p style='color:red'>Indication*:</p></td>";
@@ -198,7 +197,6 @@ function saveAllDetails()
 
 function saveAndNewAllDetails()
 {
-	//alert("Inside Save All details");
 	createNewCallActivity(function() {
 	//var pathname = window.location;
 	//alert(pathname);	
@@ -208,12 +206,12 @@ function saveAndNewAllDetails()
 
 function newcall(){
 window.location.reload();
-//doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallInsert?OMCR0=AAPA-2X4VKF&OMTGT=ContactCallInsert&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2X4VKF&OCNOEDITTYPE=Y&OCTYPE=")
+//doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallInsert?OMCR0=AAPA-2WJ5PW&OMTGT=ContactCallInsert&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest3%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2WJ5PW&OCNOEDITTYPE=Y&OCTYPE=")
 }
 
 function createWebSerConn(callback)
 {
-	//alert("creating connection with Web services");
+	
 	var userName = 'MERCKTEST_CTE01/pfeil';
 	var password = 'method00';
 	try{
@@ -252,21 +250,21 @@ function getListData(type, xmlData) {
 
 function loadCallDetailsPage()
 {
-	//alert("will load the Call Details page");
+	
 	var e= $(".vlk");
 	var f= e[0];
 	doNavigate(f);
 }
 
 function createNewCallActivity(callback){
-	//alert("Inside Create New Activity : This will return Activity Id");
+	
 	var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
 	var contactPerId = document.getElementById('ContactCallInsert.Contact Per Id').value;
 	var subjectValue = document.getElementById('ContactCallInsert.Description').value;
 	var objectiveVal = document.getElementById('ContactCallInsert.VONDMED Call').value;
 	var startTime = document.getElementById('ContactCallInsert.Planned').value;
 	var accId = document.getElementById('ContactCallInsert.Account Id').value;
-	//var addressVal = document.getElementById('ContactCallInsert.Personal Location Id').value;
+	
 	var smartCallId = document.getElementById('ContactCallInsert.Template Id').value;
 	var endTime = document.getElementById('ContactCallInsert.Planned Completion').value;
 	var typeVal = document.getElementById('ContactCallInsert.Type').value;
@@ -306,12 +304,10 @@ function createNewCallActivity(callback){
 
 	var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
 	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
-	
-    var prodIDC = document.getElementById('NILESH').value;
-	
+
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
-		|| (ownerVal == null || ownerVal == '')||(prodIDC == null || prodIDC =='') )
+		|| (ownerVal == null || ownerVal == ''))
 	{
 		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
 	}
@@ -382,9 +378,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 
 		var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);	
 		var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
-
-		//alert("soapRequest : " + soapRequestFinal);
-
+		
 		try{
 			jQuery.ajax({
 						url: 'https://secure-ausomxapa.crmondemand.com/Services/Integration',
@@ -393,46 +387,35 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 						dataType: 'xml',
 						data: soapRequestFinal,
 						beforeSend: function(xhr) {
-							//alert("Before sending request to insert : " + xhr);
+							
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
 						},   
 						error: function(errormessage) {
 							alert("Error : " + errormessage.responseText);
 						},   
 						complete: function(xhr, textStatus) {
-							//alert("Completed");
+							
 						},								
 						success: function(xmlData, textStatus) {
-							alert("successssfullllllllyy created Activity");
-							var items = getListData('Activity', xmlData);
-							//alert("items : " + items);
-							activityId = items[0].ActivityId;
-							//alert("activityId : " + activityId);
 							
-							//createProductDetailInfo(activityId, function(){
-							//	callback.call();
+							var items = getListData('Activity', xmlData);
+							
+							activityId = items[0].ActivityId;	
 							midway(activityId, function(){
 							callback.call();
-							});
-							
-							//});
+							});	
 						}
 					});	
 		}
 		catch (e) {
 			alert('Error: ' + e.message);
 		}
-		//return true;
 	});
 
 }
 function midway(activityId, callback)
 {
 if(ctrowsamp!=0 || ctrowprod!=0){
-alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp); 
-alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
-//Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking 
-//the same row twice because of the similar ID tag in the HTML. 
 createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
 });});
 }
@@ -445,9 +428,6 @@ callback.call();
 
 function createProductDetailInfo(activityId, callback)
 {
-	//alert("Getting Product Info");
-	//counter++;
-	//alert("Productcallinfo Call No." +counter);
 	var productNameProdet;
 	var productNameSamp;
 	var bothPresent = false;
@@ -464,8 +444,6 @@ function createProductDetailInfo(activityId, callback)
 	if(productNameProdet != null && productNameProdet != '' && productNameSamp != null && productNameSamp != '')
 	{
 		bothPresent = true;
-
-		//alert('productNameProdet : ' + productNameProdet);
 		var fieldsProdet = {
 			ProductId: '',
 			Name: " ='" + productNameProdet + "' "
@@ -473,8 +451,6 @@ function createProductDetailInfo(activityId, callback)
 		callWebServToGetProdInfo(fieldsProdet, activityId, 'ProdDetail', function(){
 			if(bothPresent == true){ }
 		});	
-
-		//alert('productNameSamp : ' + productNameSamp);
 		var fieldsSampDrop = {
 			ProductId: '',
 			Name: " ='" + productNameSamp + "' "
@@ -488,8 +464,7 @@ function createProductDetailInfo(activityId, callback)
 	}
 	else if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
 	{
-		//alert('productNameProdet : ' + productNameProdet);
-		var fieldsProdet = {
+			var fieldsProdet = {
 			ProductId: '',
 			Name: " ='" + productNameProdet + "' "
 		};	
@@ -499,8 +474,7 @@ function createProductDetailInfo(activityId, callback)
 	}
 	else if(productNameProdet == null && productNameSamp != null && productNameSamp != '')
 	{
-		//alert('productNameSamp : ' + productNameSamp);
-		var fieldsSampDrop = {
+			var fieldsSampDrop = {
 			ProductId: '',
 			Name: " ='" + productNameSamp + "' "
 		};	
@@ -516,8 +490,7 @@ function createProductDetailInfo(activityId, callback)
 
 function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
 {
-	//alert('Inside callWebServToGetProdInfo');
-	createWebSerConn(function(xhr, textStatus){
+		createWebSerConn(function(xhr, textStatus){
 		var soapAction = 'document/urn:crmondemand/ws/product/10/2004:ProductQueryPage';
 		var soapRequestTemplate = '' +
 			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
@@ -541,9 +514,6 @@ function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
 		}
 
 		var soapRequest = soapRequestTemplate.replace("<%=fieldsProdet%>", fieldsXML);	
-
-		//alert("soapRequest : " + soapRequest);
-
 		try{
 			jQuery.ajax({
 						url: 'https://secure-ausomxapa.crmondemand.com/Services/Integration',
@@ -552,20 +522,13 @@ function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
 						dataType: 'xml',
 						data: soapRequest,
 						beforeSend: function(xhr) {
-							//alert("Before sending request to insert : " + xhr);
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
 						},   
 						complete: function(xhr, textStatus) {
-							//alert("Completed");
-						},								
+							},								
 						success: function(xmlData, textStatus) {
-							//alert("successssfullllllll getting the product Info");
 							var items = getListData('Product', xmlData);
-							////alert("items : " + items);
 							var productId = items[0].ProductId;
-							//alert("productId : " + productId);
-							//createProductDetailed(activityId, productId);
-
 							if(productId != null)
 							{
 								if(reqFrom != null && reqFrom == 'ProdDetail')
@@ -576,7 +539,6 @@ function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
 								}
 								else if(reqFrom != null && reqFrom == 'SampDrop')
 								{
-									//alert('Control Came from SampDrop');
 									callWebServToCreateSampDrop(productId, activityId, function(){
 										callback.call();
 									});
@@ -598,7 +560,6 @@ function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
 		catch (e) {
 			alert('Error: ' + e.message);
 		}
-		//return true;
 	});
 }
 
@@ -652,9 +613,6 @@ function callWebServToCreateProdDet(productId, activityId, callback)
 
 		var soapRequest = soapRequestTemplate.replace("<%=fieldsProd%>", fieldsXML);	
 		var finalSoapRequest = soapRequest.replace("<%=fieldsAct%>", fieldsActXML);	
-
-		//alert("soapRequest : " + finalSoapRequest);
-
 		try{
 			jQuery.ajax({
 						url: 'https://secure-ausomxapa.crmondemand.com/Services/Integration',
@@ -663,16 +621,12 @@ function callWebServToCreateProdDet(productId, activityId, callback)
 						dataType: 'xml',
 						data: finalSoapRequest,
 						beforeSend: function(xhr) {
-							//alert("Before sending request to insert : " + xhr);
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
 						},   
 						complete: function(xhr, textStatus) {
-							//alert("Completed");
 						},								
 						success: function(xmlData, textStatus) {
 						    ctrowprod--;
-							alert("ROW COUNTER DECreasing ctrowprod: "+ctrowprod);
-							alert("successssfullllllllyy created the Product detailed");
 							jQuery("#ROWID2").parent().parent().parent().parent().parent().remove();			
 							callback.call();
 							
@@ -682,7 +636,6 @@ function callWebServToCreateProdDet(productId, activityId, callback)
 		catch (e) {
 			alert('Error: ' + e.message);
 		}
-		//return true;
 	});
 }
 
@@ -736,9 +689,6 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 
 		var soapRequest = soapRequestTemplate.replace("<%=fieldsProd%>", fieldsXML);	
 		var finalSoapRequest = soapRequest.replace("<%=fieldsAct%>", fieldsActXML);	
-
-		//alert("soapRequest : " + finalSoapRequest);
-
 		try{
 			jQuery.ajax({
 						url: 'https://secure-ausomxapa.crmondemand.com/Services/Integration',
@@ -747,16 +697,12 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						dataType: 'xml',
 						data: finalSoapRequest,
 						beforeSend: function(xhr) {
-							//alert("Before sending request to insert : " + xhr);
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
 						},   
 						complete: function(xhr, textStatus) {
-							//alert("Completed");
 						},								
 						success: function(xmlData, textStatus) {
 						    ctrowsamp--;
-							alert("ROW COUNTER DECreasing ctrowsamp: "+ctrowsamp);
-							alert("successssfullllllllyy created the Sample dropped");
 							jQuery("#ROWID").parent().parent().parent().parent().parent().remove();			
 							callback.call();
 						}
@@ -765,6 +711,5 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 		catch (e) {
 			alert('Error: ' + e.message);
 		}
-		//return true;
 	});
 }
