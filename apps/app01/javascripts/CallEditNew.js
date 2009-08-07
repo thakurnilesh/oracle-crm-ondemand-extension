@@ -1,5 +1,6 @@
-var counter=0;
+//var counter=0;
 (function(){
+
 del_footer_button(1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
 del_footer_button(2);
@@ -139,7 +140,7 @@ function addNewRowSampleDrop()
 	row += "<tr>";
 	row += "<td>Product Category </td>";
 	row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
-	row += "<td><span style='color:red' class='requiredText'>Product*</span></td>";
+	row += "<td><p style='color:red'>Product* </p></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Lot # </td>";
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
@@ -162,8 +163,8 @@ function addNewRowProdDet(){
 	var row = "<tr width='100%'><td colspan='3'>";
 	row += "<table>";
 	row += "<tr>";
-	row += "<td><span style='color:red' class='requiredText'>Product*</span></td>";
-	row += "<td><span class='requiredText'><select STYLE='width: 130px' id='prodNamePrDet'><option id='NILESH' value=''></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></span></td>";
+	row += "<td><p style='color:red'>Product* </p></td>";
+	row += "<td><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Priority: </td>";
 	row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
 	row += "<td><p style='color:red'>Indication*:</p></td>";
@@ -185,12 +186,12 @@ jQuery("#ROWID2").parent().parent().parent().parent().parent().remove();
 function saveAllDetails()
 {
 	//alert("Inside Save All details");
-	var i;
+	/*var i;
 	var e= $(".buttonTD");
 	for(i=0; i < e.length; i++)
 	{
 		e[i].style.disabled = 'true';
-	}
+	}*/
 
 	createNewCallActivity(function() {
 		loadCallDetailsPage();
@@ -201,7 +202,7 @@ function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
 	createNewCallActivity(function() {
-	//var pathname = window.location;
+	//var pathname = window.location.pathname;
 	//alert(pathname);	
 	newcall();
 	});
@@ -209,7 +210,7 @@ function saveAndNewAllDetails()
 
 function newcall(){
 window.location.reload();
-//doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallInsert?OMCR0=AAPA-2X4VKF&OMTGT=ContactCallInsert&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2X4VKF&OCNOEDITTYPE=Y&OCTYPE=")
+//doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallInsert?OMCR0=AAPA-2WJ5PW&OMTGT=ContactCallInsert&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest3%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2WJ5PW&OCNOEDITTYPE=Y&OCTYPE=")
 }
 
 function createWebSerConn(callback)
@@ -307,12 +308,10 @@ function createNewCallActivity(callback){
 
 	var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
 	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
-	
-    var prodIDC = document.getElementById('NILESH').value;
-	
+
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
-		|| (ownerVal == null || ownerVal == '')||(prodIDC == null || prodIDC =='') )
+		|| (ownerVal == null || ownerVal == ''))
 	{
 		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
 	}
@@ -436,8 +435,6 @@ alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
 //the same row twice because of the similar ID tag in the HTML. 
 createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
 });});
-//var createProductDetailInfoCallback = (function(tmpActivityId) {	return function() { midway(tmpActivityId, function(){ callback.call(); } ); };})(activityId);  
-//createProductDetailInfo( activityId, createProductDetailInfoCallback );
 }
 else 
 {
@@ -449,8 +446,8 @@ callback.call();
 function createProductDetailInfo(activityId, callback)
 {
 	//alert("Getting Product Info");
-	counter++;
-	alert("Productcallinfo Call No." +counter);
+	//counter++;
+	//alert("Productcallinfo Call No." +counter);
 	var productNameProdet;
 	var productNameSamp;
 	var bothPresent = false;
