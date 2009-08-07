@@ -434,10 +434,10 @@ alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp);
 alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
 //Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking 
 //the same row twice because of the similar ID tag in the HTML. 
-//createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
-//});});
-var createProductDetailInfoCallback = (function(tmpActivityId) {	return function() { midway(tmpActivityId, function(){ callback.call(); } ); };})(activityId);  
-createProductDetailInfo( activityId, createProductDetailInfoCallback );
+createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
+});});
+//var createProductDetailInfoCallback = (function(tmpActivityId) {	return function() { midway(tmpActivityId, function(){ callback.call(); } ); };})(activityId);  
+//createProductDetailInfo( activityId, createProductDetailInfoCallback );
 }
 else 
 {
