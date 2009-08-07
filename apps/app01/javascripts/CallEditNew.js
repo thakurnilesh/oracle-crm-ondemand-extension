@@ -1,3 +1,4 @@
+var counter=0;
 (function(){
 del_footer_button(1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
@@ -184,12 +185,12 @@ jQuery("#ROWID2").parent().parent().parent().parent().parent().remove();
 function saveAllDetails()
 {
 	//alert("Inside Save All details");
-	/*var i;
+	var i;
 	var e= $(".buttonTD");
 	for(i=0; i < e.length; i++)
 	{
 		e[i].style.disabled = 'true';
-	}*/
+	}
 
 	createNewCallActivity(function() {
 		loadCallDetailsPage();
@@ -448,8 +449,8 @@ callback.call();
 function createProductDetailInfo(activityId, callback)
 {
 	//alert("Getting Product Info");
-	//counter++;
-	//alert("Productcallinfo Call No." +counter);
+	counter++;
+	alert("Productcallinfo Call No." +counter);
 	var productNameProdet;
 	var productNameSamp;
 	var bothPresent = false;
