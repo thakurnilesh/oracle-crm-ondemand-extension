@@ -312,7 +312,7 @@ function createNewCallActivity(callback){
 	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
 	
 	var prodIDC= document.getElementById('prodNamePrDet').value;
-    alert("prodIDC fetched: "+prodIDC);
+    //alert("prodIDC fetched: "+prodIDC);
 	
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
@@ -323,7 +323,7 @@ function createNewCallActivity(callback){
 	
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none'))
 	{
-	alert("INside ProdIDC if");
+	//alert("INside ProdIDC if");
 	div1.style.visibility="visible";
     
    // var em=document.createElement('div');
