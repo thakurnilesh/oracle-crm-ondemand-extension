@@ -393,7 +393,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			fieldsXMLCont += '<' + fieldNameCont + '>' + fieldsCont[fieldNameCont] + '</' + fieldNameCont + '>';
 		}			
 
-		var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);	
+		var soapRequest = soapRequestTemplate.replace("<&fields&>", fieldsXML);	
 		var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
 
 		//alert("soapRequest : " + soapRequestFinal);
