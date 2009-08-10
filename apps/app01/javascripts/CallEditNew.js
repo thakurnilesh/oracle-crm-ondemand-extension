@@ -320,19 +320,11 @@ function createNewCallActivity(callback){
 	{
 		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
 	}
-	
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none'))
 	{
 	//alert("INside ProdIDC if");
-	div1.style.visibility="visible";
-    
-   // var em=document.createElement('div');
-   // em.id='errorID';
-	//em.createTextNode('required'))
-    //var newp=document.createElement('p');
-    //newp.appendChild(document.createTextNode('required'))
-	//em.appendChild(newp);
-   }
+	div1.style.visibility="visible";  
+    }
 	else{
 		var fields = {
 			Objective: "" + objectiveVal + "",
@@ -376,10 +368,10 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			'      <ContactWS_ContactInsertChild_Input xmlns="urn:crmondemand/ws/contact/10/2004">' +
 			'         <ListOfContact>' +
 			'            <Contact>' +
-			'               <%=fieldsCont%>' +
+			'              <![CDATA[<%=fieldsCont%>]]>' +
 			' 		        <ListOfActivity>' +
 			'					<Activity>'	+
-			'		               <%=fields%>' +				
+			'		              <![CDATA[<%=fields%>]]>' +				
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
 			'            </Contact>' +
@@ -545,7 +537,7 @@ function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
 			'         <PageSize>100</PageSize>' +
 			'         <ListOfProduct>' +
 			'            <Product>' +
-			'               <%=fieldsProdet%>' +
+			'              <![CDATA[<%=fieldsProdet%>]]>' +
 			'            </Product>' +
 			'         </ListOfProduct>' +
 			'         <StartRowNum>0</StartRowNum>' +
@@ -646,10 +638,10 @@ function callWebServToCreateProdDet(productId, activityId, callback)
 			'      <ActivityNWS_Activity_InsertChild_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
 			'         <ListOfActivity>' +
 			'            <Activity>' +
-			'		        <%=fieldsAct%>' +
-			'	            <ListOfProductsDetailed>' +
-			'		            <ProductsDetailed>' +					
-			'		               <%=fieldsProd%>' +
+			'		        <![CDATA[<%=fieldsAct%>]]>' +
+   '            			 <ListOfProductsDetailed>' +
+   '              				<ProductsDetailed>' +     
+   '             			  <![CDATA[<%=fieldsProd%>]]>' +
 			'		            </ProductsDetailed>' +
 			'	            </ListOfProductsDetailed>' +
 			'            </Activity>' +
@@ -730,10 +722,10 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 			'      <ActivityNWS_Activity_InsertChild_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
 			'         <ListOfActivity>' +
 			'            <Activity>' +
-			'		        <%=fieldsAct%>' +
-			'	            <ListOfSampleDropped>' +
-			'		            <SampleDropped>' +					
-			'		               <%=fieldsProd%>' +
+			'		        <![CDATA[<%=fieldsAct%>]]>' +
+   '             <ListOfSampleDropped>' +
+   '              <SampleDropped>' +     
+   '               <![CDATA[<%=fieldsProd%>]]' +
 			'		            </SampleDropped>' +
 			'	            </ListOfSampleDropped>' +
 			'            </Activity>' +
