@@ -9,8 +9,9 @@ delete_button('Call Details', 1);
 delete_button('Call Details', 1);
 createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
-addSamplesDropSec();
 addProdDeailedSec();
+addSamplesDropSec();
+
 
 function del_footer_button(position) {
     var i;
