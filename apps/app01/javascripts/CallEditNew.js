@@ -310,8 +310,11 @@ function createNewCallActivity(callback){
 	var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
 	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
 	
-	var prodIDC= document.getElementById('prodNamePrDet').value;
+	var prodIDC='Test';
+	if(ctrowprod!=0){
+	prodIDC= document.getElementById('prodNamePrDet').value;
     alert("prodIDC fetched: "+prodIDC);
+	}
 	
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
