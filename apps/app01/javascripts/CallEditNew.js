@@ -336,7 +336,7 @@ function createNewCallActivity(callback){
 			Status: "" + statusVal + "",
 			Duration:  "" + durationVal + "",
 			CurrencyCode: "" + carrencyVal + "",
-			Display: "" + displayVal + "",
+			//Display: "" + displayVal + "",
 			RefNum: "" + refId + "",
 			Cost: "" + costVal + "",
 			PaperSign: "" + paperSignVal + "",
