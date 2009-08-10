@@ -370,7 +370,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
 			'					<Activity>'	+
-			'		              <![CDATA[ <%=fields%>]]>' +				
+			'		              <![CDATA[%=fields%]]>' +				
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
 			'            </Contact>' +
