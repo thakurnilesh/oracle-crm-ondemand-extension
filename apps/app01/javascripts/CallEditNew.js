@@ -373,8 +373,8 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
 			'					<Activity>'	+
-//			'		              <%=fields%>' +		
-			'						<![CDATA['& fields &']]>' +
+			'		              <%=fields%>' +		
+//			'						<![CDATA['& fields &']]>' +
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
 			'            </Contact>' +
@@ -385,7 +385,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 
 		var fieldsXML = '';
 		for (fieldName in fields) {
-			fieldsXML += '<' + fieldName + '>' + fields[fieldName] + '</' + fieldName + '>';
+			fieldsXML += '<' + fieldName + '><![CDATA[' + fields[fieldName] + ']]></' + fieldName + '>';
 		}
 		
 		var fieldsXMLCont = '';
@@ -393,7 +393,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			fieldsXMLCont += '<' + fieldNameCont + '>' + fieldsCont[fieldNameCont] + '</' + fieldNameCont + '>';
 		}			
 
-		var soapRequest = soapRequestTemplate.replace("<&fields&>", fieldsXML);	
+		var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);	
 		var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
 
 		//alert("soapRequest : " + soapRequestFinal);
