@@ -363,7 +363,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 	var activityId;
 	createWebSerConn(function(xhr, textStatus){
 		var soapAction = 'document/urn:crmondemand/ws/contact/10/2004:ContactInsertChild';
-		var soapRequestTemplate = '' +
+		var soapRequestTemplate = '' + '<![CDATA['+
 			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
 			'   <soapenv:Header/>' +
 			'   <soapenv:Body>' +
@@ -380,7 +380,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			'         </ListOfContact>' +
 			'      </ContactWS_ContactInsertChild_Input>' +
 			'   </soapenv:Body>' +
-			'</soapenv:Envelope>';		
+			'</soapenv:Envelope>' + ']]>';		
 
 		var fieldsXML = '';
 		for (fieldName in fields) {
