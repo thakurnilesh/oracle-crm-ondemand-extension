@@ -318,7 +318,7 @@ function createNewCallActivity(callback){
 		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
 	}
 	
-	else if ((prodIDC == null || prodIDC == ''))
+	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none'))
 	{
 	alert("INside ProdIDC if");
     var em=document.createElement('div');
