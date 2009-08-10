@@ -140,17 +140,17 @@ function addNewRowSampleDrop()
 	row += "<tr>";
 	row += "<td>Product Category </td>";
 	row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
-	row += "<td><p style='color:red'>Product* </p></td>";
+	row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Lot # </td>";
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
-	row += "<td><p style='color:red'>Quantity* </p></td>";
+	row += "<td><span style='color:red' class='requiredText'>Quantity* </span></td>";
 	row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
 	row += "<td><input type='button' name='delete' id='ROWID' value='delete' onclick= rowDelete();></input></td>";
 	row += "</tr></table></td></tr>";	
 	jQuery("#sampleDrop").append(row);
 	ctrowsamp++; 
-    alert("ROW COUNTER Initial ctrowsamp : "+ctrowsamp);
+    //alert("ROW COUNTER Initial ctrowsamp : "+ctrowsamp);
 }
 
 function rowDelete() {
@@ -163,11 +163,11 @@ function addNewRowProdDet(){
 	var row = "<tr width='100%'><td colspan='3'>";
 	row += "<table>";
 	row += "<tr>";
-	row += "<td><p style='color:red'>Product* </p></td>";
+	row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Priority: </td>";
 	row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
-	row += "<td><p style='color:red'>Indication*:</p></td>";
+	row += "<td><span style='color:red' class='requiredText'>Indication*:</span></td>";
 	row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange (this); class=inputControl id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
 	row += "<td>Issues:</td>";
 	row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
@@ -175,7 +175,7 @@ function addNewRowProdDet(){
 	row += "</tr></table></td></tr>";	
 	jQuery("#prodDetail").append(row);
 	ctrowprod++; 
-    alert("ROW COUNTER Initial ctrowprod : "+ctrowprod);
+   // alert("ROW COUNTER Initial ctrowprod : "+ctrowprod);
 }
 
 function rowDelete2(){
@@ -308,6 +308,8 @@ function createNewCallActivity(callback){
 
 	var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
 	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
+	
+	var prodIDC= document.getElementById('prodNamePrDet');
 
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
@@ -315,6 +317,15 @@ function createNewCallActivity(callback){
 	{
 		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
 	}
+	
+	else if ((prodIDC == null || prodIDC == ''))
+	{
+    var em=document.createElement('div');
+    em.id='errorID';
+    var newp=document.createElement('p');
+    newp.appendChild(document.createTextNode('required'))
+	em.appendChild(newp);
+   }
 	else{
 		var fields = {
 			Objective: "" + objectiveVal + "",
@@ -403,7 +414,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 							//alert("Completed");
 						},								
 						success: function(xmlData, textStatus) {
-							alert("successssfullllllllyy created Activity");
+						//	alert("successssfullllllllyy created Activity");
 							var items = getListData('Activity', xmlData);
 							//alert("items : " + items);
 							activityId = items[0].ActivityId;
@@ -429,8 +440,8 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 function midway(activityId, callback)
 {
 if(ctrowsamp!=0 || ctrowprod!=0){
-alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp); 
-alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
+//alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp); 
+//alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
 //Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking 
 //the same row twice because of the similar ID tag in the HTML. 
 createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
@@ -671,8 +682,8 @@ function callWebServToCreateProdDet(productId, activityId, callback)
 						},								
 						success: function(xmlData, textStatus) {
 						    ctrowprod--;
-							alert("ROW COUNTER DECreasing ctrowprod: "+ctrowprod);
-							alert("successssfullllllllyy created the Product detailed");
+							//alert("ROW COUNTER DECreasing ctrowprod: "+ctrowprod);
+							//alert("successssfullllllllyy created the Product detailed");
 							jQuery("#ROWID2").parent().parent().parent().parent().parent().remove();			
 							callback.call();
 							
@@ -755,8 +766,8 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						},								
 						success: function(xmlData, textStatus) {
 						    ctrowsamp--;
-							alert("ROW COUNTER DECreasing ctrowsamp: "+ctrowsamp);
-							alert("successssfullllllllyy created the Sample dropped");
+							//alert("ROW COUNTER DECreasing ctrowsamp: "+ctrowsamp);
+							//alert("successssfullllllllyy created the Sample dropped");
 							jQuery("#ROWID").parent().parent().parent().parent().parent().remove();			
 							callback.call();
 						}
