@@ -12,7 +12,6 @@ createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()',
 addProdDeailedSec();
 addSamplesDropSec();
 
-
 function del_footer_button(position) {
     var i;
     var mytables = document.getElementsByTagName("table");
@@ -368,10 +367,10 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			'      <ContactWS_ContactInsertChild_Input xmlns="urn:crmondemand/ws/contact/10/2004">' +
 			'         <ListOfContact>' +
 			'            <Contact>' +
-			'              <![CDATA[<%=fieldsCont%>]]>' +
+			'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
 			'					<Activity>'	+
-			'		              <![CDATA[<%=fields%>]]>' +				
+			'		              <![CDATA[ <%=fields%>]]>' +				
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
 			'            </Contact>' +
@@ -537,7 +536,7 @@ function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
 			'         <PageSize>100</PageSize>' +
 			'         <ListOfProduct>' +
 			'            <Product>' +
-			'              <![CDATA[<%=fieldsProdet%>]]>' +
+			'               <%=fieldsProdet%>' +
 			'            </Product>' +
 			'         </ListOfProduct>' +
 			'         <StartRowNum>0</StartRowNum>' +
@@ -638,10 +637,10 @@ function callWebServToCreateProdDet(productId, activityId, callback)
 			'      <ActivityNWS_Activity_InsertChild_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
 			'         <ListOfActivity>' +
 			'            <Activity>' +
-			'		        <![CDATA[<%=fieldsAct%>]]>' +
-   '            			 <ListOfProductsDetailed>' +
-   '              				<ProductsDetailed>' +     
-   '             			  <![CDATA[<%=fieldsProd%>]]>' +
+			'		        <%=fieldsAct%>' +
+			'	            <ListOfProductsDetailed>' +
+			'		            <ProductsDetailed>' +					
+			'		               <%=fieldsProd%>' +
 			'		            </ProductsDetailed>' +
 			'	            </ListOfProductsDetailed>' +
 			'            </Activity>' +
@@ -722,10 +721,10 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 			'      <ActivityNWS_Activity_InsertChild_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
 			'         <ListOfActivity>' +
 			'            <Activity>' +
-			'		        <![CDATA[<%=fieldsAct%>]]>' +
-   '             <ListOfSampleDropped>' +
-   '              <SampleDropped>' +     
-   '               <![CDATA[<%=fieldsProd%>]]' +
+			'		        <%=fieldsAct%>' +
+			'	            <ListOfSampleDropped>' +
+			'		            <SampleDropped>' +					
+			'		               <%=fieldsProd%>' +
 			'		            </SampleDropped>' +
 			'	            </ListOfSampleDropped>' +
 			'            </Activity>' +
