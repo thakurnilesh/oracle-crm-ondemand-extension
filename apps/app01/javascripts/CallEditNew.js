@@ -277,7 +277,7 @@ function createNewCallActivity(callback){
 	var statusVal = document.getElementById('ContactCallEditForm.Status').value;
 	var durationVal = document.getElementById('ContactCallEditForm.VONDMED Calc Duration').value;
 	var carrencyVal = document.getElementById('ContactCallEditForm.Currency Code').value;
-	//var displayVal = document.getElementById('ContactCallEditForm.Display').value;
+	var displayVal = document.getElementById('ContactCallEditForm.Mod Id').value;
 	var refId = document.getElementById('ContactCallEditForm.Sample Reference Number').value;
 	var costVal = document.getElementById('ContactCallEditForm.Associated Cost').value;
 	var paperSignVal = document.getElementById('ContactCallEditForm.VONDMED Paper Signature').value;
@@ -311,8 +311,11 @@ function createNewCallActivity(callback){
 	var contactId = $("input[id='ContactCallEditForm.Contact Full Name']").val();
 	var ownerVal = $("input[id='ContactCallEditForm.Assigned To']").val();
 	
-	var prodIDC= document.getElementById('prodNamePrDet').value;
-    //alert("prodIDC fetched: "+prodIDC);
+	var prodIDC='Test';
+	if(ctrowprod!=0){
+	prodIDC= document.getElementById('prodNamePrDet').value;
+   // alert("prodIDC fetched: "+prodIDC);
+	}
 	
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
@@ -336,7 +339,7 @@ function createNewCallActivity(callback){
 			Status: "" + statusVal + "",
 			Duration:  "" + durationVal + "",
 			CurrencyCode: "" + carrencyVal + "",
-			//Display: "" + displayVal + "",
+			Display: "" + displayVal + "",
 			RefNum: "" + refId + "",
 			Cost: "" + costVal + "",
 			PaperSign: "" + paperSignVal + "",
