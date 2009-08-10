@@ -3,12 +3,13 @@
 
 del_footer_button(1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
-del_footer_button(2);
-add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
-delete_button('Call Details', 1);
-delete_button('Call Details', 1);
-createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
-createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+//del_footer_button(2);
+//add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+
+delete_button('Call Detail', 1);
+//delete_button('Call Detail', 1);
+createNewSaveButton('Call Detail',1,'Save','saveAllDetails()','_top',40);
+//createNewSaveButton('Call Detail',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addProdDeailedSec();
 addSamplesDropSec();
 
@@ -276,7 +277,7 @@ function createNewCallActivity(callback){
 	var statusVal = document.getElementById('ContactCallEditForm.Status').value;
 	var durationVal = document.getElementById('ContactCallEditForm.VONDMED Calc Duration').value;
 	var carrencyVal = document.getElementById('ContactCallEditForm.Currency Code').value;
-	var displayVal = document.getElementById('ContactCallEditForm.Display').value;
+	//var displayVal = document.getElementById('ContactCallEditForm.Display').value;
 	var refId = document.getElementById('ContactCallEditForm.Sample Reference Number').value;
 	var costVal = document.getElementById('ContactCallEditForm.Associated Cost').value;
 	var paperSignVal = document.getElementById('ContactCallEditForm.VONDMED Paper Signature').value;
