@@ -309,7 +309,7 @@ function createNewCallActivity(callback){
 	var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
 	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
 	
-	var prodIDC= document.getElementById('prodNamePrDet').val();
+	var prodIDC= document.getElementById('prodNamePrDet').value;
 
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
