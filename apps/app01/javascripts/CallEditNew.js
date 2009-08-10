@@ -277,7 +277,7 @@ function createNewCallActivity(callback){
 	var statusVal = document.getElementById('ContactCallEditForm.Status').value;
 	var durationVal = document.getElementById('ContactCallEditForm.VONDMED Calc Duration').value;
 	var carrencyVal = document.getElementById('ContactCallEditForm.Currency Code').value;
-	var displayVal = document.getElementById('ContactCallEditForm.Mod Id').value;
+	var displayVal = document.getElementById('ContactCallEditForm.Id').value;
 	var refId = document.getElementById('ContactCallEditForm.Sample Reference Number').value;
 	var costVal = document.getElementById('ContactCallEditForm.Associated Cost').value;
 	var paperSignVal = document.getElementById('ContactCallEditForm.VONDMED Paper Signature').value;
