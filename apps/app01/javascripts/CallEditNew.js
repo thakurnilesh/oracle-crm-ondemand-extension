@@ -311,7 +311,7 @@ function createNewCallActivity(callback){
 	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
 	
 	var prodIDC= document.getElementById('prodNamePrDet').value;
-    //alert("prodIDC fetched: "+prodIDC);
+    alert("prodIDC fetched: "+prodIDC);
 	
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
@@ -370,7 +370,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
 			'					<Activity>'	+
-			'		              <![CDATA[%=fields%]]>' +				
+			'		              <%=fields%>' +				
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
 			'            </Contact>' +
