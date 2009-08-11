@@ -169,7 +169,6 @@ function createNewSaveButton2(section_name, position, button_text, url, target_w
 
 
 function addSamplesDropSec(){
-	
 	var newTable = "<tr><td colspan='5'>";
 	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='sampleDrop'>";
 	newTable += "<tr><td>Samples Dropped</td>";
@@ -215,7 +214,6 @@ document.getElementById('foot2').disabled=true;
 document.getElementById('head2').disabled=true;
 document.getElementById('foot').disabled=true;
 document.getElementById('head').disabled=true;
-
 saveFlg=0;
 saveAndNewAllDetails();
 }
@@ -239,7 +237,7 @@ function addNewRowSampleDrop()
 	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td><span id=div3 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
 	row += "<td>Lot # </td>";
-	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value=' ' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
+	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name'/></td></td>";
 	row += "<td><span style='color:red' class='requiredText'>Quantity* </span></td>";
 	row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
 	row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
