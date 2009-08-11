@@ -1,4 +1,6 @@
+//var counter=0;
 (function(){
+
 del_footer_button(1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
 del_footer_button(2);
@@ -9,31 +11,6 @@ createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addProdDeailedSec();
 addSamplesDropSec();
-
-
-
-function addSamplesDropSec(){
-	
-	var newTable = "<tr><td colspan='5'>";
-	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='sampleDrop'>";
-	newTable += "<tr><td>Samples Dropped</td>";
-	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='sampleDropdiv' onclick='addNewRowSampleDrop();'>New</div></td>";
-	newTable += "<td width='100%'></td></tr>";
-	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
-}
-
-function addProdDeailedSec(){
-	var newTable = "<tr><td colspan='5'>";
-	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='prodDetail'>";
-	newTable += "<tr><td>Products Detailed</td>";
-	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='testdiv' onclick='addNewRowProdDet();'>New</div></td>";
-	newTable += "<td width='100%'></td></tr>";
-	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
-}
-
-})();
 
 function del_footer_button(position) {
     var i;
@@ -61,11 +38,10 @@ function add_footer_button(position, button_text, url, target_window, features) 
             if (mytables[i].className == "footbar") {
                  var mytr = mytables[i].getElementsByTagName("tr");				
                  var newtd = mytr[0].insertCell(position);
-                    newtd.innerHTML = "<div id='savetest' class='buttonTD' " +
+                    newtd.innerHTML = "<div id='foot' class='buttonTD' " +
                     "onmouseover='toggleNavButton(this);' " +
                     "onmouseout='toggleNavButton(this);' " +
 					"onclick='this.disabled=true;if (saveFlg==1){"+url+";} saveFlg=0;'\>" +
-				//	"onclick='"+url+";' \>" +
                    // "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
                     button_text + "</div>";
                 return true;
@@ -118,7 +94,7 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				var tr = tabs[i].getElementsByTagName("tr");
 				var newtd = tr[0].insertCell(position);
 
-				newtd.innerHTML = "<div class='buttonTD' " +
+				newtd.innerHTML = "<div id='head' class='buttonTD' " +
 				"id='testSave' " +
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
@@ -133,22 +109,43 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 	return false;
 }
 
+function addSamplesDropSec(){
+	
+	var newTable = "<tr><td colspan='5'>";
+	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='sampleDrop'>";
+	newTable += "<tr><td>Samples Dropped</td>";
+	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='sampleDropdiv' onclick='addNewRowSampleDrop();'>New</div></td>";
+	newTable += "<td width='100%'></td></tr>";
+	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
+	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
+}
+
+function addProdDeailedSec(){
+	var newTable = "<tr><td colspan='5'>";
+	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='prodDetail'>";
+	newTable += "<tr><td>Products Detailed</td>";
+	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='testdiv' onclick='addNewRowProdDet();'>New</div></td>";
+	newTable += "<td width='100%'></td></tr>";
+	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
+	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
+}
+
+})();
+
 
 function addNewRowSampleDrop()
 {
 	var row = "<tr width='100%'><td colspan='3'>";
 	row += "<table>";
 	row += "<tr>";
-	//row += "<td>Product Category </td>";
-	//row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
+	row += "<td>Product Category </td>";
+	row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
 	row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
-	row += "<td><span id=div3 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
 	row += "<td>Lot # </td>";
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
 	row += "<td><span style='color:red' class='requiredText'>Quantity* </span></td>";
 	row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
-	row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
 	row += "<td><input type='button' name='delete' id='ROWID' value='delete' onclick= rowDelete();></input></td>";
 	row += "</tr></table></td></tr>";	
 	jQuery("#sampleDrop").append(row);
@@ -168,12 +165,11 @@ function addNewRowProdDet(){
 	row += "<tr>";
 	row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
-	row += "<td><span id=div1 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
+	row += "<td><span id=div1 style='color:red' style='visibility:hidden' class='requiredText'>required*</span></td>";
 	row += "<td>Priority: </td>";
 	row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
 	row += "<td><span style='color:red' class='requiredText'>Indication*:</span></td>";
 	row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange (this); class=inputControl id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
-	row += "<td><span id=div2 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
 	row += "<td>Issues:</td>";
 	row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
 	row += "<td><input type='button' name='delete' id='ROWID2' value='delete' onclick=rowDelete2();></input></td>";
@@ -315,18 +311,9 @@ function createNewCallActivity(callback){
 	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
 	
 	var prodIDC='Test';
-	var prodIDC2='Test';
 	if(ctrowprod!=0){
 	prodIDC= document.getElementById('prodNamePrDet').value;
-	prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
     //alert("prodIDC fetched: "+prodIDC);
-	}
-	
-	var sampIDC='Test';
-	var sampIDC2='Test';
-	if(ctrowsamp!=0){
-	sampIDC= document.getElementById('prodNameSamDrop').value;
-	sampIDC2= document.getElementById('CallSampDropNew.Quantity').value;
 	}
 	
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
@@ -338,14 +325,14 @@ function createNewCallActivity(callback){
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 	{
 	saveFlg=1;
-	delete_button('Call Details', 1);
-    createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
+	document.getElementById('head').disabled=false;
 	div1.style.visibility="visible";
 	div2.style.visibility="visible";
 	}
 	else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 	{	div1.style.visibility="visible";
 	saveFlg=1;
+	
 	}
 	else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
 	{   div2.style.visibility="visible";  
@@ -365,7 +352,6 @@ function createNewCallActivity(callback){
 	{ div4.style.visibility="visible"; 
 	saveFlg=1;
 	}
-	
 	else{
 		var fields = {
 			Objective: "" + objectiveVal + "",
@@ -412,7 +398,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
 			'					<Activity>'	+
-			'		              <%=fields%>' +		
+			'		              <%=fields%>' +				
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
 			'            </Contact>' +
@@ -423,7 +409,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 
 		var fieldsXML = '';
 		for (fieldName in fields) {
-			fieldsXML += '<' + fieldName + '><![CDATA[' + fields[fieldName] + ']]></' + fieldName + '>';
+			fieldsXML += '<' + fieldName + '>' + fields[fieldName] + '</' + fieldName + '>';
 		}
 		
 		var fieldsXMLCont = '';
