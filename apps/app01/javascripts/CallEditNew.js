@@ -2,7 +2,7 @@
 (function(){
 
 del_footer_button(1);
-add_footer_button(1,'Save','saveAllDetails()','_top',40);
+add_footer_button(1,'Save','midway1()','_top',40);
 del_footer_button(2);
 add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 delete_button('Call Details', 1);
@@ -41,7 +41,7 @@ function add_footer_button(position, button_text, url, target_window, features) 
                     newtd.innerHTML = "<div id='foot' class='buttonTD' " +
                     "onmouseover='toggleNavButton(this);' " +
                     "onmouseout='toggleNavButton(this);' " +
-					"onclick='this.disabled=true;"+url+";'\>" +
+					"onclick='"+url+";'\>" +
                    // "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
                     button_text + "</div>";
                 return true;
@@ -99,7 +99,8 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
 				"onkeypress='onButtonPress(this);' " +
-				"onclick='this.disabled=true;"+url+";'\>" +
+				//"onclick='"+url+";'\>" +
+				"onclick='if(saveFlg==1){"+url+";}'\>" +
 				button_text + "</div>";
 				return true;
 			}
@@ -107,6 +108,18 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 		catch (ex) {}
 	}
 	return false;
+}
+
+function midway1()
+{
+document.getElementById('head').disabled=true;
+saveFlg=0;
+saveAllDetails();
+}
+function midway2()
+{
+document.getElementById('head').disabled=false;
+saveFlg=1;
 }
 
 function addSamplesDropSec(){
@@ -189,14 +202,6 @@ jQuery("#ROWID2").parent().parent().parent().parent().parent().remove();
 
 function saveAllDetails()
 {
-	alert("Inside Save All details");
-	/*var i;
-	var e= $(".buttonTD");
-	for(i=0; i < e.length; i++)
-	{
-		e[i].style.disabled = 'true';
-	}*/
-   
 	createNewCallActivity(function() {
 		loadCallDetailsPage();
 	});
@@ -333,36 +338,36 @@ function createNewCallActivity(callback){
 		|| (ownerVal == null || ownerVal == ''))
 	{
 		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
+		midway2();
 	}
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 	{
-	saveFlg=1;
-	document.getElementById('head').disabled=false;
+	midway2();
 	div1.style.visibility="visible";
 	div2.style.visibility="visible";
 	}
 	else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 	{	div1.style.visibility="visible";
-	saveFlg=1;
+	midway2();
 	
 	}
 	else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
 	{   div2.style.visibility="visible";  
-	saveFlg=1;
+	midway2();
 	}
 	else if ((sampIDC == null || sampIDC == '' || sampIDC == 'none') && (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none'))
 	{
 	div3.style.visibility="visible"; 
 	div4.style.visibility="visible"; 
-	saveFlg=1;
+	midway2();
 	}
 	else if (sampIDC == null || sampIDC == '' || sampIDC == 'none')
 	{ div3.style.visibility="visible"; 
-	saveFlg=1;
+	midway2();
 	}
 	else if (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none')
 	{ div4.style.visibility="visible"; 
-	saveFlg=1;
+	midway2();
 	}
 	else{
 		var fields = {
