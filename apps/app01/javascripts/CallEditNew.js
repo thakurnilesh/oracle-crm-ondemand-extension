@@ -846,7 +846,6 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 {
 	var prodCategory = document.getElementById('CallSampDropNew.Primary Product Line Name').value;
 	var lotNumber = document.getElementById('CallSampDropNew.LOT Name').value;
-	//alert('show me lot: '+lotNumber);
 	var qtyVal = document.getElementById('CallSampDropNew.Quantity').value;
 
 	var fieldsAct = {
