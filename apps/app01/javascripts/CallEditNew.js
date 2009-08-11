@@ -143,7 +143,7 @@ saveAllDetails();
 function midway2()
 {
 document.getElementById('foot').disabled=false;
-document.getElementById('head').disabled=true;
+document.getElementById('head').disabled=false;
 saveFlg=1;
 }
 
