@@ -2,13 +2,13 @@
 (function(){
 
 del_footer_button(1);
-add_footer_button(1,'Save','midway1()','_top',40);
+add_footer_button(1,'Save','saveMidway1()','_top',40);
 del_footer_button(2);
-add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+add_footer_button(2,'Save & New Call','saveandnewMidway1()','_top',40);
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
-createNewSaveButton('Call Details',1,'Save','midway1()','_top',40);
-createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+createNewSaveButton('Call Details',1,'Save','saveMidway1()','_top',40);
+createNewSaveButton('Call Details',2,'Save & New Call','saveandnewMidway1()','_top',40);
 addProdDeailedSec();
 addSamplesDropSec();
 
@@ -133,20 +133,32 @@ function addProdDeailedSec(){
 
 })();
 
-function midway1()
+function saveMidway1()
 {
 document.getElementById('foot').disabled=true;
 document.getElementById('head').disabled=true;
 saveFlg=0;
 saveAllDetails();
 }
-function midway2()
+function saveMidway2()
 {
 document.getElementById('foot').disabled=false;
 document.getElementById('head').disabled=false;
 saveFlg=1;
 }
-
+function saveandnewMidway1()
+{
+document.getElementById('foot').disabled=true;
+document.getElementById('head').disabled=true;
+saveFlg=0;
+saveAndNewAllDetails();
+}
+function saveandnewMidway2()
+{
+document.getElementById('foot').disabled=false;
+document.getElementById('head').disabled=false;
+saveFlg=1;
+}
 
 function addNewRowSampleDrop()
 {
