@@ -41,7 +41,7 @@ function add_footer_button(position, button_text, url, target_window, features) 
                     newtd.innerHTML = "<div id='foot' class='buttonTD' " +
                     "onmouseover='toggleNavButton(this);' " +
                     "onmouseout='toggleNavButton(this);' " +
-					"onclick='this.disabled=true;if (saveFlg==1){"+url+";} saveFlg=0;'\>" +
+					"onclick='this.disabled=true;"+url+";'\>" +
                    // "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
                     button_text + "</div>";
                 return true;
@@ -99,7 +99,7 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
 				"onkeypress='onButtonPress(this);' " +
-				"onclick='this.disabled=true;if (saveFlg==1){"+url+";} saveFlg=0;'\>" +
+				"onclick='this.disabled=true;"+url+";'\>" +
 				button_text + "</div>";
 				return true;
 			}
@@ -189,14 +189,14 @@ jQuery("#ROWID2").parent().parent().parent().parent().parent().remove();
 
 function saveAllDetails()
 {
-	//alert("Inside Save All details");
+	alert("Inside Save All details");
 	/*var i;
 	var e= $(".buttonTD");
 	for(i=0; i < e.length; i++)
 	{
 		e[i].style.disabled = 'true';
 	}*/
-
+   
 	createNewCallActivity(function() {
 		loadCallDetailsPage();
 	});
