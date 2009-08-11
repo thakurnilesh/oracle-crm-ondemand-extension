@@ -315,6 +315,7 @@ function createNewCallActivity(callback){
 	prodIDC= document.getElementById('prodNamePrDet').value;
     //alert("prodIDC fetched: "+prodIDC);
 	}
+	
 	var sampIDC='Test';
 	if(ctrowsamp!=0){
 	sampIDC= document.getElementById('prodNameSamDrop').value;
@@ -330,6 +331,11 @@ function createNewCallActivity(callback){
 	{
 	//alert("INside ProdIDC if");
 	div1.style.visibility="visible";  
+    }
+	else if ((sampIDC == null || sampIDC == '' || sampIDC == 'none'))
+	{
+	//alert("INside ProdIDC if");
+	div2.style.visibility="visible";  
     }
 	else{
 		var fields = {
