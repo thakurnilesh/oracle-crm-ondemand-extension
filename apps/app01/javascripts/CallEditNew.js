@@ -99,7 +99,7 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
 				"onkeypress='onButtonPress(this);' " +
-				"onclick='"+url+";this.disabled=true;' \>" +
+				"onclick='"+url+";this.disabled=disabled;' \>" +
 				button_text + "</div>";
 				return true;
 			}
@@ -142,6 +142,7 @@ function addNewRowSampleDrop()
 	row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
 	row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
+	row += "<td><span id=div2 style='color:red' style='visibility:hidden' class='requiredText'>required*</span></td>";
 	row += "<td>Lot # </td>";
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
 	row += "<td><span style='color:red' class='requiredText'>Quantity* </span></td>";
@@ -314,6 +315,10 @@ function createNewCallActivity(callback){
 	if(ctrowprod!=0){
 	prodIDC= document.getElementById('prodNamePrDet').value;
     //alert("prodIDC fetched: "+prodIDC);
+	}
+	var sampIDC='Test';
+	if(ctrowsamp!=0){
+	sampIDC= document.getElementById('prodNameSamDrop').value;
 	}
 	
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
