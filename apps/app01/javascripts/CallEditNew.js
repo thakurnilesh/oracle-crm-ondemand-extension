@@ -148,6 +148,7 @@ saveFlg=1;
 }
 function saveandnewMidway1()
 {
+newbutton=1;
 document.getElementById('foot').disabled=true;
 document.getElementById('head').disabled=true;
 saveFlg=0;
@@ -347,41 +348,63 @@ function createNewCallActivity(callback){
 	sampIDC2= document.getElementById('CallSampDropNew.Quantity').value;
 	}
 	
+	
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
 		|| (ownerVal == null || ownerVal == ''))
 	{
 		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
-		midway2();
+		if(newbutton==1)
+		    saveandnewMidway2();
+		else	
+		saveMidway2();
 	}
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 	{
-	midway2();
+	if(newbutton==1)
+		    saveandnewMidway2();
+		else	
+		saveMidway2();
 	div1.style.visibility="visible";
 	div2.style.visibility="visible";
 	}
 	else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 	{	div1.style.visibility="visible";
-	midway2();
+	if(newbutton==1)
+		    saveandnewMidway2();
+		else	
+		saveMidway2();
 	
 	}
 	else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
 	{   div2.style.visibility="visible";  
-	midway2();
+	if(newbutton==1)
+		    saveandnewMidway2();
+		else	
+		saveMidway2();
 	}
 	else if ((sampIDC == null || sampIDC == '' || sampIDC == 'none') && (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none'))
 	{
 	div3.style.visibility="visible"; 
 	div4.style.visibility="visible"; 
-	midway2();
+	if(newbutton==1)
+		    saveandnewMidway2();
+		else	
+		saveMidway2();
 	}
 	else if (sampIDC == null || sampIDC == '' || sampIDC == 'none')
 	{ div3.style.visibility="visible"; 
-	midway2();
+	if(newbutton==1)
+		    saveandnewMidway2();
+		else	
+		saveMidway2();
 	}
 	else if (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none')
 	{ div4.style.visibility="visible"; 
-	midway2();
+	 if(newbutton==1)
+		    saveandnewMidway2();
+		else	
+		saveMidway2();
 	}
 	else{
 		var fields = {
@@ -440,7 +463,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 
 		var fieldsXML = '';
 		for (fieldName in fields) {
-			fieldsXML += '<' + fieldName + '>' + fields[fieldName] + '</' + fieldName + '>';
+			fieldsXML += '<' + fieldName + '><![CDATA[' + fields[fieldName] + ']]></' + fieldName + '>';
 		}
 		
 		var fieldsXMLCont = '';
