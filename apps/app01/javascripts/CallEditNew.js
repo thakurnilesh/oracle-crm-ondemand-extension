@@ -338,6 +338,8 @@ function createNewCallActivity(callback){
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 	{
 	saveFlg=1;
+	delete_button('Call Details', 1);
+    createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 	div1.style.visibility="visible";
 	div2.style.visibility="visible";
 	}
