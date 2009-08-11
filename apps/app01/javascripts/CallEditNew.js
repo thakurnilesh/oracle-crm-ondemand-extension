@@ -1,6 +1,5 @@
 //var counter=0;
 (function(){
-
 del_footer_button(1);
 add_footer_button(1,'Save','saveMidway1()','_top',40);
 del_footer_button(2);
@@ -517,7 +516,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
 			'					<Activity>'	+
-			'		              <%=fields%>' +				
+			'		              <%=fields%>' +		
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
 			'            </Contact>' +
