@@ -195,6 +195,8 @@ function saveMidway1()
 {
 document.getElementById('foot').disabled=true;
 document.getElementById('head').disabled=true;
+document.getElementById('foot2').disabled=true;
+document.getElementById('head2').disabled=true;
 saveFlg=0;
 saveAllDetails();
 }
@@ -202,6 +204,8 @@ function saveMidway2()
 {
 document.getElementById('foot').disabled=false;
 document.getElementById('head').disabled=false;
+document.getElementById('foot2').disabled=false;
+document.getElementById('head2').disabled=false;
 saveFlg=1;
 }
 function saveandnewMidway1()
@@ -209,6 +213,9 @@ function saveandnewMidway1()
 newbutton=1;
 document.getElementById('foot2').disabled=true;
 document.getElementById('head2').disabled=true;
+document.getElementById('foot').disabled=true;
+document.getElementById('head').disabled=true;
+
 saveFlg=0;
 saveAndNewAllDetails();
 }
@@ -216,6 +223,8 @@ function saveandnewMidway2()
 {
 document.getElementById('foot2').disabled=false;
 document.getElementById('head2').disabled=false;
+document.getElementById('foot').disabled=false;
+document.getElementById('head').disabled=false;
 saveFlg=1;
 }
 
