@@ -4,11 +4,11 @@
 del_footer_button(1);
 add_footer_button(1,'Save','saveMidway1()','_top',40);
 del_footer_button(2);
-add_footer_button(2,'Save & New Call','saveandnewMidway1()','_top',40);
+add_footer_button2(2,'Save & New Call','saveandnewMidway1()','_top',40);
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
 createNewSaveButton('Call Details',1,'Save','saveMidway1()','_top',40);
-createNewSaveButton('Call Details',2,'Save & New Call','saveandnewMidway1()','_top',40);
+createNewSaveButton2('Call Details',2,'Save & New Call','saveandnewMidway1()','_top',40);
 addProdDeailedSec();
 addSamplesDropSec();
 
@@ -39,6 +39,30 @@ function add_footer_button(position, button_text, url, target_window, features) 
                  var mytr = mytables[i].getElementsByTagName("tr");				
                  var newtd = mytr[0].insertCell(position);
                     newtd.innerHTML = "<div id='foot' class='buttonTD' " +
+                    "onmouseover='toggleNavButton(this);' " +
+                    "onmouseout='toggleNavButton(this);' " +
+					"onclick='if(saveFlg==1){"+url+";}'\>" +
+                   // "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
+                    button_text + "</div>";
+                return true;
+            }
+        } catch (ex) {
+            // you really don't want to enable this unless at wits end
+            // alert("Exception! " + ex.toString());
+        }
+    }
+    return false;
+}
+
+function add_footer_button2(position, button_text, url, target_window, features) {
+    var i;
+    var mytables = document.getElementsByTagName("table");
+    for (i = 0; i < mytables.length; i++) {
+        try {
+            if (mytables[i].className == "footbar") {
+                 var mytr = mytables[i].getElementsByTagName("tr");				
+                 var newtd = mytr[0].insertCell(position);
+                    newtd.innerHTML = "<div id='foot2' class='buttonTD' " +
                     "onmouseover='toggleNavButton(this);' " +
                     "onmouseout='toggleNavButton(this);' " +
 					"onclick='if(saveFlg==1){"+url+";}'\>" +
@@ -110,6 +134,40 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 	return false;
 }
 
+function createNewSaveButton2(section_name, position, button_text, url, target_window, features){
+	var i;
+	var ih0;
+	var ih1;
+	var tabs = document.getElementsByTagName("table");
+	for (i = 0; i < tabs.length; i++) 
+	{
+	  var td = tabs[i].getElementsByTagName("td");
+		try 
+		  {
+			ih0 = td[0].innerHTML;
+			ih1 = td[1].innerHTML;
+			if (ih0.indexOf(section_name) == 0 || ih1.indexOf(section_name) == 0) 
+				{
+				var tr = tabs[i].getElementsByTagName("tr");
+				var newtd = tr[0].insertCell(position);
+
+				newtd.innerHTML = "<div id='head2' class='buttonTD' " +
+				"id='testSave' " +
+				"onmouseover='toggleNavButton(this);' " +
+				"onmouseout='toggleNavButton(this);' " +
+				"onkeypress='onButtonPress(this);' " +
+				//"onclick='"+url+";'\>" +
+				"onclick='if(saveFlg==1){"+url+";}'\>" +
+				button_text + "</div>";
+				return true;
+			}
+		} 
+		catch (ex) {}
+	}
+	return false;
+}
+
+
 function addSamplesDropSec(){
 	
 	var newTable = "<tr><td colspan='5'>";
@@ -149,15 +207,15 @@ saveFlg=1;
 function saveandnewMidway1()
 {
 newbutton=1;
-document.getElementById('foot').disabled=true;
-document.getElementById('head').disabled=true;
+document.getElementById('foot2').disabled=true;
+document.getElementById('head2').disabled=true;
 saveFlg=0;
 saveAndNewAllDetails();
 }
 function saveandnewMidway2()
 {
-document.getElementById('foot').disabled=false;
-document.getElementById('head').disabled=false;
+document.getElementById('foot2').disabled=false;
+document.getElementById('head2').disabled=false;
 saveFlg=1;
 }
 
