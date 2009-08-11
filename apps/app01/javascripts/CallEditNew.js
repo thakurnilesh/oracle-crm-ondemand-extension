@@ -99,7 +99,7 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
 				"onkeypress='onButtonPress(this);' " +
-				"onclick='this.disabled=true;"+url+";' \>" +
+				"onclick='"+url+";this.disabled=true;' \>" +
 				button_text + "</div>";
 				return true;
 			}
