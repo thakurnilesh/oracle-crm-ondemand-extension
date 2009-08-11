@@ -7,7 +7,7 @@ del_footer_button(2);
 add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
-createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
+createNewSaveButton('Call Details',1,'Save','midway1()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addProdDeailedSec();
 addSamplesDropSec();
@@ -135,13 +135,15 @@ function addProdDeailedSec(){
 
 function midway1()
 {
+document.getElementById('foot').disabled=true;
 document.getElementById('head').disabled=true;
 saveFlg=0;
 saveAllDetails();
 }
 function midway2()
 {
-document.getElementById('head').disabled=false;
+document.getElementById('foot').disabled=false;
+document.getElementById('head').disabled=true;
 saveFlg=1;
 }
 
