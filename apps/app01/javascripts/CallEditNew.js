@@ -98,7 +98,7 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
 				"onkeypress='onButtonPress(this);' " +
-				"onclick='this.disabled=true;this.value='Save In Progess...';if (saveFlg==1){"+url+"} saveFlg=0\>" +
+				"onclick='this.disabled=true;if (saveFlg==1){"+url+";} saveFlg=0;'\>" +
 				button_text + "</div>";
 				return true;
 			}
