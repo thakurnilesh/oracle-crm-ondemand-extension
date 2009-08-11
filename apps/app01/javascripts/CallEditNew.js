@@ -1,4 +1,3 @@
-var saveFlg='Y';
 (function(){
 
 del_footer_button(1);
