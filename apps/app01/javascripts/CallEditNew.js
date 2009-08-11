@@ -110,18 +110,6 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 	return false;
 }
 
-function midway1()
-{
-document.getElementById('head').disabled=true;
-saveFlg=0;
-saveAllDetails();
-}
-function midway2()
-{
-document.getElementById('head').disabled=false;
-saveFlg=1;
-}
-
 function addSamplesDropSec(){
 	
 	var newTable = "<tr><td colspan='5'>";
@@ -144,6 +132,18 @@ function addProdDeailedSec(){
 }
 
 })();
+
+function midway1()
+{
+document.getElementById('head').disabled=true;
+saveFlg=0;
+saveAllDetails();
+}
+function midway2()
+{
+document.getElementById('head').disabled=false;
+saveFlg=1;
+}
 
 
 function addNewRowSampleDrop()
