@@ -1,4 +1,4 @@
-//var counter=0;
+var saveFlg='Y';
 (function(){
 
 del_footer_button(1);
@@ -99,7 +99,7 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
 				"onkeypress='onButtonPress(this);' " +
-				"onclick='"+url+";this.disabled=disabled;' \>" +
+				"onclick='this.disabled=true;this.value='Save In Progess...';if (saveFlg=='Y'){"+url+"} saveFlg='N'\>" +
 				button_text + "</div>";
 				return true;
 			}
