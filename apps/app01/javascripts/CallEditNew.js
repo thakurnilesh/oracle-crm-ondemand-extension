@@ -1,5 +1,4 @@
 (function(){
-
 del_footer_button(1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
 del_footer_button(2);
@@ -10,6 +9,31 @@ createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
 createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addProdDeailedSec();
 addSamplesDropSec();
+
+
+
+function addSamplesDropSec(){
+	
+	var newTable = "<tr><td colspan='5'>";
+	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='sampleDrop'>";
+	newTable += "<tr><td>Samples Dropped</td>";
+	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='sampleDropdiv' onclick='addNewRowSampleDrop();'>New</div></td>";
+	newTable += "<td width='100%'></td></tr>";
+	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
+	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
+}
+
+function addProdDeailedSec(){
+	var newTable = "<tr><td colspan='5'>";
+	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='prodDetail'>";
+	newTable += "<tr><td>Products Detailed</td>";
+	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='testdiv' onclick='addNewRowProdDet();'>New</div></td>";
+	newTable += "<td width='100%'></td></tr>";
+	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
+	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
+}
+
+})();
 
 function del_footer_button(position) {
     var i;
@@ -108,29 +132,6 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 	}
 	return false;
 }
-
-function addSamplesDropSec(){
-	
-	var newTable = "<tr><td colspan='5'>";
-	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='sampleDrop'>";
-	newTable += "<tr><td>Samples Dropped</td>";
-	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='sampleDropdiv' onclick='addNewRowSampleDrop();'>New</div></td>";
-	newTable += "<td width='100%'></td></tr>";
-	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
-}
-
-function addProdDeailedSec(){
-	var newTable = "<tr><td colspan='5'>";
-	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='prodDetail'>";
-	newTable += "<tr><td>Products Detailed</td>";
-	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='testdiv' onclick='addNewRowProdDet();'>New</div></td>";
-	newTable += "<td width='100%'></td></tr>";
-	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
-}
-
-})();
 
 
 function addNewRowSampleDrop()
@@ -337,25 +338,17 @@ function createNewCallActivity(callback){
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 	{
 	saveFlg=1;
-	delete_button('Call Details', 1);
-	createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
-	//jQuery("savetest").disabled=false;
-	//this.disabled=true
 	div1.style.visibility="visible";
 	div2.style.visibility="visible";
 	}
 	else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 	{	div1.style.visibility="visible";
-saveFlg=1;
-//del_footer_button(1);
-//add_footer_button(1,'Save','saveAllDetails()','_top',40);
-//jQuery("savetest").this.disabled=false;
+	saveFlg=1;
 	}
 	else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
 	{   div2.style.visibility="visible";  
 	saveFlg=1;
 	}
-	
 	else if ((sampIDC == null || sampIDC == '' || sampIDC == 'none') && (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none'))
 	{
 	div3.style.visibility="visible"; 
