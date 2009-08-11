@@ -37,7 +37,7 @@ function add_footer_button(position, button_text, url, target_window, features) 
             if (mytables[i].className == "footbar") {
                  var mytr = mytables[i].getElementsByTagName("tr");				
                  var newtd = mytr[0].insertCell(position);
-                    newtd.innerHTML = "<div class='buttonTD' " +
+                    newtd.innerHTML = "<div id='savetest' class='buttonTD' " +
                     "onmouseover='toggleNavButton(this);' " +
                     "onmouseout='toggleNavButton(this);' " +
 					"onclick='this.disabled=true;if (saveFlg==1){"+url+";} saveFlg=0;'\>" +
@@ -337,12 +337,15 @@ function createNewCallActivity(callback){
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 	{
 	saveFlg=1;
+	jQuery("savetest").disabled=false;
+	//this.disabled=true
 	div1.style.visibility="visible";
 	div2.style.visibility="visible";
 	}
 	else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 	{	div1.style.visibility="visible";
 saveFlg=1;
+jQuery("savetest").disabled=false;
 	}
 	else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
 	{   div2.style.visibility="visible";  
