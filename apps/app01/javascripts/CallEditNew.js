@@ -337,7 +337,7 @@ function createNewCallActivity(callback){
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 	{
 	saveFlg=1;
-	jQuery("savetest").disabled=false;
+	jQuery("savetest").this.disabled=false;
 	//this.disabled=true
 	div1.style.visibility="visible";
 	div2.style.visibility="visible";
@@ -345,7 +345,7 @@ function createNewCallActivity(callback){
 	else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 	{	div1.style.visibility="visible";
 saveFlg=1;
-jQuery("savetest").disabled=false;
+jQuery("savetest").this.disabled=false;
 	}
 	else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
 	{   div2.style.visibility="visible";  
