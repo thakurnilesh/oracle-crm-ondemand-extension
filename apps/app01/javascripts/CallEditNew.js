@@ -336,23 +336,33 @@ function createNewCallActivity(callback){
 	}
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 	{
+	saveFlg=1;
 	div1.style.visibility="visible";
 	div2.style.visibility="visible";
 	}
 	else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
-	{	div1.style.visibility="visible";  }
+	{	div1.style.visibility="visible";
+saveFlg=1;
+	}
 	else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
-	{   div2.style.visibility="visible";  }
+	{   div2.style.visibility="visible";  
+	saveFlg=1;
+	}
 	
 	else if ((sampIDC == null || sampIDC == '' || sampIDC == 'none') && (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none'))
 	{
 	div3.style.visibility="visible"; 
 	div4.style.visibility="visible"; 
+	saveFlg=1;
 	}
 	else if (sampIDC == null || sampIDC == '' || sampIDC == 'none')
-	{ div3.style.visibility="visible"; }
+	{ div3.style.visibility="visible"; 
+	saveFlg=1;
+	}
 	else if (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none')
-	{ div4.style.visibility="visible"; }
+	{ div4.style.visibility="visible"; 
+	saveFlg=1;
+	}
 	
 	else{
 		var fields = {
