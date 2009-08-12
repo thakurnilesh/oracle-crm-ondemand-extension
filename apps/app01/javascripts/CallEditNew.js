@@ -407,7 +407,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 							var items = getListData('Activity', xmlData);
 							//alert("items : " + items);
 							activityId = items[0].ActivityId;
-							//alert("activityId : " + activityId);
+							alert("activityId : " + activityId);
 							
 							//createProductDetailInfo(activityId, function(){
 							//	callback.call();
