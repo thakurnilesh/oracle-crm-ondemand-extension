@@ -399,6 +399,7 @@ function createActivityIdUsingWeb(fields,callback)
 		//var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
 
 		//alert("soapRequest : " + soapRequestFinal);
+		alert("soapRequest : " + soapRequest);
 
 		try{
 			jQuery.ajax({
