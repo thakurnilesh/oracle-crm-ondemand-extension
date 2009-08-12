@@ -853,7 +853,7 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 
 	var fieldsProd = {
 		ProductId: "" + productId + "",
-		ProductCategory: "" + prodCategory + "",
+		//ProductCategory: "" + prodCategory + "",
 		Quantity: "" + qtyVal + "",
 		LotNumber: "" + lotNumber + ""
 	};
