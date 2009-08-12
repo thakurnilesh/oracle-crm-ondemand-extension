@@ -277,7 +277,7 @@ function createNewCallActivity(callback){
 	var statusVal = document.getElementById('ContactCallEditForm.Status').value;
 	var durationVal = document.getElementById('ContactCallEditForm.VONDMED Calc Duration').value;
 	var carrencyVal = document.getElementById('ContactCallEditForm.Currency Code').value;
-	//var displayVal = document.getElementById('ContactCallEditForm.Mod Id').value;
+	var displayVal = document.getElementById('ContactCallEditForm.Mod Id').value;
 	var refId = document.getElementById('ContactCallEditForm.Sample Reference Number').value;
 	var costVal = document.getElementById('ContactCallEditForm.Associated Cost').value;
 	var paperSignVal = document.getElementById('ContactCallEditForm.VONDMED Paper Signature').value;
@@ -340,7 +340,7 @@ function createNewCallActivity(callback){
 			Status: "" + statusVal + "",
 			Duration:  "" + durationVal + "",
 			CurrencyCode: "" + carrencyVal + "",
-			//Display: "" + displayVal + "",
+			Display: "" + displayVal + "",
 			RefNum: "" + refId + "",
 			Cost: "" + costVal + "",
 			PaperSign: "" + paperSignVal + "",
@@ -351,9 +351,9 @@ function createNewCallActivity(callback){
 			EndTime: "" + endTimeMod + ""
 		};
 		
-var fieldsCont = {
+/*var fieldsCont = {
 	ContactId: "" + contactPerId + ""
-	};
+	};*/
 		createActivityIdUsingWeb(fields, function(){
 			callback.call();
 		});	
@@ -375,12 +375,7 @@ function createActivityIdUsingWeb(fields,callback)
 		//	'            <Contact>' +
 		//	'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
-			'         			<ListOfContact>' +
-			'            				<Contact>' +
-			'               		<%=fieldsCont%>' +
-			'           		         </Contact>' +
-			'         			</ListOfContact>' +
-			'					<Activity>'	+
+			'         			<Activity>'	+
 			'		               <%=fields%>' +				
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
@@ -395,16 +390,16 @@ function createActivityIdUsingWeb(fields,callback)
 			fieldsXML += '<' + fieldName + '><![CDATA[' + fields[fieldName] + ']]></' + fieldName + '>';
 		}
 		
-		var fieldsXMLCont = '';
+	/*	var fieldsXMLCont = '';
 		for (fieldNameCont in fieldsCont) {
 			fieldsXMLCont += '<' + fieldNameCont + '>' + fieldsCont[fieldNameCont] + '</' + fieldNameCont + '>';
-		}	
+		}	*/
 
 		var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);	
-		var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
+		//var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
 
-		alert("soapRequest : " + soapRequestFinal);
-		//alert("soapRequest : " + soapRequest);
+		//alert("soapRequest : " + soapRequestFinal);
+		alert("soapRequest : " + soapRequest);
 
 		try{
 			jQuery.ajax({
@@ -412,8 +407,8 @@ function createActivityIdUsingWeb(fields,callback)
 						type: 'POST',
 						contentType: 'text/xml',
 						dataType: 'xml',
-						data: soapRequestFinal,
-						//data: soapRequest,
+						//data: soapRequestFinal,
+						data: soapRequest,
 						beforeSend: function(xhr) {
 							alert("Before sending request to insert : " + xhr);
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
