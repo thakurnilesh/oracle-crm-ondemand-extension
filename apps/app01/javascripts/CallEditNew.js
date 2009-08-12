@@ -333,7 +333,7 @@ function createNewCallActivity(callback){
 		  //  ContactId: "" + contactPerId + "",
 			Objective: "" + objectiveVal + "",
 			Subject: "" + subjectValue + "",
-			OwnerId: "" + ownerId + "",
+			//OwnerId: "" + ownerId + "",
 			Type: "" + typeVal + "",
 			AccountId: "" + accId + "",
 			SmartCall: "" + smartCallId + "",
