@@ -368,7 +368,7 @@ function createActivityIdUsingWeb(fields,callback)
 			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
 			'   <soapenv:Header/>' +
 			'   <soapenv:Body>' +
-			'      <ActivityNWS_Activity_Update_Input xmlns="urn:/crmondemand/xml/contact">' +
+			'      <ActivityNWS_Activity_Update_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
 			'         <ListOfContact>' +
 	//		'            <Contact>' +
 	//		'               <%=fieldsCont%>' +
