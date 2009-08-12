@@ -217,7 +217,7 @@ window.location.reload();
 
 function createWebSerConn(callback)
 {
-	alert("creating connection with Web services");
+	//alert("creating connection with Web services");
 	var userName = 'MERCKTEST_CTE01/pfeil';
 	var password = 'method00';
 	try{
@@ -362,15 +362,13 @@ function createNewCallActivity(callback){
 function createActivityIdUsingWeb(fields, fieldsCont, callback)
 {
 	var activityId;
-	alert('Inside createActivityUsingWeb');
 	createWebSerConn(function(xhr, textStatus){
-		var soapAction = 'document/urn:crmondemand/ws/activity/10/2004:Activity_Update';
+		var soapAction = 'document/urn:crmondemand/ws/contact/10/2004:ContactInsertChild';
 		var soapRequestTemplate = '' +
 			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
 			'   <soapenv:Header/>' +
 			'   <soapenv:Body>' +
-			'      <ActivityNWS_Activity_Update_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
-		//	'      <ContactWS_ContactInsertChild_Input xmlns="urn:crmondemand/ws/contact/10/2004">' +
+			'      <ContactWS_ContactInsertChild_Input xmlns="urn:crmondemand/ws/contact/10/2004">' +
 			'         <ListOfContact>' +
 			'            <Contact>' +
 			'               <%=fieldsCont%>' +
@@ -381,8 +379,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			'         		</ListOfActivity>' +				
 			'            </Contact>' +
 			'         </ListOfContact>' +
-			'      </ActivityNWS_Activity_Update_Input>' +
-		//	'      </ContactWS_ContactInsertChild_Input>' +
+			'      </ContactWS_ContactInsertChild_Input>' +
 			'   </soapenv:Body>' +
 			'</soapenv:Envelope>';		
 
@@ -399,7 +396,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 		var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);	
 		var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
 
-		alert("soapRequest : " + soapRequestFinal);
+		//alert("soapRequest : " + soapRequestFinal);
 
 		try{
 			jQuery.ajax({
@@ -423,7 +420,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 							var items = getListData('Activity', xmlData);
 							//alert("items : " + items);
 							activityId = items[0].ActivityId;
-							//alert("activityId : " + activityId);
+							alert("activityId : " + activityId);
 							
 							//createProductDetailInfo(activityId, function(){
 							//	callback.call();
