@@ -205,7 +205,7 @@ document.getElementById('head').disabled=false;
 document.getElementById('foot2').disabled=false;
 document.getElementById('head2').disabled=false;
 saveFlg=1;
-return;
+//return;
 }
 function saveandnewMidway1()
 {
@@ -224,7 +224,7 @@ document.getElementById('head2').disabled=false;
 document.getElementById('foot').disabled=false;
 document.getElementById('head').disabled=false;
 saveFlg=1;
-return;
+//return;
 }
 
 function addNewRowSampleDrop()
@@ -842,7 +842,7 @@ function callWebServToCreateProdDet(productId, activityId, callback)
 
 function callWebServToCreateSampDrop(productId, activityId, callback)
 {
-    alert('INSIDE callWebServToCreateSampDrop!!');
+    //alert('INSIDE callWebServToCreateSampDrop!!');
 	//var prodCategory = document.getElementById('CallSampDropNew.Primary Product Line Name').value;
 	var lotNumber = document.getElementById('CallSampDropNew.LOT Name').value;
 	var qtyVal = document.getElementById('CallSampDropNew.Quantity').value;
@@ -911,7 +911,7 @@ function callWebServToCreateSampDrop(productId, activityId, callback)
 						success: function(xmlData, textStatus) {
 						    ctrowsamp--;
 							//alert("ROW COUNTER DECreasing ctrowsamp: "+ctrowsamp);
-							alert("successssfullllllllyy created the Sample dropped");
+							//alert("successssfullllllllyy created the Sample dropped");
 							jQuery("#ROWID").parent().parent().parent().parent().parent().remove();			
 							callback.call();
 						}
