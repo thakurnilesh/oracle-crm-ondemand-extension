@@ -1,6 +1,4 @@
-//var counter=0;
 (function(){
-
 del_footer_button(1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
 //del_footer_button(2);
