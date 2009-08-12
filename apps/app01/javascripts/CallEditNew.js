@@ -330,10 +330,10 @@ function createNewCallActivity(callback){
     }
 	else{
 		var fields = {
-		  //  ContactId: "" + contactPerId + "",
+		    ContactId: "" + contactPerId + "",
 			Objective: "" + objectiveVal + "",
 			Subject: "" + subjectValue + "",
-			//OwnerId: "" + ownerId + "",
+			OwnerId: "" + ownerId + "",
 			Type: "" + typeVal + "",
 			AccountId: "" + accId + "",
 			SmartCall: "" + smartCallId + "",
