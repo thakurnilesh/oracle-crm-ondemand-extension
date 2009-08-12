@@ -265,8 +265,8 @@ function loadCallDetailsPage()
 function createNewCallActivity(callback){
 	//alert("Inside Create New Activity : This will return Activity Id");
 	var ownerId = document.getElementById('ContactCallEditForm.Owner Id').value;
-	//var contactPerId = document.getElementById('ContactCallEditForm.Contact Per Id').value;
-	var contactPerId = 'AAPA-2YBYRF';
+	var contactPerId = document.getElementById('ContactCallEditForm.Id').value;
+	//var contactPerId = 'AAPA-2YBYRF';
 	var subjectValue = document.getElementById('ContactCallEditForm.Description').value;
 	var objectiveVal = document.getElementById('ContactCallEditForm.VONDMED Call').value;
 	var startTime = document.getElementById('ContactCallEditForm.Planned').value;
