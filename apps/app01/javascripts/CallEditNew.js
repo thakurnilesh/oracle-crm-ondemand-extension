@@ -1,4 +1,6 @@
+//var counter=0;
 (function(){
+
 del_footer_button(1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
 //del_footer_button(2);
@@ -215,7 +217,7 @@ window.location.reload();
 
 function createWebSerConn(callback)
 {
-	//alert("creating connection with Web services");
+	alert("creating connection with Web services");
 	var userName = 'MERCKTEST_CTE01/pfeil';
 	var password = 'method00';
 	try{
@@ -360,6 +362,7 @@ function createNewCallActivity(callback){
 function createActivityIdUsingWeb(fields,callback)
 {
 	var activityId;
+	alert('Inside createActivityUsingWeb');
 	createWebSerConn(function(xhr, textStatus){
 		var soapAction = 'document/urn:crmondemand/ws/activity/10/2004:Activity_Update';
 		var soapRequestTemplate = '' +
@@ -367,7 +370,7 @@ function createActivityIdUsingWeb(fields,callback)
 			'   <soapenv:Header/>' +
 			'   <soapenv:Body>' +
 			'      <ActivityNWS_Activity_Update_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
-			'         <ListOfContact>' +
+	//		'         <ListOfContact>' +
 	//		'            <Contact>' +
 	//		'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
@@ -404,17 +407,17 @@ function createActivityIdUsingWeb(fields,callback)
 						dataType: 'xml',
 						data: soapRequestFinal,
 						beforeSend: function(xhr) {
-							//alert("Before sending request to insert : " + xhr);
+							alert("Before sending request to insert : " + xhr);
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
 						},   
 						error: function(errormessage) {
 							alert("Error : " + errormessage.responseText);
 						},   
 						complete: function(xhr, textStatus) {
-							//alert("Completed");
+							alert("Completed");
 						},								
 						success: function(xmlData, textStatus) {
-						//	alert("successssfullllllllyy created Activity");
+							alert("successssfullllllllyy created Activity");
 							var items = getListData('Activity', xmlData);
 							//alert("items : " + items);
 							activityId = items[0].ActivityId;
