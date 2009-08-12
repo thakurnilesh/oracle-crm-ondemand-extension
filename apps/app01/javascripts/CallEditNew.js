@@ -389,13 +389,13 @@ function createActivityIdUsingWeb(fields,callback)
 			fieldsXML += '<' + fieldName + '><![CDATA[' + fields[fieldName] + ']]></' + fieldName + '>';
 		}
 		
-		var fieldsXMLCont = '';
+	/*	var fieldsXMLCont = '';
 		for (fieldNameCont in fieldsCont) {
 			fieldsXMLCont += '<' + fieldNameCont + '>' + fieldsCont[fieldNameCont] + '</' + fieldNameCont + '>';
-		}			
+		}*/			
 
 		var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);	
-		var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
+		//var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
 
 		//alert("soapRequest : " + soapRequestFinal);
 
@@ -405,7 +405,8 @@ function createActivityIdUsingWeb(fields,callback)
 						type: 'POST',
 						contentType: 'text/xml',
 						dataType: 'xml',
-						data: soapRequestFinal,
+						//data: soapRequestFinal,
+						data: soapRequest,
 						beforeSend: function(xhr) {
 							alert("Before sending request to insert : " + xhr);
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
