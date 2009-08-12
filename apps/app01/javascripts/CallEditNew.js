@@ -3,15 +3,14 @@
 
 del_footer_button(1);
 add_footer_button(1,'Save','saveAllDetails()','_top',40);
-//del_footer_button(2);
-//add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
-
-delete_button('Call Detail', 1);
-//delete_button('Call Detail', 1);
-createNewSaveButton('Call Detail',1,'Save','saveAllDetails()','_top',40);
-//createNewSaveButton('Call Detail',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
-addProdDeailedSec();
+del_footer_button(2);
+add_footer_button(2,'Save & New Call','saveAndNewAllDetails()','_top',40);
+delete_button('Call Details', 1);
+delete_button('Call Details', 1);
+createNewSaveButton('Call Details',1,'Save','saveAllDetails()','_top',40);
+createNewSaveButton('Call Details',2,'Save & New Call','saveAndNewAllDetails()','_top',40);
 addSamplesDropSec();
+addProdDeailedSec();
 
 function del_footer_button(position) {
     var i;
@@ -118,7 +117,7 @@ function addSamplesDropSec(){
 	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='sampleDropdiv' onclick='addNewRowSampleDrop();'>New</div></td>";
 	newTable += "<td width='100%'></td></tr>";
 	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallEditForm.VONDMED Next Call']").parent().parent().parent().append(newTable);
+	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
 }
 
 function addProdDeailedSec(){
@@ -128,7 +127,7 @@ function addProdDeailedSec(){
 	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='testdiv' onclick='addNewRowProdDet();'>New</div></td>";
 	newTable += "<td width='100%'></td></tr>";
 	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallEditForm.VONDMED Next Call']").parent().parent().parent().append(newTable);
+	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
 }
 
 })();
@@ -166,7 +165,6 @@ function addNewRowProdDet(){
 	row += "<tr>";
 	row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
-	row += "<td><span id=div1 style='color:red' style='visibility:hidden' class='requiredText'>required*</span></td>";
 	row += "<td>Priority: </td>";
 	row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
 	row += "<td><span style='color:red' class='requiredText'>Indication*:</span></td>";
@@ -212,7 +210,7 @@ function saveAndNewAllDetails()
 
 function newcall(){
 window.location.reload();
-//doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallEditForm?OMCR0=AAPA-2WJ5PW&OMTGT=ContactCallEditForm&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest3%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2WJ5PW&OCNOEDITTYPE=Y&OCTYPE=")
+//doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallInsert?OMCR0=AAPA-2WJ5PW&OMTGT=ContactCallInsert&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest3%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2WJ5PW&OCNOEDITTYPE=Y&OCTYPE=")
 }
 
 function createWebSerConn(callback)
@@ -264,26 +262,26 @@ function loadCallDetailsPage()
 
 function createNewCallActivity(callback){
 	//alert("Inside Create New Activity : This will return Activity Id");
-	var ownerId = document.getElementById('ContactCallEditForm.Owner Id').value;
-	var contactPerId = document.getElementById('ContactCallEditForm.Contact Per Id').value;
-	var subjectValue = document.getElementById('ContactCallEditForm.Description').value;
-	var objectiveVal = document.getElementById('ContactCallEditForm.VONDMED Call').value;
-	var startTime = document.getElementById('ContactCallEditForm.Planned').value;
-	var accId = document.getElementById('ContactCallEditForm.Account Id').value;
-	//var addressVal = document.getElementById('ContactCallEditForm.Personal Location Id').value;
-	var smartCallId = document.getElementById('ContactCallEditForm.Template Id').value;
-	var endTime = document.getElementById('ContactCallEditForm.Planned Completion').value;
-	var typeVal = document.getElementById('ContactCallEditForm.Type').value;
-	var statusVal = document.getElementById('ContactCallEditForm.Status').value;
-	var durationVal = document.getElementById('ContactCallEditForm.VONDMED Calc Duration').value;
-	var carrencyVal = document.getElementById('ContactCallEditForm.Currency Code').value;
-	var displayVal = document.getElementById('ContactCallEditForm.Mod Id').value;
-	var refId = document.getElementById('ContactCallEditForm.Sample Reference Number').value;
-	var costVal = document.getElementById('ContactCallEditForm.Associated Cost').value;
-	var paperSignVal = document.getElementById('ContactCallEditForm.VONDMED Paper Signature').value;
-	var privateVal = document.getElementById('ContactCallEditForm.Private').value;
-	var descVal = document.getElementById('ContactCallEditForm.Comment').value;
-	var nextCallVal = document.getElementById('ContactCallEditForm.VONDMED Next Call').value;
+	var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
+	var contactPerId = document.getElementById('ContactCallInsert.Contact Per Id').value;
+	var subjectValue = document.getElementById('ContactCallInsert.Description').value;
+	var objectiveVal = document.getElementById('ContactCallInsert.VONDMED Call').value;
+	var startTime = document.getElementById('ContactCallInsert.Planned').value;
+	var accId = document.getElementById('ContactCallInsert.Account Id').value;
+	//var addressVal = document.getElementById('ContactCallInsert.Personal Location Id').value;
+	var smartCallId = document.getElementById('ContactCallInsert.Template Id').value;
+	var endTime = document.getElementById('ContactCallInsert.Planned Completion').value;
+	var typeVal = document.getElementById('ContactCallInsert.Type').value;
+	var statusVal = document.getElementById('ContactCallInsert.Status').value;
+	var durationVal = document.getElementById('ContactCallInsert.VONDMED Calc Duration').value;
+	var carrencyVal = document.getElementById('ContactCallInsert.Currency Code').value;
+	var displayVal = document.getElementById('ContactCallInsert.Display').value;
+	var refId = document.getElementById('ContactCallInsert.Sample Reference Number').value;
+	var costVal = document.getElementById('ContactCallInsert.Associated Cost').value;
+	var paperSignVal = document.getElementById('ContactCallInsert.VONDMED Paper Signature').value;
+	var privateVal = document.getElementById('ContactCallInsert.Private').value;
+	var descVal = document.getElementById('ContactCallInsert.Comment').value;
+	var nextCallVal = document.getElementById('ContactCallInsert.VONDMED Next Call').value;
 
 	var startTimeMod;	
 	var endTimeMod;
@@ -308,26 +306,15 @@ function createNewCallActivity(callback){
 		endTimeMod = '';
 	}
 
-	var contactId = $("input[id='ContactCallEditForm.Contact Full Name']").val();
-	var ownerVal = $("input[id='ContactCallEditForm.Assigned To']").val();
-	
-	var prodIDC='Test';
-	if(ctrowprod!=0){
-	prodIDC= document.getElementById('prodNamePrDet').value;
-   // alert("prodIDC fetched: "+prodIDC);
-	}
-	
+	var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
+	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
+
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
 		|| (ownerVal == null || ownerVal == ''))
 	{
-		validateSubmit('ContactCallEditForm','\/OnDemand\/user\/ContactCallEditForm?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallEditForm&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
+		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
 	}
-	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none'))
-	{
-	//alert("INside ProdIDC if");
-	div1.style.visibility="visible";  
-    }
 	else{
 		var fields = {
 			Objective: "" + objectiveVal + "",
@@ -385,7 +372,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 
 		var fieldsXML = '';
 		for (fieldName in fields) {
-			fieldsXML += '<' + fieldName + '><![CDATA[' + fields[fieldName] + ']]></' + fieldName + '>';
+			fieldsXML += '<' + fieldName + '>' + fields[fieldName] + '</' + fieldName + '>';
 		}
 		
 		var fieldsXMLCont = '';
@@ -420,7 +407,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 							var items = getListData('Activity', xmlData);
 							//alert("items : " + items);
 							activityId = items[0].ActivityId;
-							alert("activityId : " + activityId);
+							//alert("activityId : " + activityId);
 							
 							//createProductDetailInfo(activityId, function(){
 							//	callback.call();
