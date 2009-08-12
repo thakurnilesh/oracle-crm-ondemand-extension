@@ -350,16 +350,16 @@ function createNewCallActivity(callback){
 			EndTime: "" + endTimeMod + ""
 		};
 		
-		var fieldsCont = {
-			ContactId: "" + contactPerId + ""
-		};
-		createActivityIdUsingWeb(fields, fieldsCont, function(){
+//		var fieldsCont = {
+//			ContactId: "" + contactPerId + ""
+//		};
+		createActivityIdUsingWeb(fields, function(){
 			callback.call();
 		});	
 	}
 }
 
-function createActivityIdUsingWeb(fields, fieldsCont, callback)
+function createActivityIdUsingWeb(fields,callback)
 {
 	var activityId;
 	createWebSerConn(function(xhr, textStatus){
@@ -368,17 +368,17 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
 			'   <soapenv:Header/>' +
 			'   <soapenv:Body>' +
-			'      <ActivityNWS_Activity_Update_Input xmlns="urn:crmondemand/ws/contact/10/2004">' +
+			'      <ActivityNWS_Activity_Update_Input xmlns="urn:/crmondemand/xml/contact">' +
 			'         <ListOfContact>' +
-			'            <Contact>' +
-			'               <%=fieldsCont%>' +
+	//		'            <Contact>' +
+	//		'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
 			'					<Activity>'	+
 			'		               <%=fields%>' +				
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
-			'            </Contact>' +
-			'         </ListOfContact>' +
+	//		'            </Contact>' +
+	//		'         </ListOfContact>' +
 			'      </ActivityNWS_Activity_Update_Input>' +
 			'   </soapenv:Body>' +
 			'</soapenv:Envelope>';		
