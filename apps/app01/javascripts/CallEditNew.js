@@ -350,9 +350,9 @@ function createNewCallActivity(callback){
 			EndTime: "" + endTimeMod + ""
 		};
 		
-//		var fieldsCont = {
-//			ContactId: "" + contactPerId + ""
-//		};
+	var fieldsCont = {
+	ContactId: "" + contactPerId + ""
+		};
 		createActivityIdUsingWeb(fields, function(){
 			callback.call();
 		});	
@@ -370,16 +370,16 @@ function createActivityIdUsingWeb(fields,callback)
 			'   <soapenv:Header/>' +
 			'   <soapenv:Body>' +
 			'      <ActivityNWS_Activity_Update_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
-	//		'         <ListOfContact>' +
-	//		'            <Contact>' +
-	//		'               <%=fieldsCont%>' +
+			'         <ListOfContact>' +
+			'            <Contact>' +
+			'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
 			'					<Activity>'	+
 			'		               <%=fields%>' +				
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
-	//		'            </Contact>' +
-	//		'         </ListOfContact>' +
+			'            </Contact>' +
+			'         </ListOfContact>' +
 			'      </ActivityNWS_Activity_Update_Input>' +
 			'   </soapenv:Body>' +
 			'</soapenv:Envelope>';		
@@ -389,13 +389,13 @@ function createActivityIdUsingWeb(fields,callback)
 			fieldsXML += '<' + fieldName + '><![CDATA[' + fields[fieldName] + ']]></' + fieldName + '>';
 		}
 		
-	/*	var fieldsXMLCont = '';
+		var fieldsXMLCont = '';
 		for (fieldNameCont in fieldsCont) {
 			fieldsXMLCont += '<' + fieldNameCont + '>' + fieldsCont[fieldNameCont] + '</' + fieldNameCont + '>';
-		}*/			
+		}		
 
 		var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);	
-		//var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
+		var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
 
 		//alert("soapRequest : " + soapRequestFinal);
 
@@ -405,8 +405,8 @@ function createActivityIdUsingWeb(fields,callback)
 						type: 'POST',
 						contentType: 'text/xml',
 						dataType: 'xml',
-						//data: soapRequestFinal,
-						data: soapRequest,
+						data: soapRequestFinal,
+						//data: soapRequest,
 						beforeSend: function(xhr) {
 							alert("Before sending request to insert : " + xhr);
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
