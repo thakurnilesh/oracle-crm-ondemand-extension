@@ -559,7 +559,7 @@ function createActivityIdUsingWeb(fields, callback)
 						type: 'POST',
 						contentType: 'text/xml',
 						dataType: 'xml',
-						data: soapRequestFinal,
+						data: soapRequest,
 						beforeSend: function(xhr) {
 							//alert("Before sending request to insert : " + xhr);
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
