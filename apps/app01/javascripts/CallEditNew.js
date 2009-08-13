@@ -1,9 +1,10 @@
+//var counter=0;
 (function(){
+
 del_footer_button(1);
 add_footer_button(1,'Save','saveMidway1()','_top',40);
 del_footer_button(2);
 add_footer_button2(2,'Save & New Call','saveandnewMidway1()','_top',40);
-
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
 createNewSaveButton('Call Details',1,'Save','saveMidway1()','_top',40);
@@ -149,9 +150,9 @@ function createNewSaveButton2(section_name, position, button_text, url, target_w
 				{
 				var tr = tabs[i].getElementsByTagName("tr");
 				var newtd = tr[0].insertCell(position);
-//POSSIBLE ERROR BECAUSE OF ID
+
 				newtd.innerHTML = "<div id='head2' class='buttonTD' " +
-				"id='testSave' " +  
+				"id='testSave' " +
 				"onmouseover='toggleNavButton(this);' " +
 				"onmouseout='toggleNavButton(this);' " +
 				"onkeypress='onButtonPress(this);' " +
@@ -188,6 +189,42 @@ function addProdDeailedSec(){
 }
 
 })();
+
+function saveMidway1()
+{
+document.getElementById('foot').disabled=true;
+document.getElementById('head').disabled=true;
+document.getElementById('foot2').disabled=true;
+document.getElementById('head2').disabled=true;
+saveFlg=0;
+saveAllDetails();
+}
+function saveMidway2()
+{
+document.getElementById('foot').disabled=false;
+document.getElementById('head').disabled=false;
+document.getElementById('foot2').disabled=false;
+document.getElementById('head2').disabled=false;
+saveFlg=1;
+}
+function saveandnewMidway1()
+{
+newbutton=1;
+document.getElementById('foot2').disabled=true;
+document.getElementById('head2').disabled=true;
+document.getElementById('foot').disabled=true;
+document.getElementById('head').disabled=true;
+saveFlg=0;
+saveAndNewAllDetails();
+}
+function saveandnewMidway2()
+{
+document.getElementById('foot2').disabled=false;
+document.getElementById('head2').disabled=false;
+document.getElementById('foot').disabled=false;
+document.getElementById('head').disabled=false;
+saveFlg=1;
+}
 
 function addNewRowSampleDrop()
 {
@@ -243,47 +280,6 @@ ctrowprod--;
 jQuery("#ROWID2").parent().parent().parent().parent().parent().remove();
 }
 
-function saveMidway1()
-{
-document.getElementById('foot').disabled=true;
-document.getElementById('head').disabled=true;
-document.getElementById('foot2').disabled=true;
-document.getElementById('head2').disabled=true;
-saveFlg=0;
-alert('Inside saveMidway1');
-saveAllDetails();
-}
-function saveMidway2()
-{
-document.getElementById('foot').disabled=false;
-document.getElementById('head').disabled=false;
-document.getElementById('foot2').disabled=false;
-document.getElementById('head2').disabled=false;
-alert('Inside SaveMidway2');
-saveFlg=1;
-}
-function saveandnewMidway1()
-{
-newbutton=1;
-document.getElementById('foot2').disabled=true;
-document.getElementById('head2').disabled=true;
-document.getElementById('foot').disabled=true;
-document.getElementById('head').disabled=true;
-saveFlg=0;
-saveAndNewAllDetails();
-}
-function saveandnewMidway2()
-{
-document.getElementById('foot2').disabled=false;
-document.getElementById('head2').disabled=false;
-document.getElementById('foot').disabled=false;
-document.getElementById('head').disabled=false;
-saveFlg=1;
-//return;
-}
-
-
-
 function saveAllDetails()
 {
 	createNewCallActivity(function() {
@@ -295,7 +291,7 @@ function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
 	createNewCallActivity(function() {
-	//var pathname = window.location;
+	//var pathname = window.location.pathname;
 	//alert(pathname);	
 	newcall();
 	});
@@ -417,6 +413,7 @@ function createNewCallActivity(callback){
 	sampIDC2= document.getElementById('CallSampDropNew.Quantity').value;
 	}
 	
+	
 	if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
 		|| (ownerVal == null || ownerVal == ''))
@@ -425,26 +422,24 @@ function createNewCallActivity(callback){
 		if(newbutton==1)
 		    saveandnewMidway2();
 		else	
-			saveMidway2();
+		saveMidway2();
 	}
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 	{
-		if(newbutton==1)
-		    saveandnewMidway2();
-		else	
-		saveMidway2();
-		alert('inside 2nd elseif');
-	div1.style.visibility="visible";
-	div2.style.visibility="visible";
-	}
-	else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
-	{	
-	alert('Inside 3rd Else if');
-	div1.style.visibility="visible";
 	if(newbutton==1)
 		    saveandnewMidway2();
 		else	
 		saveMidway2();
+	div1.style.visibility="visible";
+	div2.style.visibility="visible";
+	}
+	else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
+	{	div1.style.visibility="visible";
+	if(newbutton==1)
+		    saveandnewMidway2();
+		else	
+		saveMidway2();
+	
 	}
 	else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
 	{   div2.style.visibility="visible";  
@@ -455,12 +450,12 @@ function createNewCallActivity(callback){
 	}
 	else if ((sampIDC == null || sampIDC == '' || sampIDC == 'none') && (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none'))
 	{
-		if(newbutton==1)
-		    saveandnewMidway2();
-		else	
-		    saveMidway2();
 	div3.style.visibility="visible"; 
 	div4.style.visibility="visible"; 
+	if(newbutton==1)
+		    saveandnewMidway2();
+		else	
+		saveMidway2();
 	}
 	else if (sampIDC == null || sampIDC == '' || sampIDC == 'none')
 	{ div3.style.visibility="visible"; 
@@ -602,6 +597,7 @@ else
 callback.call();
 }
 }
+
 
 function createProductDetailInfo(activityId, callback)
 {
@@ -848,7 +844,6 @@ function callWebServToCreateProdDet(productId, activityId, callback)
 
 function callWebServToCreateSampDrop(productId, activityId, callback)
 {
-    //alert('INSIDE callWebServToCreateSampDrop!!');
 	//var prodCategory = document.getElementById('CallSampDropNew.Primary Product Line Name').value;
 	var lotNumber = document.getElementById('CallSampDropNew.LOT Name').value;
 	var qtyVal = document.getElementById('CallSampDropNew.Quantity').value;
