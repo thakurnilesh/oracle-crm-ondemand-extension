@@ -248,8 +248,8 @@ function saveMidway1()
 {
 document.getElementById('foot').disabled=true;
 document.getElementById('head').disabled=true;
-document.getElementById('foot2').disabled=true;
-document.getElementById('head2').disabled=true;
+//document.getElementById('foot2').disabled=true;
+//document.getElementById('head2').disabled=true;
 saveFlg=0;
 //alert('Inside saveMidway1');
 saveAllDetails();
@@ -258,8 +258,8 @@ function saveMidway2()
 {
 document.getElementById('foot').disabled=false;
 document.getElementById('head').disabled=false;
-document.getElementById('foot2').disabled=false;
-document.getElementById('head2').disabled=false;
+//document.getElementById('foot2').disabled=false;
+//document.getElementById('head2').disabled=false;
 //alert('Inside SaveMidway2');
 saveFlg=1;
 }
