@@ -6,7 +6,7 @@ add_footer_button(1,'Save','saveMidway1()','_top',40);
 
 delete_button('Call Details', 1);
 //delete_button('Call Details', 1);
-createNewSaveButton('Call Details',1,'Save','saveMidway1()','_top',40);
+createNewSaveButton('Call Detail',1,'Save','saveMidway1()','_top',40);
 //createNewSaveButton2('Call Details',2,'Save & New Call','saveandnewMidway1()','_top',40);
 addProdDeailedSec();
 addSamplesDropSec();
