@@ -4,7 +4,7 @@ add_footer_button(1,'Save','saveMidway1()','_top',40);
 //del_footer_button(2);
 //add_footer_button2(2,'Save & New Call','saveandnewMidway1()','_top',40);
 
-delete_button('Call Details', 1);
+delete_button('Call Detail', 1);
 //delete_button('Call Details', 1);
 createNewSaveButton('Call Detail',1,'Save','saveMidway1()','_top',40);
 //createNewSaveButton2('Call Details',2,'Save & New Call','saveandnewMidway1()','_top',40);
@@ -149,7 +149,6 @@ function createNewSaveButton2(section_name, position, button_text, url, target_w
 				{
 				var tr = tabs[i].getElementsByTagName("tr");
 				var newtd = tr[0].insertCell(position);
-//POSSIBLE ERROR BECAUSE OF ID
 				newtd.innerHTML = "<div id='head2' class='buttonTD' " +
 				"id='testSave' " +  
 				"onmouseover='toggleNavButton(this);' " +
@@ -404,8 +403,8 @@ function createNewCallActivity(callback){
 		endTimeMod = '';
 	}
 
-	var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
-	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
+	var contactId = $("input[id='ContactCallEditForm.Contact Full Name']").val();
+	var ownerVal = $("input[id='ContactCallEditForm.Assigned To']").val();
 	
 	var prodIDC='Test';
 	var prodIDC2='Test';
@@ -426,7 +425,7 @@ function createNewCallActivity(callback){
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
 		|| (ownerVal == null || ownerVal == ''))
 	{
-		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
+		validateSubmit('ContactCallEditForm','\/OnDemand\/user\/ContactCallEditForm?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallEditForm&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
 		//if(newbutton==1)
 		//    saveandnewMidway2();
 		//else	
