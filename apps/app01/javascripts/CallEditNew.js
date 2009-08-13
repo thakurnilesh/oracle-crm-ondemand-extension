@@ -250,6 +250,7 @@ document.getElementById('head').disabled=true;
 document.getElementById('foot2').disabled=true;
 document.getElementById('head2').disabled=true;
 saveFlg=0;
+alert('Inside saveMidway1');
 saveAllDetails();
 }
 function saveMidway2()
@@ -258,8 +259,8 @@ document.getElementById('foot').disabled=false;
 document.getElementById('head').disabled=false;
 document.getElementById('foot2').disabled=false;
 document.getElementById('head2').disabled=false;
+alert('Inside SaveMidway2');
 saveFlg=1;
-//return;
 }
 function saveandnewMidway1()
 {
@@ -432,11 +433,14 @@ function createNewCallActivity(callback){
 		    saveandnewMidway2();
 		else	
 		saveMidway2();
+		alert('inside 2nd elseif');
 	div1.style.visibility="visible";
 	div2.style.visibility="visible";
 	}
 	else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
-	{	div1.style.visibility="visible";
+	{	
+	alert('Inside 3rd Else if');
+	div1.style.visibility="visible";
 	if(newbutton==1)
 		    saveandnewMidway2();
 		else	
