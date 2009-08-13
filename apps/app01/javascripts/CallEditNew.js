@@ -168,13 +168,14 @@ function createNewSaveButton2(section_name, position, button_text, url, target_w
 */
 
 function addSamplesDropSec(){
+	
 	var newTable = "<tr><td colspan='5'>";
 	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='sampleDrop'>";
 	newTable += "<tr><td>Samples Dropped</td>";
 	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='sampleDropdiv' onclick='addNewRowSampleDrop();'>New</div></td>";
 	newTable += "<td width='100%'></td></tr>";
 	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
+	jQuery("[id='ContactCallEditForm.VONDMED Next Call']").parent().parent().parent().append(newTable);
 }
 
 function addProdDeailedSec(){
@@ -184,7 +185,7 @@ function addProdDeailedSec(){
 	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='testdiv' onclick='addNewRowProdDet();'>New</div></td>";
 	newTable += "<td width='100%'></td></tr>";
 	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
+	jQuery("[id='ContactCallEditForm.VONDMED Next Call']").parent().parent().parent().append(newTable);
 }
 
 })();
