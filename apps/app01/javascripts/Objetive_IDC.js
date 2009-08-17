@@ -7,14 +7,11 @@
         var ownerId = $get('ContactCallInsert.Owner Id').val();
         var contactPerId = $get('ContactCallInsert.Contact Per Id').val();
 	    var $objectiveInputElement = $get('ContactCallInsert.VONDMED Call');
-		//var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
-		//var contactPerId = document.getElementById('ContactCallInsert.Contact Per Id').value; 
+		var objectiveValue = $objectiveInputElement.val();
+		if (objectiveValue !== '') { return; }
 		alert("ownerId: "+ownerId);
-		alert("contactPerId: "+contactPerId);		
-		//var objectiveInputElement = document.getElementById('ContactCallInsert.VONDMED Call').value;
-        var objectiveValue = $objectiveInputElement.val();
-        if (objectiveValue !== '') { return; }
- 
+		alert("contactPerId: "+contactPerId);		   
+        
         var obj = {ownerId: ownerId, contactPerId: contactPerId, objectiveValue: objectiveValue};
                
         var fields = {
@@ -54,7 +51,6 @@
              var lastObjectiveValue = data[data.length - 1].Objective;
              $objectiveInputElement.val(lastObjectiveValue);
            
- 
     });
 	
  function createWebSerConn(callback)
@@ -71,7 +67,7 @@ xhr.setRequestHeader('UserName', userName);
 xhr.setRequestHeader('Password', password);
 },
 complete: function(xhr, textStatus) {
-//alert("created connection with Web services : " + xhr);
+alert("created connection with Web services : " + xhr);
 callback.call(this, xhr, textStatus);
 }
 });
@@ -151,7 +147,7 @@ alert('Error: ' + e.message);
         ' </ActivityNWS_Activity_QueryPage_Input>' +
         ' </soapenv:Body>' +
         '</soapenv:Envelope>';
-        
+      alert("before calling manual query");  
     this.manualQuery('Activity', fields, soapAction, soapRequestTemplate, function(data) {
         callback(data);
     });
