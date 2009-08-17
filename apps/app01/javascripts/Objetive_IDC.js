@@ -7,7 +7,7 @@
 		var contactPerId = document.getElementById('ContactCallInsert.Contact Per Id').value;   
 		alert("ownerId: "+ownerId);
 		alert("contactPerId: "+contactPerId);		
-		var $objectiveInputElement = document.getElementById('ContactCallInsert.VONDMED Call').value;
+		var objectiveInputElement = document.getElementById('ContactCallInsert.VONDMED Call').value;
 		
 		
         //var objectiveValue = $objectiveInputElement.val();
@@ -50,7 +50,7 @@
              });
              
              var lastObjectiveValue = data[data.length - 1].Objective;
-             $objectiveInputElement.val(lastObjectiveValue);
+             objectiveInputElement.val(lastObjectiveValue);
            
  
     });
