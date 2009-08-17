@@ -1,8 +1,10 @@
 (function(){
 del_footer_button(1);
+del_footer_button(1);
+add_footer_button2(1,'Save & New Call','saveandnewMidway1()','_top',40);
 add_footer_button(1,'Save','saveMidway1()','_top',40);
-del_footer_button(2);
-add_footer_button2(2,'Save & New Call','saveandnewMidway1()','_top',40);
+
+//add_footer_button2(1,'Save & New Call','saveandnewMidway1()','_top',40);
  
 delete_button('Call Details', 1);
 delete_button('Call Details', 1);
@@ -399,8 +401,14 @@ else{
 endTimeMod = '';
 }
  
-var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
-var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
+//var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
+//var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
+
+var contactId = document.getElementById('ContactCallInsert.Contact Full Name').value;
+var ownerVal = document.getElementById('ContactCallInsert.Assigned To').value;
+
+alert("contactId: " +contactId);
+alert("ownerVal: " +ownerVal); 
  
 var prodIDC='Test';
 var prodIDC2='Test';
