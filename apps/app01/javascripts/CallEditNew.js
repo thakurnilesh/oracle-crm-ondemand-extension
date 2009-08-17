@@ -407,8 +407,8 @@ endTimeMod = '';
 var contactId = document.getElementById('ContactCallInsert.Contact Full Name').value;
 var ownerVal = document.getElementById('ContactCallInsert.Assigned To').value;
 
-alert("contactId: " +contactId);
-alert("ownerVal: " +ownerVal); 
+//alert("contactId: " +contactId);
+//alert("ownerVal: " +ownerVal); 
  
 var prodIDC='Test';
 var prodIDC2='Test';
