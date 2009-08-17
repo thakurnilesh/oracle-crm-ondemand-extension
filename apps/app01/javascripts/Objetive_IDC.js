@@ -1,4 +1,5 @@
-        (function(){
+        (function()
+		{
 		function $get(key) {
 		return $("[id='" + key + "']");
 		}
@@ -131,8 +132,7 @@ alert('Error: ' + e.message);
     });
  
 }
-	function activityQuery (fields, callback) 
-	{
+	function activityQuery (fields, callback){
 	alert("Inside ActivityQuery");
     createWebSerConn(function(xhr, textStatus){
     var soapAction = 'document/urn:crmondemand/ws/activity/10/2004:Activity_QueryPage';
@@ -155,7 +155,7 @@ alert('Error: ' + e.message);
     this.manualQuery('Activity', fields, soapAction, soapRequestTemplate, function(data) {
         callback(data);
     });
-	
-}
-}    
+	});
+ }
+    
 })();
