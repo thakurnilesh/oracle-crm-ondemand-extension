@@ -106,8 +106,8 @@ alert('Error: ' + e.message);
             xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');
         },
         success: function(xmlData, textStatus) {
-            var items = that.getListData(entityTypeCapitalized, xmlData);
-						
+		    var items = [];
+            items = that.getListData(entityTypeCapitalized, xmlData);				
             if (callback.itemsCache) {
                 callback.itemsCache = callback.itemsCache.concat(items);
             } else {
