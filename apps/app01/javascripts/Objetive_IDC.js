@@ -1,10 +1,15 @@
         (function(){
-        var ownerId = $get('ContactCallInsert.Owner Id').val();
-        var contactPerId = $get('ContactCallInsert.Contact Per Id').val();
-        var $objectiveInputElement = $get('ContactCallInsert.VONDMED Call');
 		alert("Inside function");
+        //var ownerId = $get('ContactCallInsert.Owner Id').val();
+       //var contactPerId = $get('ContactCallInsert.Contact Per Id').val();
+	   //var $objectiveInputElement = $get('ContactCallInsert.VONDMED Call');
+		var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
+		var contactPerId = document.getElementById('ContactCallInsert.Contact Per Id').value;   
 		alert("ownerId: "+ownerId);
-		alert("contactPerId: "+contactPerId);
+		alert("contactPerId: "+contactPerId);		
+		var $objectiveInputElement = document.getElementById('ContactCallInsert.VONDMED Call').value;
+		
+		
         //var objectiveValue = $objectiveInputElement.val();
         // if (objectiveValue !== '') { return; }
  
