@@ -148,9 +148,10 @@ alert('Error: ' + e.message);
         ' </soapenv:Body>' +
         '</soapenv:Envelope>';
       alert("before calling manual query");  
-    this.manualQuery('Activity', fields, soapAction, soapRequestTemplate, function(data) {
-        //callback(data);
-		callback.call();
+    //this.manualQuery('Activity', fields, soapAction, soapRequestTemplate, function(data) {
+	    manualQuery('Activity', fields, soapAction, soapRequestTemplate, function(data) {
+        callback(data);
+		//callback.call();
     });
 	});
  }
