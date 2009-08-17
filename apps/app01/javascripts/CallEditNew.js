@@ -591,9 +591,9 @@ function midway(activityId, callback)
 {
 if(ctrowsamp!=0 || ctrowprod!=0){
 //if(ctrowsamp!=0){
-alert("Calling createProductDetailInfo");
-alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp);
-alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
+//alert("Calling createProductDetailInfo");
+//alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp);
+//alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
 //Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking
 //the same row twice because of the similar ID tag in the HTML.
 createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
@@ -655,7 +655,7 @@ callback.call();
 if(productNameProdet != null && productNameProdet != '')
 //else if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
 {
-alert('CALLING 2nd If i.e. Only Products presents');
+//alert('CALLING 2nd If i.e. Only Products presents');
 //alert('productNameProdet : ' + productNameProdet);
 var fieldsProdet = {
 ProductId: '',
@@ -668,7 +668,7 @@ callback.call();
 
 else if(productNameSamp != null && productNameSamp != '')
 {
-alert("Calling 3rd IF i.e. only samples present");
+//alert("Calling 3rd IF i.e. only samples present");
 //alert('productNameSamp : ' + productNameSamp);
 
 var fieldsSampDrop = {
@@ -773,94 +773,6 @@ alert('Error: ' + e.message);
 //return true;
 });
 }
-/*
-function callWebServToGetSampInfo(fieldsProdet, activityId, reqFrom, callback)
-{
-//alert('Inside callWebServToGetProdInfo');
-createWebSerConn(function(xhr, textStatus){
-var soapAction = 'document/urn:crmondemand/ws/product/10/2004:ProductQueryPage';
-var soapRequestTemplate = '' +
-'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
-' <soapenv:Header/>' +
-' <soapenv:Body>' +
-' <ProductWS_ProductQueryPage_Input xmlns="urn:crmondemand/ws/product/10/2004">' +
-' <PageSize>100</PageSize>' +
-' <ListOfProduct>' +
-' <Product>' +
-' <%=fieldsProdet%>' +
-' </Product>' +
-' </ListOfProduct>' +
-' <StartRowNum>0</StartRowNum>' +
-' </ProductWS_ProductQueryPage_Input>' +
-' </soapenv:Body>' +
-'</soapenv:Envelope>';
- 
-var fieldsXML = '';
-for (fieldName in fieldsProdet) {
-fieldsXML += '<' + fieldName + '>' + fieldsProdet[fieldName] + '</' + fieldName + '>';
-}
- 
-var soapRequest = soapRequestTemplate.replace("<%=fieldsProdet%>", fieldsXML);
- 
-//alert("soapRequest : " + soapRequest);
- 
-try{
-jQuery.ajax({
-url: 'https://secure-ausomxapa.crmondemand.com/Services/Integration',
-type: 'POST',
-contentType: 'text/xml',
-dataType: 'xml',
-data: soapRequest,
-beforeSend: function(xhr) {
-//alert("Before sending request to insert : " + xhr);
-xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');
-},
-complete: function(xhr, textStatus) {
-//alert("Completed");
-},
-success: function(xmlData, textStatus) {
-//alert("successssfullllllll getting the product Info");
-var items = getListData('Product', xmlData);
-////alert("items : " + items);
-var productId = items[0].ProductId;
-//alert("productId : " + productId);
-//createProductDetailed(activityId, productId);
- 
-if(productId != null)
-{
-if(reqFrom != null && reqFrom == 'ProdDetail')
-{
-callWebServToCreateProdDet(productId, activityId, function(){
-callback.call();
-});
-}
-else if(reqFrom != null && reqFrom == 'SampDrop')
-{
-//alert('Control Came from SampDrop');
-callWebServToCreateSampDrop(productId, activityId, function(){
-callback.call();
-});
-}
-else
-{
-alert('Control not identified');
-return;
-}
-}
-else
-{
-alert('Product Name is not valid!!!');
-return;
-}
-}
-});
-}
-catch (e) {
-alert('Error: ' + e.message);
-}
-//return true;
-});
-}*/
  
 function callWebServToCreateProdDet(productId, activityId, callback)
 {
