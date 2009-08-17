@@ -622,7 +622,7 @@ if(document.getElementById('prodNameSamDrop') != null && document.getElementById
 {
 productNameSamp = document.getElementById('prodNameSamDrop').value;
 }
- 
+/* 
 if(productNameProdet != null && productNameProdet != '' && productNameSamp != null && productNameSamp != '')
 {
 bothPresent = true;
@@ -634,7 +634,9 @@ Name: " ='" + productNameProdet + "' "
 };
 
 callWebServToGetProdInfo(fieldsProdet, activityId, 'ProdDetail', function(){
-if(bothPresent == true){ }
+if(bothPresent == true){ 
+alert("INSIDE bothpresent");
+}
 });
  
 //alert('productNameSamp : ' + productNameSamp);
@@ -642,15 +644,16 @@ var fieldsSampDrop = {
 ProductId: '',
 Name: " ='" + productNameSamp + "' "
 };
+
 callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
 if(bothPresent == true)
 {
 callback.call();
 }
 });
-}
-
-else if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
+}*/
+if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
+//else if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
 {
 alert('CALLING 2nd If i.e. Only Products presents');
 //alert('productNameProdet : ' + productNameProdet);
@@ -672,7 +675,7 @@ ProductId: '',
 Name: " ='" + productNameSamp + "' "
 };
 
-callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
+callWebServToGetSampInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
 callback.call();
 });
 }
@@ -683,6 +686,94 @@ callback.call();
 }
  
 function callWebServToGetProdInfo(fieldsProdet, activityId, reqFrom, callback)
+{
+//alert('Inside callWebServToGetProdInfo');
+createWebSerConn(function(xhr, textStatus){
+var soapAction = 'document/urn:crmondemand/ws/product/10/2004:ProductQueryPage';
+var soapRequestTemplate = '' +
+'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
+' <soapenv:Header/>' +
+' <soapenv:Body>' +
+' <ProductWS_ProductQueryPage_Input xmlns="urn:crmondemand/ws/product/10/2004">' +
+' <PageSize>100</PageSize>' +
+' <ListOfProduct>' +
+' <Product>' +
+' <%=fieldsProdet%>' +
+' </Product>' +
+' </ListOfProduct>' +
+' <StartRowNum>0</StartRowNum>' +
+' </ProductWS_ProductQueryPage_Input>' +
+' </soapenv:Body>' +
+'</soapenv:Envelope>';
+ 
+var fieldsXML = '';
+for (fieldName in fieldsProdet) {
+fieldsXML += '<' + fieldName + '>' + fieldsProdet[fieldName] + '</' + fieldName + '>';
+}
+ 
+var soapRequest = soapRequestTemplate.replace("<%=fieldsProdet%>", fieldsXML);
+ 
+//alert("soapRequest : " + soapRequest);
+ 
+try{
+jQuery.ajax({
+url: 'https://secure-ausomxapa.crmondemand.com/Services/Integration',
+type: 'POST',
+contentType: 'text/xml',
+dataType: 'xml',
+data: soapRequest,
+beforeSend: function(xhr) {
+//alert("Before sending request to insert : " + xhr);
+xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');
+},
+complete: function(xhr, textStatus) {
+//alert("Completed");
+},
+success: function(xmlData, textStatus) {
+//alert("successssfullllllll getting the product Info");
+var items = getListData('Product', xmlData);
+////alert("items : " + items);
+var productId = items[0].ProductId;
+//alert("productId : " + productId);
+//createProductDetailed(activityId, productId);
+ 
+if(productId != null)
+{
+if(reqFrom != null && reqFrom == 'ProdDetail')
+{
+callWebServToCreateProdDet(productId, activityId, function(){
+callback.call();
+});
+}
+else if(reqFrom != null && reqFrom == 'SampDrop')
+{
+//alert('Control Came from SampDrop');
+callWebServToCreateSampDrop(productId, activityId, function(){
+callback.call();
+});
+}
+else
+{
+alert('Control not identified');
+return;
+}
+}
+else
+{
+alert('Product Name is not valid!!!');
+return;
+}
+}
+});
+}
+catch (e) {
+alert('Error: ' + e.message);
+}
+//return true;
+});
+}
+
+function callWebServToGetSampInfo(fieldsProdet, activityId, reqFrom, callback)
 {
 //alert('Inside callWebServToGetProdInfo');
 createWebSerConn(function(xhr, textStatus){
