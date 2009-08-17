@@ -1,5 +1,4 @@
-        (function()
-		{
+        (function(){
 		function $get(key) {
 		return $("[id='" + key + "']");
 		}
@@ -9,6 +8,7 @@
 	    var $objectiveInputElement = $get('ContactCallInsert.VONDMED Call');
 		var objectiveValue = $objectiveInputElement.val();
 		if (objectiveValue !== '') { return; }
+		
 		alert("ownerId: "+ownerId);
 		alert("contactPerId: "+contactPerId);		   
         
@@ -54,33 +54,33 @@
     });
 	
  function createWebSerConn(callback)
-{
-alert("creating connection with Web services");
-var userName = 'MERCKTEST_CTE01/pfeil';
-var password = 'method00';
-try{
-jQuery.ajax({
-url: '/Services/Integration?command=login',
-dataType: 'xml',
-beforeSend: function(xhr) {
-xhr.setRequestHeader('UserName', userName);
-xhr.setRequestHeader('Password', password);
-},
-complete: function(xhr, textStatus) {
-alert("created connection with Web services : " + xhr);
-callback.call(this, xhr, textStatus);
-}
-});
-}
-catch (e) {
-alert('Error: ' + e.message);
-} 
-}  
+ {
+ alert("creating connection with Web services");
+ var userName = 'MERCKTEST_CTE01/pfeil';
+ var password = 'method00';
+ try{
+ jQuery.ajax({
+ url: '/Services/Integration?command=login',
+ dataType: 'xml',
+ beforeSend: function(xhr) {
+ xhr.setRequestHeader('UserName', userName);
+ xhr.setRequestHeader('Password', password);
+ },
+ complete: function(xhr, textStatus) {
+ alert("created connection with Web services : " +xhr);
+ callback.call(this, xhr, textStatus);
+ }
+	});
+	}
+ catch (e) {
+ alert('Error: ' + e.message);
+ } 
+ }  
 	
-	function manualQuery(entityType, fields, soapAction, soapRequestTemplate, callback) 
+  function manualQuery(entityType, fields, soapAction, soapRequestTemplate, callback) 
 	{
 	alert("INSIDE manual Query");
-    var that = this;
+    //var that = this;
     
     var pageroot = document.location;
     pageroot = pageroot.toString();
@@ -106,8 +106,9 @@ alert('Error: ' + e.message);
             xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');
         },
         success: function(xmlData, textStatus) {
-		    var items = [];
-            items = that.getListData(entityTypeCapitalized, xmlData);				
+		    //var items = [];
+            //var items = that.getListData(entityTypeCapitalized, xmlData);	
+            var items = getListData(entityTypeCapitalized, xmlData);							
             if (callback.itemsCache) {
                 callback.itemsCache = callback.itemsCache.concat(items);
             } else {
@@ -121,7 +122,8 @@ alert('Error: ' + e.message);
                 callback(callback.itemsCache);
             } else {
                 callback.more = true;
-                that.entityQuery(entityType, fields, callback);
+                //that.entityQuery(entityType, fields, callback);
+				 entityQuery(entityType, fields, callback);
             }
             window.xmlData = xmlData;
         }
@@ -141,7 +143,6 @@ alert('Error: ' + e.message);
     });
     return arr;
 	}
- 
 }
 	function activityQuery (fields, callback){
 	alert("Inside ActivityQuery");
