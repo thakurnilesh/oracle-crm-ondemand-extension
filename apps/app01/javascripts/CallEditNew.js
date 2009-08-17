@@ -589,18 +589,9 @@ alert('Error: ' + e.message);
 }
 function midway(activityId, callback)
 {
-//if(ctrowsamp!=0 || ctrowprod!=0){
-if(ctrowsamp!=0){
-alert("Calling createProductDetailInfo for Samples");
-//alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp);
-//alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
-//Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking
-//the same row twice because of the similar ID tag in the HTML.
-createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
-});});
-}
-else if(ctrowprod!=0){
-alert("Calling createProductDetailInfo for products");
+if(ctrowsamp!=0 || ctrowprod!=0){
+//if(ctrowsamp!=0){
+alert("Calling createProductDetailInfo");
 //alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp);
 //alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
 //Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking
@@ -635,12 +626,13 @@ productNameSamp = document.getElementById('prodNameSamDrop').value;
 if(productNameProdet != null && productNameProdet != '' && productNameSamp != null && productNameSamp != '')
 {
 bothPresent = true;
- 
+ alert('FIRST IF');
 //alert('productNameProdet : ' + productNameProdet);
 var fieldsProdet = {
 ProductId: '',
 Name: " ='" + productNameProdet + "' "
 };
+
 callWebServToGetProdInfo(fieldsProdet, activityId, 'ProdDetail', function(){
 if(bothPresent == true){ }
 });
@@ -657,8 +649,10 @@ callback.call();
 }
 });
 }
+
 else if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
 {
+alert('CALLING 2nd If i.e. Only Products presents');
 //alert('productNameProdet : ' + productNameProdet);
 var fieldsProdet = {
 ProductId: '',
@@ -670,11 +664,14 @@ callback.call();
 }
 else if(productNameProdet == null && productNameSamp != null && productNameSamp != '')
 {
+alert("Calling 3rd IF i.e. only samples present");
 //alert('productNameSamp : ' + productNameSamp);
+
 var fieldsSampDrop = {
 ProductId: '',
 Name: " ='" + productNameSamp + "' "
 };
+
 callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
 callback.call();
 });
