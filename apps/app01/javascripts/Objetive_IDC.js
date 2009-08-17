@@ -79,7 +79,7 @@ alert('Error: ' + e.message);
 	
 	function manualQuery(entityType, fields, soapAction, soapRequestTemplate, callback) 
 	{
-	function = getListData(type, xmlData) {
+	function getListData(type, xmlData) {
     var arr = [];
     jQuery(type, xmlData).each(function(index, item) {
         var obj = {};
