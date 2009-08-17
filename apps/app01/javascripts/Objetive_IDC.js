@@ -149,7 +149,8 @@ alert('Error: ' + e.message);
         '</soapenv:Envelope>';
       alert("before calling manual query");  
     this.manualQuery('Activity', fields, soapAction, soapRequestTemplate, function(data) {
-        callback(data);
+        //callback(data);
+		callback.call();
     });
 	});
  }
