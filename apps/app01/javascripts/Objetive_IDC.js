@@ -79,19 +79,6 @@ alert('Error: ' + e.message);
 	
 	function manualQuery(entityType, fields, soapAction, soapRequestTemplate, callback) 
 	{
-	function getListData(type, xmlData) {
-    var arr = [];
-    jQuery(type, xmlData).each(function(index, item) {
-        var obj = {};
-        jQuery(item).children().each(function(index, item) {
-          var fieldName = jQuery(item).get(0).tagName;
-          var fieldValue = jQuery(item).text();
-          obj[fieldName] = fieldValue;
-        });
-        arr.push(obj);
-    });
-    return arr;
-	}
 	alert("INSIDE manual Query");
     var that = this;
     
@@ -139,6 +126,21 @@ alert('Error: ' + e.message);
             window.xmlData = xmlData;
         }
     });
+	
+	function getListData(type, xmlData) {
+	alert("INSIDE getListData!");
+    var arr = [];
+    jQuery(type, xmlData).each(function(index, item) {
+        var obj = {};
+        jQuery(item).children().each(function(index, item) {
+          var fieldName = jQuery(item).get(0).tagName;
+          var fieldValue = jQuery(item).text();
+          obj[fieldName] = fieldValue;
+        });
+        arr.push(obj);
+    });
+    return arr;
+	}
  
 }
 	function activityQuery (fields, callback){
