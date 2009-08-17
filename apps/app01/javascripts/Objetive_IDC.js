@@ -2,10 +2,11 @@
         var ownerId = $get('ContactCallInsert.Owner Id').val();
         var contactPerId = $get('ContactCallInsert.Contact Per Id').val();
         var $objectiveInputElement = $get('ContactCallInsert.VONDMED Call');
-        var objectiveValue = $objectiveInputElement.val();
-        
-        // already has a value so don't overwrite
-        if (objectiveValue !== '') { return; }
+		alert("Inside function");
+		alert("ownerId: "+ownerId);
+		alert("contactPerId: "+contactPerId);
+        //var objectiveValue = $objectiveInputElement.val();
+        // if (objectiveValue !== '') { return; }
  
         var obj = {ownerId: ownerId, contactPerId: contactPerId, objectiveValue: objectiveValue};
                
@@ -51,7 +52,7 @@
 	
  function createWebSerConn(callback)
 {
-//alert("creating connection with Web services");
+alert("creating connection with Web services");
 var userName = 'MERCKTEST_CTE01/pfeil';
 var password = 'method00';
 try{
@@ -75,6 +76,7 @@ alert('Error: ' + e.message);
 	
 	function manualQuery(entityType, fields, soapAction, soapRequestTemplate, callback) 
 	{
+	alert("INSIDE manual Query");
     var that = this;
     
     var pageroot = document.location;
@@ -125,6 +127,7 @@ alert('Error: ' + e.message);
 }
 	function activityQuery (fields, callback) 
 	{
+	alert("Inside ActivityQuery");
     createWebSerConn(function(xhr, textStatus){
     var soapAction = 'document/urn:crmondemand/ws/activity/10/2004:Activity_QueryPage';
     var soapRequestTemplate = '' +
