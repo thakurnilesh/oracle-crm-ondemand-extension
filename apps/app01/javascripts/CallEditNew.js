@@ -612,7 +612,7 @@ function createProductDetailInfo(activityId, callback)
 //alert("Productcallinfo Call No." +counter);
 var productNameProdet;
 var productNameSamp;
-var bothPresent = false;
+//var bothPresent = false;
  
 if(document.getElementById('prodNamePrDet') != null && document.getElementById('prodNamePrDet') != '')
 {
@@ -675,7 +675,7 @@ ProductId: '',
 Name: " ='" + productNameSamp + "' "
 };
 
-callWebServToGetSampInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
+callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
 callback.call();
 });
 }
@@ -772,7 +772,7 @@ alert('Error: ' + e.message);
 //return true;
 });
 }
-
+/*
 function callWebServToGetSampInfo(fieldsProdet, activityId, reqFrom, callback)
 {
 //alert('Inside callWebServToGetProdInfo');
@@ -859,7 +859,7 @@ alert('Error: ' + e.message);
 }
 //return true;
 });
-}
+}*/
  
 function callWebServToCreateProdDet(productId, activityId, callback)
 {
