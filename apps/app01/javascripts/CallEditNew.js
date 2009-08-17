@@ -592,8 +592,8 @@ function midway(activityId, callback)
 if(ctrowsamp!=0 || ctrowprod!=0){
 //if(ctrowsamp!=0){
 alert("Calling createProductDetailInfo");
-//alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp);
-//alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
+alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp);
+alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
 //Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking
 //the same row twice because of the similar ID tag in the HTML.
 createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
@@ -652,7 +652,7 @@ callback.call();
 }
 });
 }*/
-if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
+if(productNameProdet != null && productNameProdet != '')
 //else if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
 {
 alert('CALLING 2nd If i.e. Only Products presents');
@@ -665,7 +665,8 @@ callWebServToGetProdInfo(fieldsProdet, activityId, 'ProdDetail', function(){
 callback.call();
 });
 }
-else if(productNameProdet == null && productNameSamp != null && productNameSamp != '')
+
+else if(productNameSamp != null && productNameSamp != '')
 {
 alert("Calling 3rd IF i.e. only samples present");
 //alert('productNameSamp : ' + productNameSamp);
