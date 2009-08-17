@@ -2,15 +2,15 @@
 		function $get(key) {
 		return $("[id='" + key + "']");
 		}
-		alert("Inside function");
+		//alert("Inside function");
         var ownerId = $get('ContactCallInsert.Owner Id').val();
         var contactPerId = $get('ContactCallInsert.Contact Per Id').val();
 	    var $objectiveInputElement = $get('ContactCallInsert.VONDMED Call');
 		var objectiveValue = $objectiveInputElement.val();
 		if (objectiveValue !== '') { return; }
 		
-		alert("ownerId: "+ownerId);
-		alert("contactPerId: "+contactPerId);		   
+		//alert("ownerId: "+ownerId);
+		//alert("contactPerId: "+contactPerId);		   
         
         var obj = {ownerId: ownerId, contactPerId: contactPerId, objectiveValue: objectiveValue};
                
@@ -55,7 +55,7 @@
 	
  function createWebSerConn(callback)
  {
- alert("creating connection with Web services");
+ //alert("creating connection with Web services");
  var userName = 'MERCKTEST_CTE01/pfeil';
  var password = 'method00';
  try{
@@ -67,7 +67,7 @@
  xhr.setRequestHeader('Password', password);
  },
  complete: function(xhr, textStatus) {
- alert("created connection with Web services : " +xhr);
+ //alert("created connection with Web services : " +xhr);
  callback.call(this, xhr, textStatus);
  }
 	});
@@ -79,7 +79,7 @@
 	
   function manualQuery(entityType, fields, soapAction, soapRequestTemplate, callback) 
 	{
-	alert("INSIDE manual Query");
+	//alert("INSIDE manual Query");
     //var that = this;
     
     var pageroot = document.location;
@@ -130,7 +130,7 @@
     });
 	
 	function getListData(type, xmlData) {
-	alert("INSIDE getListData!");
+	//alert("INSIDE getListData!");
     var arr = [];
     jQuery(type, xmlData).each(function(index, item) {
         var obj = {};
@@ -145,7 +145,7 @@
 	}
 }
 	function activityQuery (fields, callback){
-	alert("Inside ActivityQuery");
+	//alert("Inside ActivityQuery");
     createWebSerConn(function(xhr, textStatus){
     var soapAction = 'document/urn:crmondemand/ws/activity/10/2004:Activity_QueryPage';
     var soapRequestTemplate = '' +
@@ -163,7 +163,7 @@
         ' </ActivityNWS_Activity_QueryPage_Input>' +
         ' </soapenv:Body>' +
         '</soapenv:Envelope>';
-      alert("before calling manual query");  
+      //alert("before calling manual query");  
     //this.manualQuery('Activity', fields, soapAction, soapRequestTemplate, function(data) {
 	    manualQuery('Activity', fields, soapAction, soapRequestTemplate, function(data) {
         callback(data);
