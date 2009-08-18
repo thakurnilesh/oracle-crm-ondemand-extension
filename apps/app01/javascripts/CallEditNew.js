@@ -410,13 +410,21 @@ var ownerVal = document.getElementById('ContactCallInsert.Assigned To').value;
 //alert("contactId: " +contactId);
 //alert("ownerVal: " +ownerVal); 
  
-var prodIDC='Test';
+//var prodIDC='Test';
 var prodIDC2='Test';
+var prodIDC_arr = [];
 if(ctrowprod!=0){
-prodIDC= document.getElementById('prodNamePrDet').value;
-prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
-    //alert("prodIDC fetched: "+prodIDC);
+//prodIDC= document.getElementById('prodNamePrDet').value;
+//prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
+//alert("prodIDC fetched: "+prodIDC);
+prodIDC_arr = $('#prodNamePrDet');
 }
+
+for(var i=0;i<prodIDC_arr.length;i++){
+   prodIDC=prodIDC_arr[i];
+   if((prodIDC == null || prodIDC == '' || prodIDC == 'none'))
+     break; 
+   }
  
 var sampIDC='Test';
 var sampIDC2='Test';
@@ -448,11 +456,14 @@ div2.style.visibility="visible";
 else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 {
 //alert('Inside 3rd Else if');
-div1.style.visibility="visible";
 if(newbutton==1)
 saveandnewMidway2();
 else
 saveMidway2();
+
+div1.style.visibility="visible";
+$('#div1').style.visibility="visible";
+$('#div2').style.visibility="visible";
 }
 else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
 { div2.style.visibility="visible";
