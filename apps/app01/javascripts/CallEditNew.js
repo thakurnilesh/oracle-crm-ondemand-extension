@@ -198,12 +198,12 @@ row += "<table>";
 row += "<tr>";
 row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
 row += "<td><select STYLE='width: 130px' class='SAM' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
-row += "<td><span id=div3 style='color:red' style='visibility:hidden'  class='REQS'>required</span></td>";
+row += "<td><span id=div3 style='color:red' style='visibility:hidden'  class='REQ'>required</span></td>";
 row += "<td>Lot # </td>";
 row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name'/></td></td>";
 row += "<td><span style='color:red' class='requiredText'>Quantity* </span></td>";
 row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='SAM1' id='CallSampDropNew.Quantity' /></td>";
-row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='REQS'>required</span></td>";
+row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='REQ'>required</span></td>";
 row += "<td><input type='button' name='delete' id='ROWID' value='delete' onclick= rowDelete();></input></td>";
 row += "</tr></table></td></tr>";
 jQuery("#sampleDrop").append(row);
@@ -401,7 +401,7 @@ endTimeMod = '';
  
 //var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
 //var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
-
+//REQS
 var contactId = document.getElementById('ContactCallInsert.Contact Full Name').value;
 var ownerVal = document.getElementById('ContactCallInsert.Assigned To').value;
 
@@ -469,8 +469,11 @@ saveandnewMidway2();
 else
 saveMidway2();
 //alert('inside 2nd elseif');
-div1.style.visibility="visible";
-div2.style.visibility="visible";
+var t=$(".REQ");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 }
 else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 {
@@ -485,7 +488,12 @@ else
 saveMidway2();
 }
 else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
-{ div2.style.visibility="visible";
+{ 
+var t=$(".REQ");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 if(newbutton==1)
 saveandnewMidway2();
 else
@@ -493,16 +501,19 @@ saveMidway2();
 }
 else if ((sampIDC == null || sampIDC == '' || sampIDC == 'none') && (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none'))
 {
+var t=$(".REQ");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 if(newbutton==1)
 saveandnewMidway2();
 else
 saveMidway2();
-div3.style.visibility="visible";
-div4.style.visibility="visible";
 }
 else if (sampIDC == null || sampIDC == '' || sampIDC == 'none')
 {
-var t=$(".REQS");
+var t=$(".REQ");
  for(var j=0;j<t.length;j++)
  {
    t[j].style.visibility="visible";  
@@ -513,7 +524,12 @@ else
 saveMidway2();
 }
 else if (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none')
-{ div4.style.visibility="visible";
+{ 
+var t=$(".REQ");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 if(newbutton==1)
 saveandnewMidway2();
 else
