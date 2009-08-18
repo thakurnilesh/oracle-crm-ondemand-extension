@@ -203,7 +203,7 @@ row += "<td>Lot # </td>";
 row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name'/></td></td>";
 row += "<td><span style='color:red' class='requiredText'>Quantity* </span></td>";
 row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
-row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='REQS2'>required</span></td>";
+row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='REQS'>required</span></td>";
 row += "<td><input type='button' name='delete' id='ROWID' value='delete' onclick= rowDelete();></input></td>";
 row += "</tr></table></td></tr>";
 jQuery("#sampleDrop").append(row);
@@ -228,7 +228,7 @@ row += "<td>Priority: </td>";
 row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
 row += "<td><span style='color:red' class='requiredText'>Indication*:</span></td>";
 row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange (this); class=inputControl id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
-row += "<td><span id=div2 style='color:red' style='visibility:hidden' class='REQ2'>required</span></td>";
+row += "<td><span id=div2 style='color:red' style='visibility:hidden' class='REQ'>required</span></td>";
 row += "<td>Issues:</td>";
 row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
 row += "<td><input type='button' name='delete' id='ROWID2' value='delete' onclick=rowDelete2();></input></td>";
@@ -407,18 +407,24 @@ var ownerVal = document.getElementById('ContactCallInsert.Assigned To').value;
 
 
 var prodIDC2='Test';
-
-
 var prodIDC='Test';
 var prodIDC_arr = [];
 if(ctrowprod!=0){
 var prodIDC_arr= $(".PRO");
-prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
+var prodIDC2_arr= $(".PRO");
+//prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
 }
 
 for(var i=0;i<prodIDC_arr.length;i++){
    prodIDC=prodIDC_arr[i].value;
    if((prodIDC == null || prodIDC == '' || prodIDC == 'none')){
+	 break; 
+	 }
+   }
+   
+ for(var i=0;i<prodIDC2_arr.length;i++){
+   prodIDC2=prodIDC2_arr[i].value;
+   if((prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')){
 	 break; 
 	 }
    }
@@ -428,7 +434,8 @@ var sampIDC='Test';
 var sampIDC_arr = [];
 if(ctrowsamp!=0){
 var sampIDC_arr= $(".SAM");
-sampIDC2= document.getElementById('CallSampDropNew.Quantity').value;
+var sampIDC2_arr= $(".SAM");
+//sampIDC2= document.getElementById('CallSampDropNew.Quantity').value;
 }
 for(var i=0;i<sampIDC_arr.length;i++){
    sampIDC=sampIDC_arr[i].value;
@@ -436,7 +443,13 @@ for(var i=0;i<sampIDC_arr.length;i++){
 	 break; 
 	 }
    }
- 
+   
+ for(var i=0;i<sampIDC2_arr.length;i++){
+   sampIDC2=sampIDC2_arr[i].value;
+   if((sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none')){
+	 break; 
+	 }
+   }
 if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 || (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '')
 || (ownerVal == null || ownerVal == ''))
