@@ -465,13 +465,13 @@ else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 {
 alert('prodIDC Check');
 //div1.style.visibility="visible";
- $(".THAKUR").style.visibility="visible";
- var t=$(".THAKUR");
- alert("THAKUR Length" +t.length);
-  for(var j=0;j<t.length;j++)
-  {
-    t[j].style.visibility="visible";  
-  }
+$(".THAKUR").span.style.visibility="visible";
+ //var t=$(".THAKUR");
+ //alert("THAKUR Length" +t.length);
+  //for(var j=0;j<t.length;j++)
+  //{
+  //  t[j].style.visibility="visible";  
+  //}
 //$("#div2").style.visibility="visible";
 if(newbutton==1)
 saveandnewMidway2();
