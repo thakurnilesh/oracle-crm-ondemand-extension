@@ -196,16 +196,14 @@ function addNewRowSampleDrop()
 var row = "<tr width='100%'><td colspan='3'>";
 row += "<table>";
 row += "<tr>";
-//row += "<td>Product Category </td>";
-//row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
 row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
-row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
-row += "<td><span id=div3 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
+row += "<td><select STYLE='width: 130px' class='SAM' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
+row += "<td><span id=div3 style='color:red' style='visibility:hidden'  class='REQS'>required</span></td>";
 row += "<td>Lot # </td>";
 row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name'/></td></td>";
 row += "<td><span style='color:red' class='requiredText'>Quantity* </span></td>";
 row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
-row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
+row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='REQS2'>required</span></td>";
 row += "<td><input type='button' name='delete' id='ROWID' value='delete' onclick= rowDelete();></input></td>";
 row += "</tr></table></td></tr>";
 jQuery("#sampleDrop").append(row);
@@ -230,7 +228,7 @@ row += "<td>Priority: </td>";
 row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
 row += "<td><span style='color:red' class='requiredText'>Indication*:</span></td>";
 row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange (this); class=inputControl id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
-row += "<td><span id=div2 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
+row += "<td><span id=div2 style='color:red' style='visibility:hidden' class='REQ2'>required</span></td>";
 row += "<td>Issues:</td>";
 row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
 row += "<td><input type='button' name='delete' id='ROWID2' value='delete' onclick=rowDelete2();></input></td>";
@@ -424,12 +422,20 @@ for(var i=0;i<prodIDC_arr.length;i++){
 	 }
    }
  
-var sampIDC='Test';
 var sampIDC2='Test';
-if(ctrowsamp!=0){
-sampIDC= document.getElementById('prodNameSamDrop').value;
 sampIDC2= document.getElementById('CallSampDropNew.Quantity').value;
+
+var sampIDC='Test';
+var sampIDC_arr = [];
+if(ctrowsamp!=0){
+var sampIDC_arr= $(".SAM");
 }
+for(var i=0;i<sampIDC_arr.length;i++){
+   sampIDC=sampIDC_arr[i].value;
+   if((sampIDC == null || sampIDC == '' || sampIDC == 'none')){
+	 break; 
+	 }
+   }
  
 if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 || (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '')
@@ -480,7 +486,12 @@ div3.style.visibility="visible";
 div4.style.visibility="visible";
 }
 else if (sampIDC == null || sampIDC == '' || sampIDC == 'none')
-{ div3.style.visibility="visible";
+{
+var t=$(".REQS");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 if(newbutton==1)
 saveandnewMidway2();
 else
