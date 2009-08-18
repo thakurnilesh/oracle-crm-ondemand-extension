@@ -469,7 +469,9 @@ saveandnewMidway2();
 else
 saveMidway2();
 //div1.style.visibility="visible";
-$(".THAKUR").style.visibility="visible";
+//$(".THAKUR").style.visibility="visible";
+ $(".THAKUR").show();
+
 //$("#div2").style.visibility="visible";
 }
 else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
