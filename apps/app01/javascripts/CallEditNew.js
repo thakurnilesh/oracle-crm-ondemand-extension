@@ -464,15 +464,19 @@ div2.style.visibility="visible";
 else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 {
 alert('prodIDC Check');
+//div1.style.visibility="visible";
+ $(".THAKUR").style.visibility="visible";
+ var t=$(".THAKUR");
+ alert("THAKUR Length" +t.length);
+  for(var j=0;j<t.length;j++)
+  {
+    t[j].style.visibility="visible";  
+  }
+//$("#div2").style.visibility="visible";
 if(newbutton==1)
 saveandnewMidway2();
 else
 saveMidway2();
-//div1.style.visibility="visible";
-//$(".THAKUR").style.visibility="visible";
- $(".THAKUR").show();
-
-//$("#div2").style.visibility="visible";
 }
 else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
 { div2.style.visibility="visible";
