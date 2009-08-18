@@ -463,13 +463,12 @@ div2.style.visibility="visible";
 }
 else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 {
-//alert('Inside 3rd Else if');
+alert('prodIDC Check');
 if(newbutton==1)
 saveandnewMidway2();
 else
 saveMidway2();
-
-div1.style.visibility="visible";
+//div1.style.visibility="visible";
 $(".THAKUR").style.visibility="visible";
 //$("#div2").style.visibility="visible";
 }
