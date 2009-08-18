@@ -409,13 +409,15 @@ var ownerVal = document.getElementById('ContactCallInsert.Assigned To').value;
 
 //alert("contactId: " +contactId);
 //alert("ownerVal: " +ownerVal); 
- 
-//var prodIDC='Test';
 var prodIDC2='Test';
+prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
+
+var prodIDC='Test';
+//prodIDC= document.getElementById('prodNamePrDet').value;
 var prodIDC_arr = [];
 if(ctrowprod!=0){
-//prodIDC= document.getElementById('prodNamePrDet').value;
-//prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
+
+
 //alert("prodIDC fetched: "+prodIDC);
 prodIDC_arr = $("#prodNamePrDet");
 }
