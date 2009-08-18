@@ -407,12 +407,13 @@ var ownerVal = document.getElementById('ContactCallInsert.Assigned To').value;
 
 
 var prodIDC2='Test';
-prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
+
 
 var prodIDC='Test';
 var prodIDC_arr = [];
 if(ctrowprod!=0){
 var prodIDC_arr= $(".PRO");
+prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
 }
 
 for(var i=0;i<prodIDC_arr.length;i++){
@@ -423,12 +424,11 @@ for(var i=0;i<prodIDC_arr.length;i++){
    }
  
 var sampIDC2='Test';
-sampIDC2= document.getElementById('CallSampDropNew.Quantity').value;
-
 var sampIDC='Test';
 var sampIDC_arr = [];
 if(ctrowsamp!=0){
 var sampIDC_arr= $(".SAM");
+sampIDC2= document.getElementById('CallSampDropNew.Quantity').value;
 }
 for(var i=0;i<sampIDC_arr.length;i++){
    sampIDC=sampIDC_arr[i].value;
