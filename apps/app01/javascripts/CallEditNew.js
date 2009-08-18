@@ -420,12 +420,17 @@ if(ctrowprod!=0){
 prodIDC_arr = $("#prodNamePrDet");
 }
 
+var len=prodIDC_arr.length;
+alert("Array Length"+len);
+
 for(var i=0;i<prodIDC_arr.length;i++){
 alert("INSIDE FOR LOOP");
-   prodIDC=prodIDC_arr[i];
-   alert("prodIDC ARRAY ELE"+prodIDC);
-   if((prodIDC == null || prodIDC == '' || prodIDC == 'none'))
-     break; 
+   prodIDC=prodIDC_arr[i].value;
+   alert("prodIDC ARRAY ELE: "+prodIDC);
+   if((prodIDC == null || prodIDC == '' || prodIDC == 'none')){
+     alert("INSIDE IF");
+	 break; 
+	 }
    }
  
 var sampIDC='Test';
