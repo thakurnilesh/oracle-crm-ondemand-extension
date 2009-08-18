@@ -202,7 +202,7 @@ row += "<td><span id=div3 style='color:red' style='visibility:hidden'  class='RE
 row += "<td>Lot # </td>";
 row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name'/></td></td>";
 row += "<td><span style='color:red' class='requiredText'>Quantity* </span></td>";
-row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
+row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='SAM1' id='CallSampDropNew.Quantity' /></td>";
 row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='REQS'>required</span></td>";
 row += "<td><input type='button' name='delete' id='ROWID' value='delete' onclick= rowDelete();></input></td>";
 row += "</tr></table></td></tr>";
@@ -227,7 +227,7 @@ row += "<td><span id=div1 style='color:red' style='visibility:hidden' class='REQ
 row += "<td>Priority: </td>";
 row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
 row += "<td><span style='color:red' class='requiredText'>Indication*:</span></td>";
-row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange (this); class=inputControl id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
+row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange(this); class='PRO1' id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
 row += "<td><span id=div2 style='color:red' style='visibility:hidden' class='REQ'>required</span></td>";
 row += "<td>Issues:</td>";
 row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
@@ -409,6 +409,7 @@ var ownerVal = document.getElementById('ContactCallInsert.Assigned To').value;
 var prodIDC2='Test';
 var prodIDC='Test';
 var prodIDC_arr = [];
+var prodIDC2_arr = []; 
 if(ctrowprod!=0){
 var prodIDC_arr= $(".PRO");
 var prodIDC2_arr= $(".PRO");
@@ -432,6 +433,7 @@ for(var i=0;i<prodIDC_arr.length;i++){
 var sampIDC2='Test';
 var sampIDC='Test';
 var sampIDC_arr = [];
+var sampIDC2_arr = [];
 if(ctrowsamp!=0){
 var sampIDC_arr= $(".SAM");
 var sampIDC2_arr= $(".SAM");
