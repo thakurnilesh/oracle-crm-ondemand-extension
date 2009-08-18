@@ -416,8 +416,6 @@ var prodIDC='Test';
 //prodIDC= document.getElementById('prodNamePrDet').value;
 var prodIDC_arr = [];
 if(ctrowprod!=0){
-
-
 //alert("prodIDC fetched: "+prodIDC);
 prodIDC_arr = $("#prodNamePrDet");
 }
@@ -425,6 +423,7 @@ prodIDC_arr = $("#prodNamePrDet");
 for(var i=0;i<prodIDC_arr.length;i++){
 alert("INSIDE FOR LOOP");
    prodIDC=prodIDC_arr[i];
+   alert("prodIDC ARRAY ELE"+prodIDC);
    if((prodIDC == null || prodIDC == '' || prodIDC == 'none'))
      break; 
    }
