@@ -412,7 +412,7 @@ var prodIDC_arr = [];
 var prodIDC2_arr = []; 
 if(ctrowprod!=0){
 var prodIDC_arr= $(".PRO");
-var prodIDC2_arr= $(".PRO");
+var prodIDC2_arr= $(".PRO1");
 for(var i=0;i<prodIDC_arr.length;i++){
    prodIDC=prodIDC_arr[i].value;
    if((prodIDC == null || prodIDC == '' || prodIDC == 'none')){
@@ -434,7 +434,7 @@ var sampIDC_arr = [];
 var sampIDC2_arr = [];
 if(ctrowsamp!=0){
 var sampIDC_arr= $(".SAM");
-var sampIDC2_arr= $(".SAM");
+var sampIDC2_arr= $(".SAM1");
 for(var i=0;i<sampIDC_arr.length;i++){
    sampIDC=sampIDC_arr[i].value;
    if((sampIDC == null || sampIDC == '' || sampIDC == 'none')){
@@ -466,7 +466,6 @@ if(newbutton==1)
 saveandnewMidway2();
 else
 saveMidway2();
-//alert('inside 2nd elseif');
 var t=$(".REQ");
  for(var j=0;j<t.length;j++)
  {
