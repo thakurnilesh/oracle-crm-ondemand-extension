@@ -194,16 +194,14 @@ function addNewRowSampleDrop()
 var row = "<tr width='100%'><td colspan='3'>";
 row += "<table>";
 row += "<tr>";
-//row += "<td>Product Category </td>";
-//row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
 row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
-row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
-row += "<td><span id=div3 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
+row += "<td><select STYLE='width: 130px' class='SAM' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
+row += "<td><span id=div3 style='color:red' style='visibility:hidden'  class='REQ'>required</span></td>";
 row += "<td>Lot # </td>";
 row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name'/></td></td>";
 row += "<td><span style='color:red' class='requiredText'>Quantity* </span></td>";
-row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
-row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
+row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='SAM1' id='CallSampDropNew.Quantity' /></td>";
+row += "<td><span id=div4 style='color:red' style='visibility:hidden' class='REQ'>required</span></td>";
 row += "<td><input type='button' name='delete' id='ROWID' value='delete' onclick= rowDelete();></input></td>";
 row += "</tr></table></td></tr>";
 jQuery("#sampleDrop").append(row);
@@ -222,13 +220,13 @@ var row = "<tr width='100%'><td colspan='3'>";
 row += "<table>";
 row += "<tr>";
 row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
-row += "<td><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
-row += "<td><span id=div1 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
+row += "<td><select STYLE='width: 130px' class='PRO' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
+row += "<td><span id=div1 style='color:red' style='visibility:hidden' class='REQ'>required</span></td>";
 row += "<td>Priority: </td>";
 row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
 row += "<td><span style='color:red' class='requiredText'>Indication*:</span></td>";
-row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange (this); class=inputControl id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
-row += "<td><span id=div2 style='color:red' style='visibility:hidden' class='requiredText'>required</span></td>";
+row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange(this); class='PRO1' id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
+row += "<td><span id=div2 style='color:red' style='visibility:hidden' class='REQ'>required</span></td>";
 row += "<td>Issues:</td>";
 row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
 row += "<td><input type='button' name='delete' id='ROWID2' value='delete' onclick=rowDelete2();></input></td>";
@@ -406,19 +404,48 @@ endTimeMod = '';
 var contactId = $("input[id='ContactCallEditForm.Contact Full Name']").val();
 var ownerVal = $("input[id='ContactCallEditForm.Assigned To']").val();
  
-var prodIDC='Test';
 var prodIDC2='Test';
+var prodIDC='Test';
+var prodIDC_arr = [];
+var prodIDC2_arr = []; 
 if(ctrowprod!=0){
-prodIDC= document.getElementById('prodNamePrDet').value;
-prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
-    //alert("prodIDC fetched: "+prodIDC);
+var prodIDC_arr= $(".PRO");
+var prodIDC2_arr= $(".PRO");
+for(var i=0;i<prodIDC_arr.length;i++){
+   prodIDC=prodIDC_arr[i].value;
+   if((prodIDC == null || prodIDC == '' || prodIDC == 'none')){
+	 break; 
+	 }
+   }
+   
+ for(var i=0;i<prodIDC2_arr.length;i++){
+   prodIDC2=prodIDC2_arr[i].value;
+   if((prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')){
+	 break; 
+	 }
+   }
 }
- 
-var sampIDC='Test';
+
 var sampIDC2='Test';
+var sampIDC='Test';
+var sampIDC_arr = [];
+var sampIDC2_arr = [];
 if(ctrowsamp!=0){
-sampIDC= document.getElementById('prodNameSamDrop').value;
-sampIDC2= document.getElementById('CallSampDropNew.Quantity').value;
+var sampIDC_arr= $(".SAM");
+var sampIDC2_arr= $(".SAM");
+for(var i=0;i<sampIDC_arr.length;i++){
+   sampIDC=sampIDC_arr[i].value;
+   if((sampIDC == null || sampIDC == '' || sampIDC == 'none')){
+	 break; 
+	 }
+   }
+   
+ for(var i=0;i<sampIDC2_arr.length;i++){
+   sampIDC2=sampIDC2_arr[i].value;
+   if((sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none')){
+	 break; 
+	 }
+   }
 }
  
 if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
@@ -426,60 +453,63 @@ if((subjectValue == null || subjectValue == '') || (startTime == null || startTi
 || (ownerVal == null || ownerVal == ''))
 {
 validateSubmit('ContactCallEditForm','\/OnDemand\/user\/ContactCallEditForm?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallEditForm&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
-//if(newbutton==1)
-// saveandnewMidway2();
-//else
 saveMidway2();
 }
 else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 {
-//if(newbutton==1)
-// saveandnewMidway2();
-//else
+var t=$(".REQ");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 saveMidway2();
-//alert('inside 2nd elseif');
-div1.style.visibility="visible";
-div2.style.visibility="visible";
 }
 else if (prodIDC == null || prodIDC == '' || prodIDC == 'none')
 {
-//alert('Inside 3rd Else if');
-div1.style.visibility="visible";
-//if(newbutton==1)
-// saveandnewMidway2();
-//else
+var t=$(".REQ");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 saveMidway2();
 }
 else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
-{ div2.style.visibility="visible";
-//if(newbutton==1)
-// saveandnewMidway2();
-//else
+{ 
+var t=$(".REQ");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 saveMidway2();
 }
 else if ((sampIDC == null || sampIDC == '' || sampIDC == 'none') && (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none'))
 {
-//if(newbutton==1)
-// saveandnewMidway2();
-//else
+var t=$(".REQ");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 saveMidway2();
-div3.style.visibility="visible";
-div4.style.visibility="visible";
 }
 else if (sampIDC == null || sampIDC == '' || sampIDC == 'none')
-{ div3.style.visibility="visible";
-//if(newbutton==1)
-// saveandnewMidway2();
-//else
+{ 
+var t=$(".REQ");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 saveMidway2();
 }
 else if (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none')
-{ div4.style.visibility="visible";
-//if(newbutton==1)
-// saveandnewMidway2();
-//else
+{ 
+var t=$(".REQ");
+ for(var j=0;j<t.length;j++)
+ {
+   t[j].style.visibility="visible";  
+ }
 saveMidway2();
 }
+
 else{
 var fields = {
 ActivityId: "" + contactPerId + "",
