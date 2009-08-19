@@ -413,9 +413,6 @@ var prodIDC2_arr = [];
 if(ctrowprod!=0){
 var prodIDC_arr= $(".PRO");
 var prodIDC2_arr= $(".PRO");
-//prodIDC2= document.getElementById('CallProdDetailNew.Indication').value;
-}
-
 for(var i=0;i<prodIDC_arr.length;i++){
    prodIDC=prodIDC_arr[i].value;
    if((prodIDC == null || prodIDC == '' || prodIDC == 'none')){
@@ -429,7 +426,8 @@ for(var i=0;i<prodIDC_arr.length;i++){
 	 break; 
 	 }
    }
- 
+}
+
 var sampIDC2='Test';
 var sampIDC='Test';
 var sampIDC_arr = [];
@@ -437,8 +435,6 @@ var sampIDC2_arr = [];
 if(ctrowsamp!=0){
 var sampIDC_arr= $(".SAM");
 var sampIDC2_arr= $(".SAM");
-//sampIDC2= document.getElementById('CallSampDropNew.Quantity').value;
-}
 for(var i=0;i<sampIDC_arr.length;i++){
    sampIDC=sampIDC_arr[i].value;
    if((sampIDC == null || sampIDC == '' || sampIDC == 'none')){
@@ -452,6 +448,8 @@ for(var i=0;i<sampIDC_arr.length;i++){
 	 break; 
 	 }
    }
+}
+   
 if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 || (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '')
 || (ownerVal == null || ownerVal == ''))
