@@ -620,8 +620,7 @@ success: function(xmlData, textStatus) {
 var items = getListData('Activity', xmlData);
 //alert("items : " + items);
 activityId = items[0].ActivityId;
-//alert("activityId : " + activityId);
- 
+alert("activityId : " + activityId); 
 //createProductDetailInfo(activityId, function(){
 // callback.call();
 midway(activityId, function(){
@@ -749,7 +748,7 @@ success: function(xmlData, textStatus) {
 var items = getListData('Product', xmlData);
 ////alert("items : " + items);
 var productId = items[0].ProductId;
-//alert("productId : " + productId);
+alert("productId : " + productId);
 //createProductDetailed(activityId, productId);
  
 if(productId != null)
