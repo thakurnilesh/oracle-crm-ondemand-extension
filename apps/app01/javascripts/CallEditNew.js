@@ -595,8 +595,8 @@ fieldsXMLCont += '<' + fieldNameCont + '>' + fieldsCont[fieldNameCont] + '</' + 
 var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);
 var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);
 
-alert("soapRequest : " + soapRequest); 
-alert("soapRequestFinal : " + soapRequestFinal);
+//alert("soapRequest : " + soapRequest); 
+//alert("soapRequestFinal : " + soapRequestFinal);
  
 try{
 jQuery.ajax({
@@ -606,7 +606,7 @@ contentType: 'text/xml',
 dataType: 'xml',
 data: soapRequestFinal,
 beforeSend: function(xhr) {
-alert("Before sending request to insert : " + xhr);
+//alert("Before sending request to insert : " + xhr);
 xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');
 },
 error: function(errormessage) {
@@ -839,7 +839,7 @@ fieldsActXML += '<' + fieldNameAct + '>' + fieldsAct[fieldNameAct] + '</' + fiel
 var soapRequest = soapRequestTemplate.replace("<%=fieldsProd%>", fieldsXML);
 var finalSoapRequest = soapRequest.replace("<%=fieldsAct%>", fieldsActXML);
  
-//alert("soapRequest : " + finalSoapRequest);
+alert("soapRequest : " + soapRequest);
  
 try{
 jQuery.ajax({
