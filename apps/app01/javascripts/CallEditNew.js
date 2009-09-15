@@ -42,7 +42,7 @@ function add_footer_button(position, button_text, url, target_window, features) 
                     newtd.innerHTML = "<div id='foot' class='buttonTD' " +
                     "onmouseover='toggleNavButton(this);' " +
                     "onmouseout='toggleNavButton(this);' " +
-"onclick='if(saveFlg==1){"+url+";}'\>" +
+					"onclick='if(saveFlg==1){"+url+";}'\>" +
                    // "onclick=\"window.open('" + url + "', '" + target_window + "', '" + features + "');\" >" +
                     button_text + "</div>";
                 return true;
@@ -398,13 +398,8 @@ endTimeMod = endTime.replace(' AM', ':00');
 else{
 endTimeMod = '';
 }
- 
-//var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
-//var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
-//REQS
 var contactId = document.getElementById('ContactCallInsert.Contact Full Name').value;
 var ownerVal = document.getElementById('ContactCallInsert.Assigned To').value;
-
 
 var prodIDC2='Test';
 var prodIDC='Test';
@@ -599,8 +594,9 @@ fieldsXMLCont += '<' + fieldNameCont + '>' + fieldsCont[fieldNameCont] + '</' + 
  
 var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);
 var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);
- 
-//alert("soapRequest : " + soapRequestFinal);
+
+alert("soapRequest : " + soapRequest); 
+alert("soapRequestFinal : " + soapRequestFinal);
  
 try{
 jQuery.ajax({
@@ -610,7 +606,7 @@ contentType: 'text/xml',
 dataType: 'xml',
 data: soapRequestFinal,
 beforeSend: function(xhr) {
-//alert("Before sending request to insert : " + xhr);
+alert("Before sending request to insert : " + xhr);
 xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');
 },
 error: function(errormessage) {
@@ -646,12 +642,6 @@ alert('Error: ' + e.message);
 function midway(activityId, callback)
 {
 if(ctrowsamp!=0 || ctrowprod!=0){
-//if(ctrowsamp!=0){
-//alert("Calling createProductDetailInfo");
-//alert("ROW COUNTER before calling ProductDetailInfo SAMPLE: "+ctrowsamp);
-//alert("ROW COUNTER before calling ProductDetailInfo PRODUCT: "+ctrowprod);
-//Currently when the below mentioned function is called the 2nd time the Sample is not created as it is taking
-//the same row twice because of the similar ID tag in the HTML.
 createProductDetailInfo(activityId, function(){midway(activityId, function(){callback.call();
 });});
 }
@@ -678,41 +668,9 @@ if(document.getElementById('prodNameSamDrop') != null && document.getElementById
 {
 productNameSamp = document.getElementById('prodNameSamDrop').value;
 }
-/* 
-if(productNameProdet != null && productNameProdet != '' && productNameSamp != null && productNameSamp != '')
-{
-bothPresent = true;
- alert('FIRST IF');
-//alert('productNameProdet : ' + productNameProdet);
-var fieldsProdet = {
-ProductId: '',
-Name: " ='" + productNameProdet + "' "
-};
 
-callWebServToGetProdInfo(fieldsProdet, activityId, 'ProdDetail', function(){
-if(bothPresent == true){ 
-alert("INSIDE bothpresent");
-}
-});
- 
-//alert('productNameSamp : ' + productNameSamp);
-var fieldsSampDrop = {
-ProductId: '',
-Name: " ='" + productNameSamp + "' "
-};
-
-callWebServToGetProdInfo(fieldsSampDrop, activityId, 'SampDrop', function(){
-if(bothPresent == true)
-{
-callback.call();
-}
-});
-}*/
 if(productNameProdet != null && productNameProdet != '')
-//else if(productNameProdet != null && productNameProdet != '' && productNameSamp == null)
 {
-//alert('CALLING 2nd If i.e. Only Products presents');
-//alert('productNameProdet : ' + productNameProdet);
 var fieldsProdet = {
 ProductId: '',
 Name: " ='" + productNameProdet + "' "
