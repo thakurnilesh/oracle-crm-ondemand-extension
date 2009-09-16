@@ -65,7 +65,7 @@ alert("Inside Create New Account");
 //var ownerVal = document.getElementById('ContactCallInsert.Assigned To').value;
 
 var accName = document.getElementById('AccountEditForm.Name').value;
-var webSite = document.getElementById('AccountEditForm.Home Page').value
+//var webSite = document.getElementById('AccountEditForm.Home Page').value
    
 /*if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 || (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '')
@@ -81,8 +81,7 @@ else{
 var fields = {
 //OwnerId: "" + ownerId + "",
 //AccountId: "" + accId + "",
-//AccountName: "" + accName + ""
-WebSite: "" + webSite + ""
+AccountName: "" + accName + ""
 };
  
 createAccountIdUsingWeb(fields,function(){
