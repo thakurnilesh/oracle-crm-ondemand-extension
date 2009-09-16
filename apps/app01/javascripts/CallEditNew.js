@@ -354,7 +354,7 @@ function createNewCallActivity(callback){
 //alert("Inside Create New Activity : This will return Activity Id");
 //var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
 var contactPerId = document.getElementById('ContactCallInsert.Contact Per Id').value;
-var subjectValue = document.getElementById('ContactCallInsert.Description').value;
+//var subjectValue = document.getElementById('ContactCallInsert.Description').value;
 var objectiveVal = document.getElementById('ContactCallInsert.VONDMED Call').value;
 var startTime = document.getElementById('ContactCallInsert.Planned').value;
 var accId = document.getElementById('ContactCallInsert.Account Id').value;
@@ -441,8 +441,8 @@ for(var i=0;i<sampIDC_arr.length;i++){
 	 }
    }
 }
-   
-if((subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
+ // (subjectValue == null || subjectValue == '') || 
+if( (startTime == null || startTime == '')
 || (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '')
 || (ownerVal == null || ownerVal == ''))
 {
@@ -527,7 +527,7 @@ saveMidway2();
 else{
 var fields = {
 Objective: "" + objectiveVal + "",
-Subject: "" + subjectValue + "",
+//Subject: "" + subjectValue + "",
 //OwnerId: "" + ownerId + "",
 Type: "" + typeVal + "",
 AccountId: "" + accId + "",
