@@ -80,7 +80,7 @@ else{
 var fields = {
 //OwnerId: "" + ownerId + "",
 //AccountId: "" + accId + "",
-AccountName: "" + accName + ""
+//AccountName: "" + accName + ""
 };
  
 createAccountIdUsingWeb(fields,function(){
