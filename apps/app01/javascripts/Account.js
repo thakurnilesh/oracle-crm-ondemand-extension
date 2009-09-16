@@ -96,7 +96,7 @@ var soapRequestTemplate = '' +
 '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
 ' <soapenv:Header/>' +
 ' <soapenv:Body>' +
-' <AccountWS_AccountInsert_Input xmlns="urn:crmondemand/ws/contact/10/2004">' +
+' <AccountWS_AccountInsert_Input xmlns="urn:crmondemand/ws/account/10/2004">' +
 ' <ListOfAccount>' +
 ' <Account>' +
 ' <%=fields%>' +
