@@ -365,9 +365,8 @@ var typeVal = document.getElementById('ContactCallInsert.Type').value;
 var statusVal = document.getElementById('ContactCallInsert.Status').value;
 var durationVal = document.getElementById('ContactCallInsert.VONDMED Calc Duration').value;
 var carrencyVal = document.getElementById('ContactCallInsert.Currency Code').value;
-
-//var displayVal = document.getElementById('ContactCallInsert.Display').value;
-
+var displayVal = document.getElementById('ContactCallInsert.Display').value;
+alert("Value of Display Value"+displayVal);
 var refId = document.getElementById('ContactCallInsert.Sample Reference Number').value;
 var costVal = document.getElementById('ContactCallInsert.Associated Cost').value;
 var paperSignVal = document.getElementById('ContactCallInsert.VONDMED Paper Signature').value;
@@ -537,7 +536,7 @@ SmartCall: "" + smartCallId + "",
 Status: "" + statusVal + "",
 Duration: "" + durationVal + "",
 CurrencyCode: "" + carrencyVal + "",
-//Display: "" + displayVal + "",
+Display: "" + displayVal + "",
 RefNum: "" + refId + "",
 Cost: "" + costVal + "",
 PaperSign: "" + paperSignVal + "",
