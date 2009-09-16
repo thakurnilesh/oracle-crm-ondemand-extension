@@ -281,9 +281,7 @@ document.getElementById('head').disabled=false;
 saveFlg=1;
 //return;
 }
- 
- 
- 
+  
 function saveAllDetails()
 {
 createNewCallActivity(function() {
@@ -327,8 +325,7 @@ callback.call(this, xhr, textStatus);
 }
 catch (e) {
 alert('Error: ' + e.message);
-}
- 
+} 
 }
  
 function getListData(type, xmlData) {
@@ -355,7 +352,7 @@ doNavigate(f);
  
 function createNewCallActivity(callback){
 //alert("Inside Create New Activity : This will return Activity Id");
-var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
+//var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
 var contactPerId = document.getElementById('ContactCallInsert.Contact Per Id').value;
 var subjectValue = document.getElementById('ContactCallInsert.Description').value;
 var objectiveVal = document.getElementById('ContactCallInsert.VONDMED Call').value;
@@ -531,7 +528,7 @@ else{
 var fields = {
 Objective: "" + objectiveVal + "",
 Subject: "" + subjectValue + "",
-OwnerId: "" + ownerId + "",
+//OwnerId: "" + ownerId + "",
 Type: "" + typeVal + "",
 AccountId: "" + accId + "",
 SmartCall: "" + smartCallId + "",
