@@ -352,9 +352,9 @@ doNavigate(f);
  
 function createNewCallActivity(callback){
 //alert("Inside Create New Activity : This will return Activity Id");
-//var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
+var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
 var contactPerId = document.getElementById('ContactCallInsert.Contact Per Id').value;
-//var subjectValue = document.getElementById('ContactCallInsert.Description').value;
+var subjectValue = document.getElementById('ContactCallInsert.Description').value;
 var objectiveVal = document.getElementById('ContactCallInsert.VONDMED Call').value;
 var startTime = document.getElementById('ContactCallInsert.Planned').value;
 var accId = document.getElementById('ContactCallInsert.Account Id').value;
@@ -365,7 +365,9 @@ var typeVal = document.getElementById('ContactCallInsert.Type').value;
 var statusVal = document.getElementById('ContactCallInsert.Status').value;
 var durationVal = document.getElementById('ContactCallInsert.VONDMED Calc Duration').value;
 var carrencyVal = document.getElementById('ContactCallInsert.Currency Code').value;
-var displayVal = document.getElementById('ContactCallInsert.Display').value;
+
+//var displayVal = document.getElementById('ContactCallInsert.Display').value;
+
 var refId = document.getElementById('ContactCallInsert.Sample Reference Number').value;
 var costVal = document.getElementById('ContactCallInsert.Associated Cost').value;
 var paperSignVal = document.getElementById('ContactCallInsert.VONDMED Paper Signature').value;
@@ -441,8 +443,8 @@ for(var i=0;i<sampIDC_arr.length;i++){
 	 }
    }
 }
- // (subjectValue == null || subjectValue == '') || 
-if( (startTime == null || startTime == '')
+
+if( (subjectValue == null || subjectValue == '') || (startTime == null || startTime == '')
 || (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '')
 || (ownerVal == null || ownerVal == ''))
 {
@@ -527,15 +529,15 @@ saveMidway2();
 else{
 var fields = {
 Objective: "" + objectiveVal + "",
-//Subject: "" + subjectValue + "",
-//OwnerId: "" + ownerId + "",
+Subject: "" + subjectValue + "",
+OwnerId: "" + ownerId + "",
 Type: "" + typeVal + "",
 AccountId: "" + accId + "",
 SmartCall: "" + smartCallId + "",
 Status: "" + statusVal + "",
 Duration: "" + durationVal + "",
 CurrencyCode: "" + carrencyVal + "",
-Display: "" + displayVal + "",
+//Display: "" + displayVal + "",
 RefNum: "" + refId + "",
 Cost: "" + costVal + "",
 PaperSign: "" + paperSignVal + "",
