@@ -22,7 +22,8 @@ newtd.innerHTML = "<div id='head' class='buttonTD' " +
 "onmouseout='toggleNavButton(this);' " +
 "onkeypress='onButtonPress(this);' " +
 //"onclick='"+url+";'\>" +
-"onclick='if(saveFlg==1){"+url+";}'\>" +
+//"onclick='if(saveFlg==1){"+url+";}'\>" +
+"onclick='createNewCallAccount();'\>" +
 button_text + "</div>";
 return true;
 }
