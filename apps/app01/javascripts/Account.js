@@ -38,8 +38,8 @@ createNewSaveButton('Account Detail',1,'SaveACC','createNewCallAccount()','_top'
 function createWebSerConn(callback)
 {
 alert("creating connection with Web services");
-var userName = 'MERCKTEST_CTE01/pfeil';
-var password = 'method00';
+var userName = 'MERCKTEST_CTE01/bischofe';
+var password = 'Accenture55';
 try{
 jQuery.ajax({
 url: '/Services/Integration?command=login',
