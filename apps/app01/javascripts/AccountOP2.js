@@ -114,7 +114,7 @@ var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);
 alert("soapRequest : " + soapRequest); 
 try{
 jQuery.ajax({
-url: 'http://usctap1198.merck.com/eai_enu/start.swe?SWEExtSource=WebService&SWEExtCmd=Execute&UserName=sadmin&Password=sadmin',
+url: 'http://usctap1198.merck.com/eai_enu/start.swe?SWEExtSource=WebService&SWEExtCmd=Execute',
 type: 'POST',
 contentType: 'text/xml',
 dataType: 'xml',
