@@ -44,6 +44,9 @@ try{
 jQuery.ajax({
 url: 'http://usctap1198.merck.com/eai_enu/start.swe?SWEExtSource=WebService&SWEExtCmd=Execute',
 dataType: 'xml',
+error: function(errormessage) {
+alert("Error in getting WebConnection : " + errormessage.responseText);
+},
 beforeSend: function(xhr) {
 xhr.setRequestHeader('UserName', userName);
 xhr.setRequestHeader('Password', password);
@@ -114,7 +117,7 @@ var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);
 alert("soapRequest : " + soapRequest); 
 try{
 jQuery.ajax({
-url: 'http://usctap1198.merck.com/eai_enu/start.swe?SWEExtSource=WebService&SWEExtCmd=Execute',
+url: 'http://usctap1198.merck.com/eai_enu/start.swe?SWEExtSource=WebService&SWEExtCmd=Execute&UserName=sadmin&Password=sadmin',
 type: 'POST',
 contentType: 'text/xml',
 dataType: 'xml',
