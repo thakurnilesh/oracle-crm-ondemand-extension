@@ -42,7 +42,8 @@ var userName = 'sadmin';
 var password = 'sadmin';
 try{
 jQuery.ajax({
-url: 'http://usctap1198.merck.com/eai_enu/start.swe?SWEExtSource=WebService&SWEExtCmd=Execute',
+//url: 'http://usctap1198.merck.com/eai_enu/start.swe?SWEExtSource=WebService&SWEExtCmd=Execute',
+url: 'http://usctap1198.merck.com/eai_enu/start.swe?SWEExtSource=WebService&SWEExtCmd=Execute&UserName=sadmin&Password=sadmin',  
 dataType: 'xml',
 error: function(errormessage) {
 alert("Error in getting WebConnection : " + errormessage.responseText);
